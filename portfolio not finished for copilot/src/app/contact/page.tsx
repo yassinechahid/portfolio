@@ -14,12 +14,12 @@ export default function Contact() {
       <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto text-center">
           <h1 className="text-display-large font-bold text-light-onBackground dark:text-dark-onBackground mb-6">
-            Let's Connect
+            Let&apos;s Connect
           </h1>
           <p className="text-body-large text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant max-w-3xl mx-auto">
             Whether you have a project in mind, want to collaborate, or just
-            want to say hello, I'd love to hear from you. Feel free to reach
-            out!
+            want to say hello, I&apos;d love to hear from you. Feel free to
+            reach out!
           </p>
         </div>
       </section>

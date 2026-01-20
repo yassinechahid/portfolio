@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Github, ExternalLink } from "lucide-react";
+import { Github, ExternalLink } from "lucide-react";
 import Image from "next/image";
 
 interface ProjectCardProps {
@@ -14,7 +14,7 @@ interface ProjectCardProps {
   featured?: boolean;
 }
 
-export default function ProjectCard({
+const ProjectCard = ({
   title,
   description,
   tags,
@@ -22,7 +22,7 @@ export default function ProjectCard({
   liveUrl,
   githubUrl,
   featured = false,
-}: ProjectCardProps) {
+}: ProjectCardProps) => {
   return (
     <motion.div
       whileHover={{ y: -8 }}
@@ -91,4 +91,6 @@ export default function ProjectCard({
       </div>
     </motion.div>
   );
-}
+};
+
+export default ProjectCard;
