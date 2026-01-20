@@ -75,7 +75,7 @@ const Navbar = () => {
               Yassine Toubib
             </span>
             <span className="text-body-small text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant">
-              Frontend Engineer
+              Frontend developer
             </span>
           </div>
         </Link>
