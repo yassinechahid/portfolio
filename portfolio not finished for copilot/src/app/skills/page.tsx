@@ -111,12 +111,7 @@ export default function Skills() {
                 </h2>
                 <div className="space-y-6">
                   {skills.map((skill, idx) => (
-                    <SkillBar
-                      key={idx}
-                      name={skill.name}
-                      level={skill.level}
-                      category={category}
-                    />
+                    <SkillBar key={idx} name={skill.name} level={skill.level} />
                   ))}
                 </div>
               </div>

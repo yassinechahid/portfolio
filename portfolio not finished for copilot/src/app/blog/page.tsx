@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -25,7 +26,7 @@ export default function Blog() {
       slug: "building-scalable-react-apps",
       title: "Building Scalable React Applications",
       excerpt:
-        "Learn best practices for architecting React applications that can grow with your business. We'll cover component structure, state management, and performance optimization.",
+        "Learn best practices for architecting React applications that can grow with your business. We&#39;ll cover component structure, state management, and performance optimization.",
       date: "January 18, 2024",
       readTime: "8 min read",
       category: "React",
@@ -138,11 +139,14 @@ export default function Blog() {
               <div className="group cursor-pointer rounded-2xl overflow-hidden border border-light-outline dark:border-dark-outline hover:border-light-primary dark:hover:border-dark-primary transition-all">
                 {/* Image */}
                 <div className="relative w-full h-96 overflow-hidden bg-light-surfaceContainerLow dark:bg-dark-surfaceContainerLow">
-                  <img
-                    src={posts.find((p) => p.featured)?.image}
-                    alt="Featured post"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
+                  {posts.find((p) => p.featured)?.image && (
+                    <Image
+                      src={posts.find((p) => p.featured)?.image || ""}
+                      alt="Featured post"
+                      fill
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  )}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                 </div>
 
@@ -196,9 +200,10 @@ export default function Blog() {
                   <div className="group cursor-pointer rounded-2xl border border-light-outline dark:border-dark-outline overflow-hidden hover:border-light-primary dark:hover:border-dark-primary transition-all h-full flex flex-col">
                     {/* Image */}
                     <div className="relative w-full h-48 overflow-hidden bg-light-surfaceContainerLow dark:bg-dark-surfaceContainerLow">
-                      <img
+                      <Image
                         src={post.image}
                         alt={post.title}
+                        fill
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                       />
                     </div>

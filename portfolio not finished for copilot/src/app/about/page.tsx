@@ -15,7 +15,7 @@ export default function About() {
       description: "Building responsive, high-performance web applications",
       icon: <Code className="w-8 h-8" />,
       features: [
-        "React & Next.js development",
+        "React &amp; Next.js development",
         "TypeScript for type safety",
         "Performance optimization",
         "SEO best practices",
@@ -26,7 +26,7 @@ export default function About() {
       description: "Creating beautiful and intuitive user interfaces",
       icon: <Layout className="w-8 h-8" />,
       features: [
-        "Figma & design systems",
+        "Figma &amp; design systems",
         "Responsive design",
         "Accessibility (WCAG)",
         "Component libraries",
@@ -87,8 +87,8 @@ export default function About() {
             About Me
           </h1>
           <p className="text-body-large text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant max-w-3xl">
-            I'm Yassine chahid, a Senior Frontend Developer with 5+ years of
-            experience crafting beautiful, performant web and mobile
+            I&apos;m Yassine chahid, a Senior Frontend Developer with 5+ years
+            of experience crafting beautiful, performant web and mobile
             applications. My passion is transforming complex requirements into
             elegant, user-centric solutions.
           </p>
@@ -106,18 +106,18 @@ export default function About() {
               <p>
                 I started my career as a self-taught developer, driven by a
                 passion for creating beautiful digital experiences. Over the
-                years, I've evolved from building simple websites to
+                years, I&apos;ve evolved from building simple websites to
                 architecting complex applications used by thousands of users.
               </p>
               <p>
                 My expertise spans modern frontend technologies including React,
-                Next.js, TypeScript, and Tailwind CSS. I'm also comfortable with
-                mobile development using React Native and have solid backend
-                knowledge with Node.js.
+                Next.js, TypeScript, and Tailwind CSS. I&apos;m also comfortable
+                with mobile development using React Native and have solid
+                backend knowledge with Node.js.
               </p>
               <p>
                 What sets me apart is my holistic approach to development—I
-                don't just write code, I think about users, performance,
+                don&apos;t just write code, I think about users, performance,
                 accessibility, and long-term maintainability. Every project is
                 an opportunity to learn something new.
               </p>

@@ -75,9 +75,9 @@ export default function Projects() {
             My Projects
           </h1>
           <p className="text-body-large text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant max-w-3xl">
-            Here's a selection of projects I've worked on. Each one represents a
-            unique challenge and an opportunity to showcase my skills in
-            building scalable, user-friendly applications.
+            Here&apos;s a selection of projects I&apos;ve worked on. Each one
+            represents a unique challenge and an opportunity to showcase my
+            skills in building scalable, user-friendly applications.
           </p>
         </div>
       </section>
@@ -109,8 +109,8 @@ export default function Projects() {
             Have a project in mind?
           </h2>
           <p className="text-body-large text-light-onPrimaryContainer/80 dark:text-dark-onPrimaryContainer/80 mb-8">
-            I'm always interested in working on exciting projects. Let's
-            collaborate!
+            I&apos;m always interested in working on exciting projects.
+            Let&apos;s collaborate!
           </p>
           <a
             href="/contact"

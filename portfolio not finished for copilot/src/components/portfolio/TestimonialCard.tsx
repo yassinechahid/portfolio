@@ -8,18 +8,16 @@ interface TestimonialProps {
   role: string;
   company: string;
   text: string;
-  avatar?: string;
   rating?: number;
 }
 
-export default function TestimonialCard({
+const TestimonialCard = ({
   name,
   role,
   company,
   text,
-  avatar,
   rating = 5,
-}: TestimonialProps) {
+}: TestimonialProps) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -36,7 +34,7 @@ export default function TestimonialCard({
 
       {/* Text */}
       <p className="text-body-medium text-light-onBackground dark:text-dark-onBackground mb-6 italic">
-        "{text}"
+        &quot;{text}&quot;
       </p>
 
       {/* Author */}
@@ -55,4 +53,6 @@ export default function TestimonialCard({
       </div>
     </motion.div>
   );
-}
+};
+
+export default TestimonialCard;

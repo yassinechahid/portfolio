@@ -5,10 +5,9 @@ import { motion } from "framer-motion";
 interface SkillBarProps {
   name: string;
   level: number;
-  category?: string;
 }
 
-export default function SkillBar({ name, level, category }: SkillBarProps) {
+export default function SkillBar({ name, level }: SkillBarProps) {
   return (
     <motion.div
       initial={{ opacity: 0, x: -20 }}

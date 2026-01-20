@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import {
   ArrowRight,
   Sparkles,
@@ -298,12 +297,12 @@ export default function Home() {
 
             <div className="relative rounded-3xl p-12 border border-light-outlineVariant dark:border-dark-outlineVariant bg-light-surfaceContainerLow dark:bg-dark-surfaceContainerLow">
               <h2 className="text-headline-large text-light-onBackground dark:text-dark-onBackground font-bold mb-6">
-                Let's Build Something Amazing Together
+                Let&apos;s Build Something Amazing Together
               </h2>
 
               <p className="text-body-large text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant mb-8 max-w-2xl mx-auto">
-                Have a project in mind? I'd love to hear about it. Let's connect
-                and bring your ideas to life.
+                Have a project in mind? I&apos;d love to hear about it.
+                Let&apos;s connect and bring your ideas to life.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center">

@@ -41,7 +41,7 @@ export default function ContactForm() {
       });
 
       reset();
-    } catch (error) {
+    } catch {
       Swal.fire({
         icon: "error",
         title: "Error",
