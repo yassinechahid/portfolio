@@ -3,7 +3,7 @@ import { ServiceCardProps } from "./children";
 export interface Actualite {
   id: string;
   category:
-    | "Innovations Mon Toubib"
+    | "Innovations Mon chahid"
     | "Santé & prévention"
     | "Études & données marocaines"
     | "Formations & webinaires"

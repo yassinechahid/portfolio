@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import { Download, MapPin, Phone, Mail, Globe } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Resume - Yassine Toubib",
+  title: "Resume - Yassine chahid",
   description: "Download my professional resume and CV",
 };
 
@@ -85,7 +85,7 @@ export default function Resume() {
           {/* Contact Info */}
           <div className="mb-12 p-6 rounded-2xl border border-light-outline dark:border-dark-outline bg-light-surfaceContainerLow dark:bg-dark-surfaceContainerLow">
             <h2 className="text-display-small font-bold text-light-onBackground dark:text-dark-onBackground mb-2">
-              Yassine Toubib
+              Yassine chahid
             </h2>
             <p className="text-body-large text-light-primary dark:text-dark-primary font-medium mb-4">
               Senior Frontend Developer & Full Stack Engineer
@@ -101,7 +101,7 @@ export default function Resume() {
               </div>
               <div className="flex items-center gap-2 text-body-medium text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant">
                 <Globe className="w-4 h-4" />
-                yassintoubib.com
+                yassinchahid.com
               </div>
               <div className="flex items-center gap-2 text-body-medium text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant">
                 <MapPin className="w-4 h-4" />

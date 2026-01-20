@@ -23,7 +23,7 @@ src/app/page.tsx
 
 Find and update:
 
-- "Yassine Toubib" → Your name
+- "Yassine chahid" → Your name
 - "Senior Frontend Developer" → Your title
 - The introductory text
 - Social media links
@@ -81,7 +81,7 @@ Essential Files to Edit:
 
 | Info       | File                   | Search For                  |
 | ---------- | ---------------------- | --------------------------- |
-| Name       | `page.tsx` (all pages) | "Yassine Toubib"            |
+| Name       | `page.tsx` (all pages) | "Yassine chahid"            |
 | Title      | `page.tsx`             | "Senior Frontend Developer" |
 | Email      | Multiple               | "hello@example.com"         |
 | Phone      | `page.tsx`             | "+1 (555)"                  |

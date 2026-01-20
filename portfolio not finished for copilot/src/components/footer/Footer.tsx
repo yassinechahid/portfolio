@@ -17,11 +17,11 @@ export default function Footer() {
 
   const footerLinks = {
     quickLinks: [
-      { label: t("footer.home"), href: "/" },
-      { label: t("footer.about"), href: "/about" },
-      { label: t("footer.projects"), href: "/projects" },
-      { label: t("footer.services"), href: "/services" },
-      { label: t("footer.contact"), href: "/contact" },
+      { label: t("home"), href: "/" },
+      { label: t("about"), href: "/about" },
+      { label: t("projects"), href: "/projects" },
+      { label: t("services"), href: "/services" },
+      { label: t("contact"), href: "/contact" },
     ],
     socialLinks: [
       {
@@ -46,9 +46,9 @@ export default function Footer() {
       },
     ],
     legalLinks: [
-      { label: t("footer.privacy"), href: "/privacy" },
-      { label: t("footer.terms"), href: "/terms" },
-      { label: t("footer.cookies"), href: "/cookies" },
+      { label: t("privacy"), href: "/privacy" },
+      { label: t("terms"), href: "/terms" },
+      { label: t("cookies"), href: "/cookies" },
     ],
   };
 
@@ -64,12 +64,12 @@ export default function Footer() {
                 <Code className="w-6 h-6 text-light-onPrimaryContainer dark:text-dark-onPrimaryContainer" />
               </div>
               <span className="text-headline-small font-bold text-light-onBackground dark:text-dark-onBackground">
-                Yassine Toubib
+                Yassine chahid
               </span>
             </div>
             <p className="text-body-medium text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant max-w-sm leading-relaxed">
               {t(
-                "footer.description",
+                "description",
                 "Crafting beautiful, high-performance web applications with modern technologies. Turning ideas into reality.",
               )}
             </p>
@@ -94,7 +94,7 @@ export default function Footer() {
           {/* Quick Links */}
           <div>
             <h3 className="text-headline-small font-bold text-light-onBackground dark:text-dark-onBackground mb-6">
-              {t("footer.quickLinks", "Quick Links")}
+              {t("quickLinks", "Quick Links")}
             </h3>
             <ul className="space-y-3">
               {footerLinks.quickLinks.map((link) => (
@@ -115,23 +115,23 @@ export default function Footer() {
           {/* Newsletter Signup */}
           <div>
             <h3 className="text-headline-small font-bold text-light-onBackground dark:text-dark-onBackground mb-6">
-              {t("footer.newsletter", "Newsletter")}
+              {t("newsletter", "Newsletter")}
             </h3>
             <div className="space-y-4">
               <p className="text-body-medium text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant">
                 {t(
-                  "footer.newsletterDesc",
+                  "newsletterDesc",
                   "Get updates on my latest projects and insights",
                 )}
               </p>
               <div className="space-y-2">
                 <input
                   type="email"
-                  placeholder={t("footer.emailPlaceholder", "Your email")}
+                  placeholder={t("emailPlaceholder", "Your email")}
                   className="w-full px-4 py-2.5 rounded-lg bg-light-background dark:bg-dark-background border border-light-outline dark:border-dark-outline text-light-onBackground dark:text-dark-onBackground placeholder:text-light-onSurfaceVariant dark:placeholder:text-dark-onSurfaceVariant focus:outline-none focus:ring-2 focus:ring-light-primary dark:focus:ring-dark-primary focus:border-transparent transition-all"
                 />
                 <button className="w-full px-4 py-2.5 rounded-lg bg-light-primary dark:bg-dark-primary text-light-onPrimary dark:text-dark-onPrimary hover:opacity-90 active:scale-95 transition-all duration-200 font-medium text-body-medium">
-                  {t("footer.subscribe", "Subscribe")}
+                  {t("subscribe", "Subscribe")}
                 </button>
               </div>
             </div>
@@ -140,12 +140,12 @@ export default function Footer() {
           {/* Contact Info */}
           <div>
             <h3 className="text-headline-small font-bold text-light-onBackground dark:text-dark-onBackground mb-6">
-              {t("footer.contact", "Get In Touch")}
+              {t("contact", "Get In Touch")}
             </h3>
             <address className="not-italic space-y-4">
               <div>
                 <p className="text-label-large font-medium text-light-primary dark:text-dark-primary mb-1">
-                  {t("footer.email", "Email")}
+                  {t("email", "Email")}
                 </p>
                 <a
                   href="mailto:hello@yourdomain.com"
@@ -157,20 +157,20 @@ export default function Footer() {
 
               <div>
                 <p className="text-label-large font-medium text-light-primary dark:text-dark-primary mb-1">
-                  {t("footer.location", "Location")}
+                  {t("location", "Location")}
                 </p>
                 <p className="text-body-medium text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant">
-                  {t("footer.locationValue", "Rabat, Morocco")}
+                  {t("locationValue", "Rabat, Morocco")}
                 </p>
               </div>
 
               <div>
                 <p className="text-label-large font-medium text-light-primary dark:text-dark-primary mb-1">
-                  {t("footer.availability", "Status")}
+                  {t("availability", "Status")}
                 </p>
                 <p className="text-body-medium text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant inline-flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                  {t("footer.available", "Available for new projects")}
+                  {t("available", "Available for new projects")}
                 </p>
               </div>
             </address>
@@ -186,12 +186,12 @@ export default function Footer() {
           <div className="text-center md:text-left">
             <p className="text-body-medium text-light-onBackground dark:text-dark-onBackground">
               &copy; {currentYear}{" "}
-              {t("footer.copyright", "Yassine Toubib. All rights reserved.")}
+              {t("copyright", "Yassine chahid. All rights reserved.")}
             </p>
             <p className="text-label-medium text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant mt-2">
-              {t("footer.madeWith", "Made with")}{" "}
+              {t("madeWith", "Made with")}{" "}
               <Heart className="w-4 h-4 inline text-red-500 animate-pulse" />{" "}
-              {t("footer.inMorocco", "using Next.js & Tailwind CSS")}
+              {t("inMorocco", "using Next.js & Tailwind CSS")}
             </p>
           </div>
 
@@ -213,7 +213,7 @@ export default function Footer() {
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             className="px-6 py-2.5 rounded-lg bg-light-primaryContainer dark:bg-dark-primaryContainer text-light-onPrimaryContainer dark:text-dark-onPrimaryContainer hover:bg-light-primary/20 dark:hover:bg-dark-primary/20 transition-all duration-200 text-body-medium font-medium hover:scale-105 active:scale-95"
           >
-            {t("footer.backToTop", "↑ Back to Top")}
+            {t("backToTop", "↑ Back to Top")}
           </button>
         </div>
       </div>

@@ -72,7 +72,7 @@ const Navbar = () => {
           />
           <div className="hidden sm:flex flex-col leading-tight">
             <span className="text-title-small font-semibold text-light-onBackground dark:text-dark-onBackground">
-              Yassine Toubib
+              Yassine chahid
             </span>
             <span className="text-body-small text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant">
               Frontend developer
