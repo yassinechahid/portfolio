@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Blog - Yassine Toubib",
+  title: "Blog - Yassine chahid",
   description:
     "Read my latest articles about web development, design, and tech insights.",
 };

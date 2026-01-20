@@ -157,7 +157,7 @@ export const DrawerNav: React.FC<DrawerNavProps> = ({
                 href="/"
                 className="text-label-large font-roboto font-medium"
               >
-                <Image src={logo} alt="logo mon toubib" />
+                <Image src={logo} alt="logo" />
               </Link>
             </button>
           </div>

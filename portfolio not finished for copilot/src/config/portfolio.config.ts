@@ -5,19 +5,19 @@
 
 export const portfolioConfig = {
   // Personal Information
-  name: "Yassine Toubib",
+  name: "Yassine chahid",
   title: "Senior Frontend Developer",
   email: "hello@example.com",
   phone: "+1 (555) 123-4567",
   location: "San Francisco, CA",
-  website: "yassintoubib.com",
+  website: "chahid.com",
 
   // Social Links
   social: {
-    github: "https://github.com/yassine-toubib",
-    linkedin: "https://linkedin.com/in/yassine-toubib",
-    twitter: "https://twitter.com/yassinetoubib",
-    portfolio: "https://yassintoubib.com",
+    github: "https://github.com/yassine-chahid",
+    linkedin: "https://linkedin.com/in/yassine-chahid",
+    twitter: "https://twitter.com/yassinechahid",
+    portfolio: "https://chahid.com",
   },
 
   // SEO & Meta
@@ -117,7 +117,7 @@ export const portfolioConfig = {
       tags: ["Next.js", "Stripe", "MongoDB", "Tailwind CSS"],
       image: "/api/placeholder/800/400",
       liveUrl: "https://ecommerce-demo.com",
-      githubUrl: "https://github.com/yassine-toubib/ecommerce",
+      githubUrl: "https://github.com/yassine-chahid/ecommerce",
       featured: true,
       year: "2023",
     },
@@ -128,7 +128,7 @@ export const portfolioConfig = {
       tags: ["React", "OpenAI API", "Node.js", "PostgreSQL"],
       image: "/api/placeholder/400/300",
       liveUrl: "https://ai-content-gen.com",
-      githubUrl: "https://github.com/yassine-toubib/ai-content",
+      githubUrl: "https://github.com/yassine-chahid/ai-content",
       featured: false,
       year: "2023",
     },
@@ -140,7 +140,7 @@ export const portfolioConfig = {
       tags: ["React Native", "GraphQL", "Firebase", "TypeScript"],
       image: "/api/placeholder/400/300",
       liveUrl: "https://apps.apple.com/app/healthtrack",
-      githubUrl: "https://github.com/yassine-toubib/healthapp",
+      githubUrl: "https://github.com/yassine-chahid/healthapp",
       featured: false,
       year: "2022",
     },

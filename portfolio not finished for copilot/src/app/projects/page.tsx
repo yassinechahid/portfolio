@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import ProjectCard from "@/components/portfolio/ProjectCard";
 
 export const metadata: Metadata = {
-  title: "Projects - Yassine Toubib",
+  title: "Projects - Yassine chahid",
   description:
     "Explore my portfolio of web and mobile projects, showcasing my skills and expertise.",
 };
@@ -16,7 +16,7 @@ export default function Projects() {
       tags: ["Next.js", "Stripe", "MongoDB", "Tailwind CSS", "Socket.io"],
       image: "/api/placeholder/800/400",
       liveUrl: "https://ecommerce-demo.com",
-      githubUrl: "https://github.com/yassine-toubib/ecommerce",
+      githubUrl: "https://github.com/yassine-chahid/ecommerce",
       featured: true,
     },
     {
@@ -26,7 +26,7 @@ export default function Projects() {
       tags: ["React", "OpenAI API", "Node.js", "PostgreSQL"],
       image: "/api/placeholder/400/300",
       liveUrl: "https://ai-content-gen.com",
-      githubUrl: "https://github.com/yassine-toubib/ai-content",
+      githubUrl: "https://github.com/yassine-chahid/ai-content",
     },
     {
       title: "Health Monitoring App",
@@ -35,7 +35,7 @@ export default function Projects() {
       tags: ["React Native", "GraphQL", "Firebase", "TypeScript"],
       image: "/api/placeholder/400/300",
       liveUrl: "https://apps.apple.com/app/healthtrack",
-      githubUrl: "https://github.com/yassine-toubib/healthapp",
+      githubUrl: "https://github.com/yassine-chahid/healthapp",
     },
     {
       title: "Design System & Component Library",
@@ -44,7 +44,7 @@ export default function Projects() {
       tags: ["React", "Storybook", "Tailwind CSS", "TypeScript"],
       image: "/api/placeholder/400/300",
       liveUrl: "https://design-system-ui.vercel.app",
-      githubUrl: "https://github.com/yassine-toubib/design-system",
+      githubUrl: "https://github.com/yassine-chahid/design-system",
     },
     {
       title: "Project Management Tool",
@@ -53,7 +53,7 @@ export default function Projects() {
       tags: ["Next.js", "Prisma", "WebSockets", "AWS S3"],
       image: "/api/placeholder/400/300",
       liveUrl: "https://projecthub-app.com",
-      githubUrl: "https://github.com/yassine-toubib/projecthub",
+      githubUrl: "https://github.com/yassine-chahid/projecthub",
     },
     {
       title: "Analytics Dashboard",
@@ -62,7 +62,7 @@ export default function Projects() {
       tags: ["React", "D3.js", "Node.js", "PostgreSQL"],
       image: "/api/placeholder/400/300",
       liveUrl: "https://analytics-platform.io",
-      githubUrl: "https://github.com/yassine-toubib/analytics",
+      githubUrl: "https://github.com/yassine-chahid/analytics",
     },
   ];
 

@@ -4,7 +4,7 @@ import StatCard from "@/components/portfolio/StatCard";
 import { Award, Users, Code, Zap } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Skills - Yassine Toubib",
+  title: "Skills - Yassine chahid",
   description:
     "Explore my technical skills and expertise in web and mobile development.",
 };

@@ -1,4 +1,4 @@
-# Yassine Toubib - Professional Portfolio
+# Yassine chahid - Professional Portfolio
 
 A modern, responsive, and feature-rich portfolio website built with Next.js, TypeScript, and Tailwind CSS. Showcase your projects, skills, and professional journey with style.
 

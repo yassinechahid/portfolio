@@ -154,7 +154,7 @@ export default function Home() {
                         <Code className="w-16 h-16 text-light-onPrimary dark:text-dark-onPrimary" />
                       </div>
                       <h3 className="text-headline-small text-light-onBackground dark:text-dark-onBackground mb-2">
-                        Yassine Toubib
+                        Yassine chahid
                       </h3>
                       <p className="text-body-medium text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant">
                         Senior Frontend Developer

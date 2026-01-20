@@ -3,7 +3,7 @@ import { Code, Zap, Layout, Rocket, Shield, Smartphone } from "lucide-react";
 import ServiceCard from "@/components/portfolio/ServiceCard";
 
 export const metadata: Metadata = {
-  title: "About Me - Yassine Toubib",
+  title: "About Me - Yassine chahid",
   description:
     "Learn about my background, expertise, and journey as a frontend developer.",
 };
@@ -87,7 +87,7 @@ export default function About() {
             About Me
           </h1>
           <p className="text-body-large text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant max-w-3xl">
-            I'm Yassine Toubib, a Senior Frontend Developer with 5+ years of
+            I'm Yassine chahid, a Senior Frontend Developer with 5+ years of
             experience crafting beautiful, performant web and mobile
             applications. My passion is transforming complex requirements into
             elegant, user-centric solutions.
