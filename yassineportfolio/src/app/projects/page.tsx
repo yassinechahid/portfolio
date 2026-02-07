@@ -14,7 +14,7 @@ export default function Projects() {
       description:
         "Full-stack e-commerce solution with real-time inventory management, payment processing, and admin dashboard.",
       tags: ["Next.js", "Stripe", "MongoDB", "Tailwind CSS", "Socket.io"],
-      image: "/api/placeholder/800/400",
+      image: "/yassine/1.jpg",
       liveUrl: "https://ecommerce-demo.com",
       githubUrl: "https://github.com/yassine-chahid/ecommerce",
     },
@@ -23,7 +23,7 @@ export default function Projects() {
       description:
         "Intelligent content creation tool powered by OpenAI, featuring template system and batch processing.",
       tags: ["React", "OpenAI API", "Node.js", "PostgreSQL"],
-      image: "/api/placeholder/400/300",
+      image: "/yassine/2.webp",
       liveUrl: "https://ai-content-gen.com",
       githubUrl: "https://github.com/yassine-chahid/ai-content",
     },
@@ -32,9 +32,36 @@ export default function Projects() {
       description:
         "Real-time analytics platform with interactive charts, data export, and custom report generation.",
       tags: ["React", "D3.js", "Node.js", "PostgreSQL"],
-      image: "/api/placeholder/400/300",
+      image: "/yassine/3.jpg",
       liveUrl: "https://analytics-platform.io",
       githubUrl: "https://github.com/yassine-chahid/analytics",
+    },
+    {
+      title: "Mobile Fitness Tracker",
+      description:
+        "Cross-platform mobile app for tracking workouts, nutrition, and progress with social features.",
+      tags: ["React Native", "Firebase", "Redux", "Expo"],
+      image: "/yassine/4.jpg",
+      liveUrl: "https://fitness-tracker.io",
+      githubUrl: "https://github.com/yassine-chahid/fitness-app",
+    },
+    {
+      title: "Task Management System",
+      description:
+        "Collaborative task management platform with real-time updates, file sharing, and team collaboration.",
+      tags: ["Next.js", "WebSocket", "PostgreSQL", "TypeScript"],
+      image: "/yassine/5.webp",
+      liveUrl: "https://taskhub.io",
+      githubUrl: "https://github.com/yassine-chahid/task-manager",
+    },
+    {
+      title: "Social Media Dashboard",
+      description:
+        "Unified dashboard for managing multiple social media accounts with analytics and scheduling.",
+      tags: ["React", "Node.js", "MongoDB", "Chart.js"],
+      image: "/yassine/6.jpg",
+      liveUrl: "https://social-dashboard.io",
+      githubUrl: "https://github.com/yassine-chahid/social-dash",
     },
   ];
 

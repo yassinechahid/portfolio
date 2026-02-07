@@ -49,7 +49,7 @@ export default function Skills() {
     },
     {
       label: "Years Experience",
-      value: "5+",
+      value: "2+",
       icon: <Zap className="w-8 h-8" />,
     },
     {

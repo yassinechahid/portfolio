@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { Download, MapPin, Phone, Mail, Globe } from "lucide-react";
+import { MapPin, Phone, Mail, Globe } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Resume - Yassine chahid",
@@ -16,7 +16,7 @@ export default function Resume() {
         "Leading frontend development for enterprise-scale applications. Architecting scalable React/Next.js solutions, mentoring junior developers, and improving overall code quality and performance metrics.",
       achievements: [
         "Reduced application load time by 40% through optimization",
-        "Established design system used across 5+ projects",
+        "Established design system used across 2+ projects",
         "Mentored 3 junior developers to senior level",
       ],
     },
@@ -27,7 +27,7 @@ export default function Resume() {
       description:
         "Developed full-stack web applications using React, Node.js, and MongoDB. Collaborated with product and design teams to deliver user-centric solutions.",
       achievements: [
-        "Built 12+ web applications from scratch to production",
+        "Built 2+ web applications from scratch to production",
         "Implemented GraphQL API reducing payload sizes by 35%",
         "Improved test coverage from 40% to 90%",
       ],
@@ -62,22 +62,7 @@ export default function Resume() {
   ];
 
   return (
-    <main className="min-h-screen bg-light-background dark:bg-dark-background">
-      {/* Header with Download Button */}
-      <section className="sticky top-0 z-40 bg-light-background dark:bg-dark-background border-b border-light-outline dark:border-dark-outline">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex justify-between items-center">
-          <h1 className="text-headline-large font-bold text-light-onBackground dark:text-dark-onBackground">
-            Resume
-          </h1>
-          <a
-            href="/resume.pdf"
-            className="inline-flex items-center gap-2 px-6 py-2 rounded-lg bg-light-primary dark:bg-dark-primary text-light-onPrimary dark:text-dark-onPrimary hover:opacity-90 transition-opacity text-label-medium font-medium"
-          >
-            <Download className="w-4 h-4" />
-            Download PDF
-          </a>
-        </div>
-      </section>
+    <main className="min-h-screen mt-20 bg-light-background dark:bg-dark-background">
 
       {/* Content */}
       <section className="py-12 px-4 sm:px-6 lg:px-8">
@@ -116,7 +101,7 @@ export default function Resume() {
               Professional Summary
             </h3>
             <p className="text-body-large text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant leading-relaxed">
-              Results-driven Senior Frontend Developer with 5+ years of
+              Results-driven Senior Frontend Developer with 2+ years of
               experience building scalable, high-performance web applications.
               Specialized in React, Next.js, and TypeScript with proven
               expertise in leading cross-functional teams, architecting complex
