@@ -23,7 +23,7 @@ export const portfolioConfig = {
   // SEO & Meta
   seo: {
     description:
-      "Frontend developer with 5+ years of experience building scalable web applications",
+      "Frontend developer with 2+ years of experience building scalable web applications",
     keywords: "frontend, developer, react, nextjs, typescript, web development",
     ogImage: "/og-image.jpg",
   },
@@ -31,10 +31,10 @@ export const portfolioConfig = {
   // About Section
   about: {
     intro:
-      "I'm a Senior Frontend Developer with 5+ years of experience crafting beautiful, performant web and mobile applications.",
+      "I'm a Senior Frontend Developer with 2+ years of experience crafting beautiful, performant web and mobile applications.",
     longBio:
       "I started my career as a self-taught developer, driven by a passion for creating beautiful digital experiences. Over the years, I've evolved from building simple websites to architecting complex applications used by thousands of users.",
-    yearsOfExperience: 5,
+    yearsOfExperience: 2,
     projectsCompleted: 50,
     happyClients: 30,
     openSourceRepos: 20,
@@ -186,7 +186,7 @@ export const portfolioConfig = {
         "Leading frontend development for enterprise-scale applications.",
       achievements: [
         "Reduced application load time by 40%",
-        "Established design system used across 5+ projects",
+        "Established design system used across 2+ projects",
         "Mentored 3 junior developers to senior level",
       ],
     },

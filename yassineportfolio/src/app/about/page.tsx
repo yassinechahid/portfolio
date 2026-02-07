@@ -87,7 +87,7 @@ export default function About() {
             About Me
           </h1>
           <p className="text-body-large text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant max-w-3xl">
-            I&apos;m Yassine chahid, a Senior Frontend Developer with 5+ years
+            I&apos;m Yassine chahid, a Senior Frontend Developer with 2+ years
             of experience crafting beautiful, performant web and mobile
             applications. My passion is transforming complex requirements into
             elegant, user-centric solutions.
@@ -127,7 +127,7 @@ export default function About() {
             <div className="aspect-square rounded-3xl bg-gradient-to-br from-light-primaryContainer to-light-secondaryContainer dark:from-dark-primaryContainer dark:to-dark-secondaryContainer p-8 flex items-center justify-center">
               <div className="text-center">
                 <div className="text-6xl font-bold text-light-primary dark:text-dark-primary mb-4">
-                  5+
+                  2+
                 </div>
                 <p className="text-body-large text-light-onBackground dark:text-dark-onBackground">
                   Years of Experience

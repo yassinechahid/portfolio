@@ -5,12 +5,17 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useTranslation } from "react-i18next";
+import {
+  Home,
+  Briefcase,
+  User,
+  Zap,
+  BookOpen,
+  FileText,
+  Mail,
+} from "lucide-react";
 
 import menuClose from "@/public/assets/menuClose.svg";
-import homeIcon from "@/public/assets/home.svg";
-import onHomeIcon from "@/public/assets/onHome.svg";
-import contactIcon from "@/public/assets/sideIcon5.svg";
-import onContactIcon from "@/public/assets/sideIcon5.svg";
 import logo from "@/public/assets/sideIcon5.svg";
 
 interface DrawerNavProps {
@@ -52,74 +57,44 @@ export const DrawerNav: React.FC<DrawerNavProps> = ({
   const NavLinks = [
     {
       title: t("drawerNav.home"),
-      icon: <Image src={homeIcon} alt={t("drawerNav.home")} />,
-      onIcon: <Image src={onHomeIcon} alt={t("drawerNav.home")} />,
+      icon: <Home className="w-5 h-5" />,
+      onIcon: <Home className="w-5 h-5" />,
       path: "/",
     },
     {
-      title: t("services"),
-      icon: <Image src={contactIcon} alt={t("services")} />,
-      onIcon: <Image src={onContactIcon} alt={t("services")} />,
-      path: "/services",
-    },
-    {
       title: t("projects"),
-      icon: <Image src={contactIcon} alt={t("projects")} />,
-      onIcon: <Image src={onContactIcon} alt={t("projects")} />,
+      icon: <Briefcase className="w-5 h-5" />,
+      onIcon: <Briefcase className="w-5 h-5" />,
       path: "/projects",
     },
     {
       title: t("about"),
-      icon: <Image src={contactIcon} alt={t("about")} />,
-      onIcon: <Image src={onContactIcon} alt={t("about")} />,
+      icon: <User className="w-5 h-5" />,
+      onIcon: <User className="w-5 h-5" />,
       path: "/about",
     },
     {
       title: t("skills", { defaultValue: "Skills" }),
-      icon: (
-        <Image
-          src={contactIcon}
-          alt={t("skills", { defaultValue: "Skills" })}
-        />
-      ),
-      onIcon: (
-        <Image
-          src={onContactIcon}
-          alt={t("skills", { defaultValue: "Skills" })}
-        />
-      ),
+      icon: <Zap className="w-5 h-5" />,
+      onIcon: <Zap className="w-5 h-5" />,
       path: "/skills",
     },
     {
       title: t("blog", { defaultValue: "Blog" }),
-      icon: (
-        <Image src={contactIcon} alt={t("blog", { defaultValue: "Blog" })} />
-      ),
-      onIcon: (
-        <Image src={onContactIcon} alt={t("blog", { defaultValue: "Blog" })} />
-      ),
+      icon: <BookOpen className="w-5 h-5" />,
+      onIcon: <BookOpen className="w-5 h-5" />,
       path: "/blog",
     },
     {
       title: t("resume", { defaultValue: "Resume" }),
-      icon: (
-        <Image
-          src={contactIcon}
-          alt={t("resume", { defaultValue: "Resume" })}
-        />
-      ),
-      onIcon: (
-        <Image
-          src={onContactIcon}
-          alt={t("resume", { defaultValue: "Resume" })}
-        />
-      ),
+      icon: <FileText className="w-5 h-5" />,
+      onIcon: <FileText className="w-5 h-5" />,
       path: "/resume",
     },
     {
       title: t("contact"),
-      icon: <Image src={contactIcon} alt={t("contact")} />,
-      onIcon: <Image src={onContactIcon} alt={t("contact")} />,
+      icon: <Mail className="w-5 h-5" />,
+      onIcon: <Mail className="w-5 h-5" />,
       path: "/contact",
     },
   ];
@@ -143,7 +118,7 @@ export const DrawerNav: React.FC<DrawerNavProps> = ({
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="flex-shrink-0 p-4 border-b border-light-outline dark:border-dark-outline">
+        <div className="flex-shrink-0 p-4">
           <div className="flex items-center justify-between h-[40px]">
             <button
               onClick={closeDrawerAction}
@@ -192,7 +167,7 @@ export const DrawerNav: React.FC<DrawerNavProps> = ({
         {/* Footer - Fixed at bottom */}
         <div className="flex-shrink-0 p-6 border-t border-light-outline dark:border-dark-outline text-center text-body-medium text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant">
           <span className="mx-1">&copy;{new Date().getFullYear()}</span>
-          <span className="mx-1">{t("drawerNav.copyright")}</span>
+          <span className="mx-1">{t("All rights reserved")}</span>
         </div>
       </div>
     </>

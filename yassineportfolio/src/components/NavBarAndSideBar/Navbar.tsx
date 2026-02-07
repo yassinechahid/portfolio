@@ -43,7 +43,6 @@ const Navbar = () => {
   const navLinks = [
     { title: t("drawerNav.home", { defaultValue: "Home" }), path: "/" },
     { title: t("about", { defaultValue: "About" }), path: "/about" },
-    { title: t("services", { defaultValue: "Services" }), path: "/services" },
     { title: t("projects", { defaultValue: "Projects" }), path: "/projects" },
     { title: t("skills", { defaultValue: "Skills" }), path: "/skills" },
     { title: t("blog", { defaultValue: "Blog" }), path: "/blog" },
@@ -63,12 +62,12 @@ const Navbar = () => {
         {/* Homepage link */}
         <Link
           href="/"
-          className="flex items-center gap-3 rounded-full px-2 py-1 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-light-primary dark:focus:ring-dark-primary"
+          className="flex items-center gap-3 rounded-full px-2 py-1 focus:outline-none"
         >
           <Image
             src={logo}
             alt="yassine"
-            className="w-11 h-11 rounded-full ring-2 ring-light-primary/40 dark:ring-dark-primary/40"
+            className="w-11 h-11 rounded-full ring-2 ring-light-primary/60 dark:ring-dark-primary/40"
           />
           <div className="hidden sm:flex flex-col leading-tight">
             <span className="text-title-small font-semibold text-light-onBackground dark:text-dark-onBackground">
