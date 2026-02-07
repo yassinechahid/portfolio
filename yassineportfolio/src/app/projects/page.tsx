@@ -17,7 +17,6 @@ export default function Projects() {
       image: "/api/placeholder/800/400",
       liveUrl: "https://ecommerce-demo.com",
       githubUrl: "https://github.com/yassine-chahid/ecommerce",
-      featured: true,
     },
     {
       title: "AI Content Generator",
@@ -27,33 +26,6 @@ export default function Projects() {
       image: "/api/placeholder/400/300",
       liveUrl: "https://ai-content-gen.com",
       githubUrl: "https://github.com/yassine-chahid/ai-content",
-    },
-    {
-      title: "Health Monitoring App",
-      description:
-        "React Native mobile app for tracking health metrics with real-time analytics and doctor integration.",
-      tags: ["React Native", "GraphQL", "Firebase", "TypeScript"],
-      image: "/api/placeholder/400/300",
-      liveUrl: "https://apps.apple.com/app/healthtrack",
-      githubUrl: "https://github.com/yassine-chahid/healthapp",
-    },
-    {
-      title: "Design System & Component Library",
-      description:
-        "Comprehensive design system with 100+ components, documentation, and Figma integration.",
-      tags: ["React", "Storybook", "Tailwind CSS", "TypeScript"],
-      image: "/api/placeholder/400/300",
-      liveUrl: "https://design-system-ui.vercel.app",
-      githubUrl: "https://github.com/yassine-chahid/design-system",
-    },
-    {
-      title: "Project Management Tool",
-      description:
-        "Collaborative project management platform with real-time updates, file sharing, and team communication.",
-      tags: ["Next.js", "Prisma", "WebSockets", "AWS S3"],
-      image: "/api/placeholder/400/300",
-      liveUrl: "https://projecthub-app.com",
-      githubUrl: "https://github.com/yassine-chahid/projecthub",
     },
     {
       title: "Analytics Dashboard",
@@ -95,7 +67,6 @@ export default function Projects() {
                 image={project.image}
                 liveUrl={project.liveUrl}
                 githubUrl={project.githubUrl}
-                featured={project.featured}
               />
             ))}
           </div>
