@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 
 import i18n from "@/utils/i18n";
 import LoadingSpinner from "@/components/Loading";
@@ -13,6 +14,10 @@ export default function ClientLayout({
   children: React.ReactNode;
 }>) {
   const [isInitialized, setIsInitialized] = useState(false);
+  const pathname = usePathname();
+
+  // Check if we're on an admin page
+  const isAdminPage = pathname?.startsWith("/admin");
 
   useEffect(() => {
     const lang =
@@ -31,6 +36,11 @@ export default function ClientLayout({
         <LoadingSpinner />
       </div>
     );
+  }
+
+  // Skip navbar and footer for admin pages
+  if (isAdminPage) {
+    return <>{children}</>;
   }
 
   return (

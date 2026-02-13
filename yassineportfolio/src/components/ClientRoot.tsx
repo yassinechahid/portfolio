@@ -4,6 +4,7 @@ import React, { useEffect, useState, ReactNode } from "react";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import ClientLayout from "@/components/ClientLayout";
 import i18n from "@/utils/i18n";
+import { AuthProvider } from "@/contexts/AuthContext";
 
 export default function ClientRoot({ children }: { children: ReactNode }) {
   const [, setLang] = useState("fr");
@@ -22,9 +23,11 @@ export default function ClientRoot({ children }: { children: ReactNode }) {
 
   return (
     <body className="font-roboto bg-light-background text-light-onBackground dark:bg-dark-background dark:text-dark-onBackground">
-      <ThemeProvider>
-        <ClientLayout>{children}</ClientLayout>
-      </ThemeProvider>
+      <AuthProvider>
+        <ThemeProvider>
+          <ClientLayout>{children}</ClientLayout>
+        </ThemeProvider>
+      </AuthProvider>
     </body>
   );
 }
