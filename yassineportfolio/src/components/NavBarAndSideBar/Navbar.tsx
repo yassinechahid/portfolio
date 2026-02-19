@@ -56,14 +56,12 @@ const Navbar = () => {
         isScrolled
           ? "backdrop-blur-lg bg-light-surface/80 dark:bg-dark-surface/80 shadow-md border-b border-light-outlineVariant dark:border-dark-outlineVariant"
           : "bg-light-background/80 dark:bg-dark-background/80"
-      }`}
-    >
+      }`}>
       <div className="max-w-7xl mx-auto h-[76px] px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
         {/* Homepage link */}
         <Link
           href="/"
-          className="flex items-center gap-3 rounded-full px-2 py-1 focus:outline-none"
-        >
+          className="flex items-center gap-3 rounded-full px-2 py-1 focus:outline-none">
           <Image
             src={logo}
             alt="yassine"
@@ -92,8 +90,7 @@ const Navbar = () => {
                 }`}
                 href={link.path}
                 key={link.title}
-                aria-current={active ? "page" : undefined}
-              >
+                aria-current={active ? "page" : undefined}>
                 {link.title}
               </Link>
             );
@@ -104,10 +101,15 @@ const Navbar = () => {
         <div className="flex items-center gap-3">
           <Link
             href="/contact"
-            className="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-full bg-light-primary dark:bg-dark-primary text-light-onPrimary dark:text-dark-onPrimary text-label-medium font-semibold shadow-sm hover:opacity-90 transition"
-          >
+            className="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-full bg-light-primary dark:bg-dark-primary text-light-onPrimary dark:text-dark-onPrimary text-label-medium font-semibold shadow-sm hover:opacity-90 transition">
             {t("contact", { defaultValue: "Contact" })}
             <ArrowRight className="w-4 h-4" />
+          </Link>
+
+          <Link
+            href="/admin/login"
+            className="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-full bg-light-secondary dark:bg-dark-secondary text-light-onSecondary dark:text-dark-onSecondary text-label-medium font-semibold shadow-sm hover:opacity-90 transition">
+            Login here
           </Link>
 
           <ThemeToggle />
@@ -121,8 +123,7 @@ const Navbar = () => {
               onClick={openDrawer}
               className="p-2 hover:bg-light-primaryContainer/40 dark:hover:bg-dark-primaryContainer/40 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-light-primary dark:focus:ring-dark-primary"
               aria-label="Open menu"
-              aria-expanded={drawerOpen}
-            >
+              aria-expanded={drawerOpen}>
               <Image
                 src={menuNormal}
                 className="filter-white"
