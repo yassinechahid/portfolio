@@ -2,9 +2,28 @@ import { Client, Databases, ID, Storage, Account, Query } from "appwrite";
 
 const client = new Client();
 
-client
-  .setEndpoint("https://fra.cloud.appwrite.io/v1")
-  .setProject("698e521c0012d203561b");
+// Validate required environment variables
+const endpoint = process.env.NEXT_PUBLIC_APPWRITE_ENDPOINT;
+const projectId = process.env.NEXT_PUBLIC_APPWRITE_PROJECT_ID;
+const databaseId = process.env.NEXT_PUBLIC_APPWRITE_DATABASE_ID;
+const collectionMessages = process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_MESSAGES;
+const collectionUsers = process.env.NEXT_PUBLIC_APPWRITE_COLLECTION_USERS;
+const adminUserId = process.env.NEXT_PUBLIC_APPWRITE_ADMIN_USER_ID;
+
+if (
+  !endpoint ||
+  !projectId ||
+  !databaseId ||
+  !collectionMessages ||
+  !collectionUsers ||
+  !adminUserId
+) {
+  throw new Error(
+    "Missing required Appwrite environment variables. Please check your .env file.",
+  );
+}
+
+client.setEndpoint(endpoint).setProject(projectId);
 
 export const databases = new Databases(client);
 export const storage = new Storage(client);
@@ -13,11 +32,11 @@ export const IDGenerator = ID;
 export const QueryBuilder = Query;
 
 // Database constants
-export const DATABASE_ID = "698e53a50001ce888b8f";
-export const COLLECTION_MESSAGES = "messages";
-export const COLLECTION_USERS = "users"; // You need to create this collection
+export const DATABASE_ID = databaseId;
+export const COLLECTION_MESSAGES = collectionMessages;
+export const COLLECTION_USERS = collectionUsers;
 
 // Admin user ID (your user ID)
-export const ADMIN_USER_ID = "698e72590009ce7f5067"; // Replace with your actual Appwrite user ID
+export const ADMIN_USER_ID = adminUserId;
 
 export default client;
