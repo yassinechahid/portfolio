@@ -7,7 +7,7 @@ import Link from "next/link";
 import { useTranslation } from "react-i18next";
 import { ArrowRight } from "lucide-react";
 
-import logo from "@/public/assets/img1.jpg";
+import logo from "@/public/assets/yassine.png";
 import menuNormal from "@/public/assets/menuNormal.svg";
 
 import LanguageMenu from "./LanguageMenu";

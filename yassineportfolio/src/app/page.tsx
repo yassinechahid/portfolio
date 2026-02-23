@@ -148,7 +148,7 @@ export default function Home() {
                 {/* Main Image Container */}
                 <div className="relative rounded-3xl overflow-visible border-2 border-light-outlineVariant dark:border-dark-outlineVariant shadow-2xl">
                   <Image
-                    src="/assets/yassine.jpeg"
+                    src="/assets/yassine.png"
                     alt="Yassine chahid - Senior Frontend Developer"
                     width={400}
                     height={400}

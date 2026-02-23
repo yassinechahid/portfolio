@@ -24,36 +24,37 @@ export default function AdminHeader() {
   });
 
   return (
-    <header className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 px-6 py-4 shadow-sm">
+    <header className="bg-white dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700 px-8 py-5 shadow-sm backdrop-blur-sm">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold bg-gradient-to-r from-indigo-600 to-blue-600 bg-clip-text text-transparent">
+          <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-700 to-cyan-600 bg-clip-text text-transparent">
             Admin Dashboard
           </h1>
-          <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
-            🔒 Secure Administrative Panel
+          <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 font-medium flex items-center gap-1.5">
+            <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
+            Secure Administrative Panel
           </p>
         </div>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3">
           {/* Time Display */}
-          <div className="flex items-center gap-2 px-3 py-2 bg-gray-100 dark:bg-gray-700 rounded-lg">
-            <Clock className="w-4 h-4 text-gray-600 dark:text-gray-400" />
-            <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+          <div className="flex items-center gap-2 px-4 py-2.5 bg-slate-50 dark:bg-slate-700/50 rounded-xl border border-slate-200 dark:border-slate-600 shadow-sm">
+            <Clock className="w-4 h-4 text-slate-600 dark:text-slate-400" />
+            <span className="text-sm font-semibold text-slate-700 dark:text-slate-300">
               {currentTime}
             </span>
           </div>
 
           {/* User Info */}
-          <div className="flex items-center gap-3 px-4 py-2 bg-gradient-to-r from-indigo-50 to-blue-50 dark:from-indigo-900/20 dark:to-blue-900/20 border border-indigo-200 dark:border-indigo-800 rounded-lg">
-            <div className="p-1.5 bg-indigo-100 dark:bg-indigo-900/30 rounded-full">
-              <User className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
+          <div className="flex items-center gap-3 px-4 py-2.5 bg-gradient-to-r from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 border border-blue-200 dark:border-blue-800 rounded-xl shadow-sm">
+            <div className="p-2 bg-gradient-to-br from-blue-600 to-cyan-600 rounded-lg shadow">
+              <User className="w-4 h-4 text-white" />
             </div>
             <div className="flex flex-col">
-              <span className="text-xs font-semibold text-gray-600 dark:text-gray-400">
-                Logged in as
+              <span className="text-xs font-semibold text-slate-500 dark:text-slate-400">
+                Active Session
               </span>
-              <span className="text-sm font-medium text-indigo-700 dark:text-indigo-300 truncate max-w-xs">
+              <span className="text-sm font-bold text-blue-700 dark:text-blue-300 truncate max-w-xs">
                 {user?.email}
               </span>
             </div>
@@ -62,7 +63,7 @@ export default function AdminHeader() {
           {/* Logout Button */}
           <button
             onClick={handleLogout}
-            className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg transition-colors"
+            className="flex items-center gap-2 px-5 py-2.5 text-sm font-semibold text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 border-2 border-red-200 dark:border-red-800 rounded-xl transition-all duration-200 hover:shadow-md hover:scale-105 active:scale-95"
             title="Logout">
             <LogOut className="w-4 h-4" />
             <span className="hidden sm:inline">Logout</span>
