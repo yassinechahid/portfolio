@@ -3,7 +3,8 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { Lock, Mail, LogIn, Copy, Check } from "lucide-react";
+import Link from "next/link";
+import { Lock, Mail, LogIn, Copy, Check, Home, ArrowLeft } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 
 export default function AdminLogin() {
@@ -118,6 +119,16 @@ export default function AdminLogin() {
             <p className="text-xs text-red-700 dark:text-red-300 text-center font-bold">
               ⚠️ This area is restricted to authorized administrators only.
             </p>
+          </div>
+
+          {/* Return to Home Link - Bottom */}
+          <div className="mt-6 text-center">
+            <Link
+              href="/"
+              className="inline-flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors group">
+              <Home className="w-4 h-4 group-hover:scale-110 transition-transform" />
+              <span className="font-medium">Return to Homepage</span>
+            </Link>
           </div>
         </div>
       </div>
