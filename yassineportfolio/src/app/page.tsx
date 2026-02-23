@@ -1,9 +1,8 @@
 import Link from "next/link";
+import Image from "next/image";
 import {
   ArrowRight,
   Sparkles,
-  Code,
-  Rocket,
   Mail,
   Github,
   Linkedin,
@@ -26,26 +25,26 @@ export default function Home() {
       title: "E-Commerce Platform",
       description: "Full-stack e-commerce with real-time inventory",
       tags: ["Next.js", "Stripe", "MongoDB", "Redis"],
-      image: "/api/placeholder/400/300",
+      image: "/yassine/1.jpg",
     },
     {
       title: "AI Content Generator",
       description: "AI-powered content creation tool with GPT-4",
       tags: ["OpenAI", "React", "Node.js", "PostgreSQL"],
-      image: "/api/placeholder/400/300",
+      image: "/yassine/2.webp",
     },
     {
       title: "Health Monitoring App",
       description: "Mobile app for health tracking and analytics",
       tags: ["React Native", "GraphQL", "Firebase", "TypeScript"],
-      image: "/api/placeholder/400/300",
+      image: "/yassine/3.jpg",
     },
   ];
 
   const stats = [
     { label: "Projects Completed", value: "50+" },
     { label: "Happy Clients", value: "30+" },
-    { label: "Years Experience", value: "5+" },
+    { label: "Years Experience", value: "2+" },
     { label: "Open Source Repos", value: "20+" },
   ];
 
@@ -75,14 +74,14 @@ export default function Home() {
                     ]}
                     speed={80}
                     deleteSpeed={40}
-                    delayBetweenPhrases={2500}
+                    delayBetweenPhrases={6500}
                     className="text-light-primary dark:text-dark-primary"
                   />
                 </h1>
 
                 <p className="text-body-large text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant max-w-2xl">
                   I transform complex problems into beautiful, intuitive
-                  solutions. With 5+ years of experience in modern web
+                  solutions. With 2+ years of experience in modern web
                   technologies, I create digital products that users love.
                 </p>
               </div>
@@ -141,34 +140,50 @@ export default function Home() {
             </div>
 
             {/* Right Content - Hero Image/Visual */}
-            <div className="relative">
-              <div className="relative w-full aspect-square max-w-lg mx-auto">
-                <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-light-primary/20 to-light-secondaryContainer/20 dark:from-dark-primary/20 dark:to-dark-secondaryContainer/20 blur-3xl" />
+            <div className="relative mx-6">
+              <div className="relative w-full aspect-square max-w-xs mx-auto">
+                {/* Background Glow */}
+                <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-light-primary/30 to-light-secondaryContainer/30 dark:from-dark-primary/30 dark:to-dark-secondaryContainer/30 blur-3xl" />
 
-                <div className="relative rounded-3xl overflow-hidden border border-light-outlineVariant dark:border-dark-outlineVariant">
-                  {/* You can replace this with your actual image */}
-                  <div className="w-full h-full bg-gradient-to-br from-light-primaryContainer to-light-surfaceContainerLow dark:from-dark-primaryContainer dark:to-dark-surfaceContainerLow flex items-center justify-center">
-                    <div className="text-center p-8">
-                      <div className="w-32 h-32 mx-auto mb-6 rounded-full bg-gradient-to-br from-light-primary to-light-secondary dark:from-dark-primary dark:to-dark-secondary flex items-center justify-center">
-                        <Code className="w-16 h-16 text-light-onPrimary dark:text-dark-onPrimary" />
-                      </div>
-                      <h3 className="text-headline-small text-light-onBackground dark:text-dark-onBackground mb-2">
+                {/* Main Image Container */}
+                <div className="relative rounded-3xl overflow-visible border-2 border-light-outlineVariant dark:border-dark-outlineVariant shadow-2xl">
+                  <Image
+                    src="/assets/yassine.png"
+                    alt="Yassine chahid - Senior Frontend Developer"
+                    width={400}
+                    height={400}
+                    priority
+                    className="w-full h-full object-cover rounded-3xl"
+                  />
+
+                  {/* Overlay on hover */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end p-4 sm:p-6 md:p-8 rounded-3xl">
+                    <div className="text-white">
+                      <h3 className="text-base sm:text-lg md:text-headline-small font-bold mb-1 sm:mb-2">
                         Yassine chahid
                       </h3>
-                      <p className="text-body-medium text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant">
+                      <p className="text-xs sm:text-sm md:text-body-medium">
                         Senior Frontend Developer
                       </p>
                     </div>
                   </div>
-                </div>
 
-                {/* Floating Elements */}
-                <div className="absolute -top-4 -right-4 w-24 h-24 rounded-2xl bg-light-tertiaryContainer dark:bg-dark-tertiaryContainer border border-light-outline dark:border-dark-outline p-4">
-                  <Rocket className="w-full h-full text-light-onTertiaryContainer dark:text-dark-onTertiaryContainer" />
-                </div>
+                  {/* Floating Badge - Top Right */}
+                  <div className="absolute -top-2 sm:-top-3 md:-top-4 -right-2 sm:-right-3 md:-right-4 w-12 h-12 xs:w-14 xs:h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-2xl bg-gradient-to-br from-light-tertiaryContainer to-light-secondaryContainer dark:from-dark-tertiaryContainer dark:to-dark-secondaryContainer border border-light-outline dark:border-dark-outline xs:border-2 sm:border-2 md:border-2 shadow-lg p-1 xs:p-2 sm:p-3 md:p-4 flex items-center justify-center z-20">
+                    <div className="text-center">
+                      <div className="text-lg xs:text-xl sm:text-2xl md:text-3xl font-bold text-light-onTertiaryContainer dark:text-dark-onTertiaryContainer leading-none">
+                        2+
+                      </div>
+                      <p className="text-xs xs:text-label-small sm:text-label-small md:text-label-small text-light-onTertiaryContainer dark:text-dark-onTertiaryContainer">
+                        Years
+                      </p>
+                    </div>
+                  </div>
 
-                <div className="absolute -bottom-4 -left-4 w-20 h-20 rounded-2xl bg-light-errorContainer dark:bg-dark-errorContainer border border-light-outline dark:border-dark-outline p-3">
-                  <Sparkles className="w-full h-full text-light-onErrorContainer dark:text-dark-onErrorContainer" />
+                  {/* Floating Badge - Bottom Right */}
+                  <div className="absolute -bottom-2 sm:-bottom-3 md:-bottom-4 -right-2 sm:-right-3 md:-right-4 w-12 h-12 xs:w-14 xs:h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-full bg-gradient-to-br from-light-primaryContainer to-light-primary dark:from-dark-primaryContainer dark:to-dark-primary border border-light-outline dark:border-dark-outline xs:border-2 sm:border-2 md:border-2 shadow-lg p-1 xs:p-2 sm:p-3 md:p-3 flex items-center justify-center z-20">
+                    <Sparkles className="w-full h-full text-light-onPrimary dark:text-dark-onPrimary" />
+                  </div>
                 </div>
               </div>
             </div>
@@ -256,7 +271,14 @@ export default function Home() {
             {projects.map((project, index) => (
               <div key={index} className="group cursor-pointer">
                 <div className="relative overflow-hidden rounded-3xl mb-6">
-                  <div className="aspect-video bg-gradient-to-br from-light-primaryContainer/30 to-light-surfaceContainer/30 dark:from-dark-primaryContainer/30 dark:to-dark-surfaceContainer/30" />
+                  <div className="aspect-video bg-gradient-to-br from-light-primaryContainer/30 to-light-surfaceContainer/30 dark:from-dark-primaryContainer/30 dark:to-dark-surfaceContainer/30 relative">
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      className="object-cover group-hover:scale-110 transition-transform duration-300"
+                    />
+                  </div>
 
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
                     <span className="text-label-large text-white">

@@ -14,55 +14,54 @@ export default function Projects() {
       description:
         "Full-stack e-commerce solution with real-time inventory management, payment processing, and admin dashboard.",
       tags: ["Next.js", "Stripe", "MongoDB", "Tailwind CSS", "Socket.io"],
-      image: "/api/placeholder/800/400",
+      image: "/yassine/1.jpg",
       liveUrl: "https://ecommerce-demo.com",
       githubUrl: "https://github.com/yassine-chahid/ecommerce",
-      featured: true,
     },
     {
       title: "AI Content Generator",
       description:
         "Intelligent content creation tool powered by OpenAI, featuring template system and batch processing.",
       tags: ["React", "OpenAI API", "Node.js", "PostgreSQL"],
-      image: "/api/placeholder/400/300",
+      image: "/yassine/2.webp",
       liveUrl: "https://ai-content-gen.com",
       githubUrl: "https://github.com/yassine-chahid/ai-content",
-    },
-    {
-      title: "Health Monitoring App",
-      description:
-        "React Native mobile app for tracking health metrics with real-time analytics and doctor integration.",
-      tags: ["React Native", "GraphQL", "Firebase", "TypeScript"],
-      image: "/api/placeholder/400/300",
-      liveUrl: "https://apps.apple.com/app/healthtrack",
-      githubUrl: "https://github.com/yassine-chahid/healthapp",
-    },
-    {
-      title: "Design System & Component Library",
-      description:
-        "Comprehensive design system with 100+ components, documentation, and Figma integration.",
-      tags: ["React", "Storybook", "Tailwind CSS", "TypeScript"],
-      image: "/api/placeholder/400/300",
-      liveUrl: "https://design-system-ui.vercel.app",
-      githubUrl: "https://github.com/yassine-chahid/design-system",
-    },
-    {
-      title: "Project Management Tool",
-      description:
-        "Collaborative project management platform with real-time updates, file sharing, and team communication.",
-      tags: ["Next.js", "Prisma", "WebSockets", "AWS S3"],
-      image: "/api/placeholder/400/300",
-      liveUrl: "https://projecthub-app.com",
-      githubUrl: "https://github.com/yassine-chahid/projecthub",
     },
     {
       title: "Analytics Dashboard",
       description:
         "Real-time analytics platform with interactive charts, data export, and custom report generation.",
       tags: ["React", "D3.js", "Node.js", "PostgreSQL"],
-      image: "/api/placeholder/400/300",
+      image: "/yassine/3.jpg",
       liveUrl: "https://analytics-platform.io",
       githubUrl: "https://github.com/yassine-chahid/analytics",
+    },
+    {
+      title: "Mobile Fitness Tracker",
+      description:
+        "Cross-platform mobile app for tracking workouts, nutrition, and progress with social features.",
+      tags: ["React Native", "Firebase", "Redux", "Expo"],
+      image: "/yassine/4.jpg",
+      liveUrl: "https://fitness-tracker.io",
+      githubUrl: "https://github.com/yassine-chahid/fitness-app",
+    },
+    {
+      title: "Task Management System",
+      description:
+        "Collaborative task management platform with real-time updates, file sharing, and team collaboration.",
+      tags: ["Next.js", "WebSocket", "PostgreSQL", "TypeScript"],
+      image: "/yassine/5.webp",
+      liveUrl: "https://taskhub.io",
+      githubUrl: "https://github.com/yassine-chahid/task-manager",
+    },
+    {
+      title: "Social Media Dashboard",
+      description:
+        "Unified dashboard for managing multiple social media accounts with analytics and scheduling.",
+      tags: ["React", "Node.js", "MongoDB", "Chart.js"],
+      image: "/yassine/6.jpg",
+      liveUrl: "https://social-dashboard.io",
+      githubUrl: "https://github.com/yassine-chahid/social-dash",
     },
   ];
 
@@ -95,7 +94,6 @@ export default function Projects() {
                 image={project.image}
                 liveUrl={project.liveUrl}
                 githubUrl={project.githubUrl}
-                featured={project.featured}
               />
             ))}
           </div>

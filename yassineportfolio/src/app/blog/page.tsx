@@ -1,13 +1,9 @@
-import { Metadata } from "next";
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
-
-export const metadata: Metadata = {
-  title: "Blog - Yassine chahid",
-  description:
-    "Read my latest articles about web development, design, and tech insights.",
-};
 
 interface BlogPost {
   slug: string;
@@ -21,6 +17,8 @@ interface BlogPost {
 }
 
 export default function Blog() {
+  const [selectedCategory, setSelectedCategory] = useState<string>("All");
+
   const posts: BlogPost[] = [
     {
       slug: "building-scalable-react-apps",
@@ -30,7 +28,7 @@ export default function Blog() {
       date: "January 18, 2024",
       readTime: "8 min read",
       category: "React",
-      image: "/api/placeholder/800/400",
+      image: "/yassine/1.jpg",
       featured: true,
     },
     {
@@ -41,7 +39,7 @@ export default function Blog() {
       date: "January 10, 2024",
       readTime: "10 min read",
       category: "Next.js",
-      image: "/api/placeholder/400/300",
+      image: "/yassine/2.webp",
     },
     {
       slug: "typescript-best-practices",
@@ -51,7 +49,7 @@ export default function Blog() {
       date: "January 5, 2024",
       readTime: "12 min read",
       category: "TypeScript",
-      image: "/api/placeholder/400/300",
+      image: "/yassine/3.jpg",
     },
     {
       slug: "performance-optimization-guide",
@@ -61,7 +59,7 @@ export default function Blog() {
       date: "December 28, 2023",
       readTime: "15 min read",
       category: "Performance",
-      image: "/api/placeholder/400/300",
+      image: "/yassine/4.jpg",
     },
     {
       slug: "design-systems-implementation",
@@ -71,7 +69,7 @@ export default function Blog() {
       date: "December 20, 2023",
       readTime: "11 min read",
       category: "Design",
-      image: "/api/placeholder/400/300",
+      image: "/yassine/5.webp",
     },
     {
       slug: "testing-react-components",
@@ -81,19 +79,16 @@ export default function Blog() {
       date: "December 15, 2023",
       readTime: "9 min read",
       category: "Testing",
-      image: "/api/placeholder/400/300",
+      image: "/yassine/6.jpg",
     },
   ];
 
-  const categories = [
-    "All",
-    "React",
-    "Next.js",
-    "TypeScript",
-    "Performance",
-    "Design",
-    "Testing",
-  ];
+  const categories = ["All", ...new Set(posts.map((p) => p.category))];
+
+  const filteredPosts =
+    selectedCategory === "All"
+      ? posts
+      : posts.filter((p) => p.category === selectedCategory);
 
   return (
     <main className="min-h-screen bg-light-background dark:bg-dark-background">
@@ -118,8 +113,9 @@ export default function Blog() {
             {categories.map((cat, idx) => (
               <button
                 key={idx}
+                onClick={() => setSelectedCategory(cat)}
                 className={`px-4 py-2 rounded-full whitespace-nowrap text-label-medium font-medium transition-colors ${
-                  idx === 0
+                  selectedCategory === cat
                     ? "bg-light-primary dark:bg-dark-primary text-light-onPrimary dark:text-dark-onPrimary"
                     : "border border-light-outline dark:border-dark-outline text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant hover:border-light-primary dark:hover:border-dark-primary"
                 }`}
@@ -132,16 +128,16 @@ export default function Blog() {
       </section>
 
       {/* Featured Post */}
-      {posts.find((p) => p.featured) && (
+      {filteredPosts.find((p) => p.featured) && (
         <section className="py-20 px-4 sm:px-6 lg:px-8">
           <div className="max-w-5xl mx-auto">
-            <Link href={`/blog/${posts.find((p) => p.featured)?.slug}`}>
+            <Link href={`/blog/${filteredPosts.find((p) => p.featured)?.slug}`}>
               <div className="group cursor-pointer rounded-2xl overflow-hidden border border-light-outline dark:border-dark-outline hover:border-light-primary dark:hover:border-dark-primary transition-all">
                 {/* Image */}
                 <div className="relative w-full h-96 overflow-hidden bg-light-surfaceContainerLow dark:bg-dark-surfaceContainerLow">
-                  {posts.find((p) => p.featured)?.image && (
+                  {filteredPosts.find((p) => p.featured)?.image && (
                     <Image
-                      src={posts.find((p) => p.featured)?.image || ""}
+                      src={filteredPosts.find((p) => p.featured)?.image || ""}
                       alt="Featured post"
                       fill
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
@@ -155,26 +151,26 @@ export default function Blog() {
                   <div className="space-y-4">
                     <div className="flex items-center gap-3">
                       <span className="px-3 py-1 rounded-full bg-light-primary dark:bg-dark-primary text-light-onPrimary dark:text-dark-onPrimary text-label-small font-medium">
-                        {posts.find((p) => p.featured)?.category}
+                        {filteredPosts.find((p) => p.featured)?.category}
                       </span>
                       <span className="text-label-small text-white">
                         Featured
                       </span>
                     </div>
                     <h2 className="text-display-small font-bold text-white">
-                      {posts.find((p) => p.featured)?.title}
+                      {filteredPosts.find((p) => p.featured)?.title}
                     </h2>
                     <p className="text-body-large text-white/80">
-                      {posts.find((p) => p.featured)?.excerpt}
+                      {filteredPosts.find((p) => p.featured)?.excerpt}
                     </p>
                     <div className="flex items-center gap-4 text-body-small text-white/60 pt-4">
                       <div className="flex items-center gap-1">
                         <Calendar className="w-4 h-4" />
-                        {posts.find((p) => p.featured)?.date}
+                        {filteredPosts.find((p) => p.featured)?.date}
                       </div>
                       <div className="flex items-center gap-1">
                         <Clock className="w-4 h-4" />
-                        {posts.find((p) => p.featured)?.readTime}
+                        {filteredPosts.find((p) => p.featured)?.readTime}
                       </div>
                     </div>
                     <div className="flex items-center gap-2 text-light-primary dark:text-dark-primary group-hover:gap-4 transition-all pt-4">
@@ -193,7 +189,7 @@ export default function Blog() {
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {posts
+            {filteredPosts
               .filter((p) => !p.featured)
               .map((post, idx) => (
                 <Link key={idx} href={`/blog/${post.slug}`}>

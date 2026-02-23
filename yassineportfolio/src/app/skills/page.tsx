@@ -25,21 +25,11 @@ export default function Skills() {
       { name: "Database Design", level: 82 },
       { name: "Authentication/Security", level: 85 },
     ],
-    Mobile: [
-      { name: "React Native", level: 80 },
-      { name: "iOS Development", level: 75 },
-      { name: "Android Development", level: 75 },
-      { name: "Native Modules", level: 70 },
-    ],
     Tools: [
       { name: "Git/GitHub", level: 95 },
-      { name: "Docker", level: 80 },
-      { name: "AWS/DevOps", level: 75 },
       { name: "Figma", level: 85 },
-      { name: "CI/CD", level: 80 },
     ],
     Soft: [
-      { name: "Team Leadership", level: 85 },
       { name: "Communication", level: 90 },
       { name: "Problem Solving", level: 92 },
       { name: "Project Management", level: 80 },
@@ -59,7 +49,7 @@ export default function Skills() {
     },
     {
       label: "Years Experience",
-      value: "5+",
+      value: "2+",
       icon: <Zap className="w-8 h-8" />,
     },
     {
@@ -128,16 +118,6 @@ export default function Skills() {
           </h2>
           <div className="grid md:grid-cols-2 gap-6">
             {[
-              {
-                title: "AWS Certified Solutions Architect",
-                issuer: "Amazon Web Services",
-                year: "2023",
-              },
-              {
-                title: "Google UX Design Certificate",
-                issuer: "Google / Coursera",
-                year: "2022",
-              },
               {
                 title: "Full Stack Development Bootcamp",
                 issuer: "Codecademy",
