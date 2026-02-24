@@ -12,40 +12,37 @@ import AnimatedText from "@/components/portfolio/AnimatedText";
 
 export default function Home() {
   const skills = [
-    { name: "React/Next.js", level: 95 },
+    { name: "Next.js/React", level: 95 },
     { name: "TypeScript", level: 90 },
     { name: "Tailwind CSS", level: 95 },
-    { name: "Node.js", level: 85 },
-    { name: "UI/UX Design", level: 80 },
-    { name: "AWS/DevOps", level: 75 },
   ];
 
   const projects = [
     {
       title: "E-Commerce Platform",
       description: "Full-stack e-commerce with real-time inventory",
-      tags: ["Next.js", "Stripe", "MongoDB", "Redis"],
+      tags: ["Next.js", "typeScript"],
       image: "/yassine/1.jpg",
     },
     {
       title: "AI Content Generator",
       description: "AI-powered content creation tool with GPT-4",
-      tags: ["OpenAI", "React", "Node.js", "PostgreSQL"],
+      tags: ["OpenAI", "React", "Node.js"],
       image: "/yassine/2.webp",
     },
     {
       title: "Health Monitoring App",
       description: "Mobile app for health tracking and analytics",
-      tags: ["React Native", "GraphQL", "Firebase", "TypeScript"],
+      tags: ["Next.js", "TypeScript"],
       image: "/yassine/3.jpg",
     },
   ];
 
   const stats = [
-    { label: "Projects Completed", value: "50+" },
-    { label: "Happy Clients", value: "30+" },
+    { label: "Projects Completed", value: "10+" },
+    { label: "Happy Clients", value: "10+" },
     { label: "Years Experience", value: "2+" },
-    { label: "Open Source Repos", value: "20+" },
+    { label: "Open Source Repos", value: "15+" },
   ];
 
   return (
@@ -60,7 +57,7 @@ export default function Home() {
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-light-primaryContainer dark:bg-dark-primaryContainer text-light-onPrimaryContainer dark:text-dark-onPrimaryContainer">
                   <Sparkles className="w-4 h-4" />
                   <span className="text-label-medium">
-                    Frontend Developer & UI Specialist
+                    Frontend Developer
                   </span>
                 </div>
 
@@ -70,7 +67,6 @@ export default function Home() {
                       "Crafting Digital Experiences",
                       "Building Beautiful Interfaces",
                       "Creating Innovative Solutions",
-                      "Designing User-Centric Apps",
                     ]}
                     speed={80}
                     deleteSpeed={40}
@@ -107,7 +103,7 @@ export default function Home() {
               {/* Social Links */}
               <div className="flex items-center gap-4 pt-4">
                 <a
-                  href="https://github.com"
+                  href="https://github.com/yassinechahid"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-3 rounded-full bg-light-surfaceContainerLow dark:bg-dark-surfaceContainerLow text-light-onSurface dark:text-dark-onSurface hover:bg-light-surfaceContainer dark:hover:bg-dark-surfaceContainer transition-colors"
@@ -115,7 +111,7 @@ export default function Home() {
                   <Github className="w-6 h-6" />
                 </a>
                 <a
-                  href="https://linkedin.com"
+                  href="https://www.linkedin.com/in/yassine-chahid-15ab54354"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-3 rounded-full bg-light-surfaceContainerLow dark:bg-dark-surfaceContainerLow text-light-onSurface dark:text-dark-onSurface hover:bg-light-surfaceContainer dark:hover:bg-dark-surfaceContainer transition-colors"
@@ -123,7 +119,7 @@ export default function Home() {
                   <Linkedin className="w-6 h-6" />
                 </a>
                 <a
-                  href="https://twitter.com"
+                  href="https://x.com/2vdUkvownfF8Ian"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-3 rounded-full bg-light-surfaceContainerLow dark:bg-dark-surfaceContainerLow text-light-onSurface dark:text-dark-onSurface hover:bg-light-surfaceContainer dark:hover:bg-dark-surfaceContainer transition-colors"
@@ -131,7 +127,7 @@ export default function Home() {
                   <Twitter className="w-6 h-6" />
                 </a>
                 <a
-                  href="mailto:hello@example.com"
+                  href="mailto:chahidyassine14@gmail.com"
                   className="p-3 rounded-full bg-light-surfaceContainerLow dark:bg-dark-surfaceContainerLow text-light-onSurface dark:text-dark-onSurface hover:bg-light-surfaceContainer dark:hover:bg-dark-surfaceContainer transition-colors"
                 >
                   <Mail className="w-6 h-6" />
