@@ -5,7 +5,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { useTranslation } from "react-i18next";
-import { Menu} from "lucide-react";
+import { Menu } from "lucide-react";
 
 import logo from "@/public/assets/yassine.png";
 
@@ -58,7 +58,7 @@ const Navbar = () => {
           {/* Logo & Brand */}
           <Link
             href="/"
-            className="flex items-center gap-3 group transition-transform hover:scale-105"
+            className="flex items-center gap-3 group"
             aria-label="Home">
             <div className="relative">
               <Image
@@ -82,10 +82,10 @@ const Navbar = () => {
           <nav className="hidden lg:flex items-center gap-1">
             <Link
               href="/"
-              className={`px-4 py-2 text-sm font-medium transition-all duration-200 rounded-lg ${
+              className={`px-4 py-2 text-sm font-medium transition-all duration-200 rounded-full ${
                 isActive("/")
-                  ? "text-light-primary dark:text-dark-primary bg-light-primaryContainer/30 dark:bg-dark-primaryContainer/30"
-                  : "text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant hover:text-light-onSurface dark:hover:text-dark-onSurface hover:bg-light-surfaceContainerLow/50 dark:hover:bg-dark-surfaceContainerLow/50"
+                  ? "text-light-primary dark:text-dark-primary bg-light-primaryContainer/50 dark:bg-dark-primaryContainer/50"
+                  : "text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant hover:text-light-primary dark:hover:text-dark-primary hover:bg-light-primaryContainer/30 dark:hover:bg-dark-primaryContainer/30"
               }`}>
               Home
             </Link>
@@ -95,10 +95,10 @@ const Navbar = () => {
                 <Link
                   key={link.path}
                   href={link.path}
-                  className={`px-4 py-2 text-sm font-medium transition-all duration-200 rounded-lg ${
+                  className={`px-4 py-2 text-sm font-medium transition-all duration-200 rounded-full ${
                     active
-                      ? "text-light-primary dark:text-dark-primary bg-light-primaryContainer/30 dark:bg-dark-primaryContainer/30"
-                      : "text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant hover:text-light-onSurface dark:hover:text-dark-onSurface hover:bg-light-surfaceContainerLow/50 dark:hover:bg-dark-surfaceContainerLow/50"
+                      ? "text-light-primary dark:text-dark-primary bg-light-primaryContainer/50 dark:bg-dark-primaryContainer/50"
+                      : "text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant hover:text-light-primary dark:hover:text-dark-primary hover:bg-light-primaryContainer/30 dark:hover:bg-dark-primaryContainer/30"
                   }`}
                   aria-current={active ? "page" : undefined}>
                   {link.title}
@@ -112,8 +112,15 @@ const Navbar = () => {
             {/* Contact CTA - Desktop */}
             <Link
               href="/contact"
-              className="hidden lg:inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold bg-light-primary dark:bg-dark-primary text-light-onPrimary dark:text-dark-onPrimary rounded-full hover:shadow-lg hover:scale-105 transition-all duration-200">
+              className="hidden lg:inline-flex items-center gap-2 px-5 py-1.5 text-sm font-semibold bg-light-primary dark:bg-dark-primary text-light-onPrimary dark:text-dark-onPrimary rounded-full hover:shadow-lg hover:scale-105 transition-all duration-200">
               {t("contact", { defaultValue: "Contact Me" })}
+            </Link>
+
+            {/* Admin Button - Desktop */}
+            <Link
+              href="/admin/dashboard"
+              className="hidden lg:inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant hover:text-light-primary dark:hover:text-dark-primary hover:bg-light-primaryContainer/30 dark:hover:bg-dark-primaryContainer/30 rounded-full transition-all duration-200">
+              Admin
             </Link>
 
             {/* Theme Toggle */}
