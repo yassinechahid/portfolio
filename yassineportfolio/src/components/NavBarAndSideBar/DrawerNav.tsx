@@ -12,6 +12,7 @@ import {
   Zap,
   BookOpen,
   Mail,
+  LogIn,
 } from "lucide-react";
 
 import menuClose from "@/public/assets/menuClose.svg";
@@ -159,6 +160,17 @@ export const DrawerNav: React.FC<DrawerNavProps> = ({
               </li>
             ))}
           </ul>
+
+          {/* Admin Login Button - Mobile Only */}
+          <div className="mt-6 px-2">
+            <Link
+              href="/admin/login"
+              className="h-[56px] w-full rounded-full flex items-center justify-center gap-3 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white font-bold text-label-large shadow-lg hover:shadow-xl transition-all"
+              onClick={closeDrawerAction}>
+              <LogIn className="w-5 h-5" />
+              <span>Admin Login</span>
+            </Link>
+          </div>
         </div>
 
         {/* Admin Button */}
