@@ -5,10 +5,9 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { useTranslation } from "react-i18next";
-import { ArrowRight } from "lucide-react";
+import { Menu} from "lucide-react";
 
 import logo from "@/public/assets/yassine.png";
-import menuNormal from "@/public/assets/menuNormal.svg";
 
 import LanguageMenu from "./LanguageMenu";
 import { DrawerNav } from "./DrawerNav";
@@ -22,7 +21,7 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 8);
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
     handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
@@ -41,96 +40,95 @@ const Navbar = () => {
   const changeLanguage = (lang: string) => i18n.changeLanguage(lang);
 
   const navLinks = [
-    { title: t("drawerNav.home", { defaultValue: "Home" }), path: "/" },
     { title: t("about", { defaultValue: "About" }), path: "/about" },
     { title: t("projects", { defaultValue: "Projects" }), path: "/projects" },
     { title: t("skills", { defaultValue: "Skills" }), path: "/skills" },
     { title: t("blog", { defaultValue: "Blog" }), path: "/blog" },
-    { title: t("resume", { defaultValue: "Resume" }), path: "/resume" },
-    { title: t("contact", { defaultValue: "Contact" }), path: "/contact" },
   ];
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-200 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "backdrop-blur-lg bg-light-surface/80 dark:bg-dark-surface/80 shadow-md border-b border-light-outlineVariant dark:border-dark-outlineVariant"
-          : "bg-light-background/80 dark:bg-dark-background/80"
+          ? "backdrop-blur-xl bg-light-surface/90 dark:bg-dark-surface/90 shadow-lg border-b border-light-outline/10 dark:border-dark-outline/10"
+          : "bg-transparent"
       }`}>
-      <div className="max-w-7xl mx-auto h-[76px] px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
-        {/* Homepage link */}
-        <Link
-          href="/"
-          className="flex items-center gap-3 rounded-full px-2 py-1 focus:outline-none">
-          <Image
-            src={logo}
-            alt="yassine"
-            className="w-11 h-11 rounded-full ring-2 ring-light-primary/60 dark:ring-dark-primary/40"
-          />
-          <div className="hidden sm:flex flex-col leading-tight">
-            <span className="text-title-small font-semibold text-light-onBackground dark:text-dark-onBackground">
-              Yassine chahid
-            </span>
-            <span className="text-body-small text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant">
-              Frontend developer
-            </span>
-          </div>
-        </Link>
-
-        {/* Desktop navbar */}
-        <nav className="hidden lg:flex items-center gap-1 rounded-full bg-light-surfaceContainerLow/80 dark:bg-dark-surfaceContainerLow/80 px-2 py-1 shadow-sm border border-light-outlineVariant/60 dark:border-dark-outlineVariant/60">
-          {navLinks.map((link) => {
-            const active = isActive(link.path);
-            return (
-              <Link
-                className={`relative px-3 py-2 rounded-full text-label-medium font-semibold transition-colors ${
-                  active
-                    ? "bg-light-primary/90 dark:bg-dark-primary/90 text-light-onPrimary dark:text-dark-onPrimary shadow-sm"
-                    : "text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant hover:text-light-primary dark:hover:text-dark-primary hover:bg-light-primaryContainer/50 dark:hover:bg-dark-primaryContainer/40"
-                }`}
-                href={link.path}
-                key={link.title}
-                aria-current={active ? "page" : undefined}>
-                {link.title}
-              </Link>
-            );
-          })}
-        </nav>
-
-        {/* Menu, theme toggle and language */}
-        <div className="flex items-center gap-3">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-20">
+          {/* Logo & Brand */}
           <Link
-            href="/contact"
-            className="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-full bg-light-primary dark:bg-dark-primary text-light-onPrimary dark:text-dark-onPrimary text-label-medium font-semibold shadow-sm hover:opacity-90 transition">
-            {t("contact", { defaultValue: "Contact" })}
-            <ArrowRight className="w-4 h-4" />
+            href="/"
+            className="flex items-center gap-3 group transition-transform hover:scale-105"
+            aria-label="Home">
+            <div className="relative">
+              <Image
+                src={logo}
+                alt="Yassine Chahid"
+                className="w-12 h-12 rounded-full ring-2 ring-light-primary/20 dark:ring-dark-primary/20 group-hover:ring-light-primary/60 dark:group-hover:ring-dark-primary/60 transition-all duration-300"
+              />
+              <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-light-surface dark:border-dark-surface" />
+            </div>
+            <div className="hidden sm:block">
+              <div className="text-lg font-bold text-light-onSurface dark:text-dark-onSurface">
+                Yassine Chahid
+              </div>
+              <div className="text-xs text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant">
+                Full-Stack Developer
+              </div>
+            </div>
           </Link>
 
-          <Link
-            href="/admin/login"
-            className="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-full bg-light-secondary dark:bg-dark-secondary text-light-onSecondary dark:text-dark-onSecondary text-label-medium font-semibold shadow-sm hover:opacity-90 transition">
-            Login here
-          </Link>
+          {/* Desktop Navigation */}
+          <nav className="hidden lg:flex items-center gap-1">
+            <Link
+              href="/"
+              className={`px-4 py-2 text-sm font-medium transition-all duration-200 rounded-lg ${
+                isActive("/")
+                  ? "text-light-primary dark:text-dark-primary bg-light-primaryContainer/30 dark:bg-dark-primaryContainer/30"
+                  : "text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant hover:text-light-onSurface dark:hover:text-dark-onSurface hover:bg-light-surfaceContainerLow/50 dark:hover:bg-dark-surfaceContainerLow/50"
+              }`}>
+              Home
+            </Link>
+            {navLinks.map((link) => {
+              const active = isActive(link.path);
+              return (
+                <Link
+                  key={link.path}
+                  href={link.path}
+                  className={`px-4 py-2 text-sm font-medium transition-all duration-200 rounded-lg ${
+                    active
+                      ? "text-light-primary dark:text-dark-primary bg-light-primaryContainer/30 dark:bg-dark-primaryContainer/30"
+                      : "text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant hover:text-light-onSurface dark:hover:text-dark-onSurface hover:bg-light-surfaceContainerLow/50 dark:hover:bg-dark-surfaceContainerLow/50"
+                  }`}
+                  aria-current={active ? "page" : undefined}>
+                  {link.title}
+                </Link>
+              );
+            })}
+          </nav>
 
-          <ThemeToggle />
+          {/* Right Section */}
+          <div className="flex items-center gap-2">
+            {/* Contact CTA - Desktop */}
+            <Link
+              href="/contact"
+              className="hidden lg:inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold bg-light-primary dark:bg-dark-primary text-light-onPrimary dark:text-dark-onPrimary rounded-full hover:shadow-lg hover:scale-105 transition-all duration-200">
+              {t("contact", { defaultValue: "Contact Me" })}
+            </Link>
 
-          {/* Language menu */}
-          <LanguageMenu changeLanguage={changeLanguage} />
+            {/* Theme Toggle */}
+            <ThemeToggle />
 
-          {/* Mobile menu button */}
-          <div className="lg:hidden flex">
+            {/* Language Menu */}
+            <LanguageMenu changeLanguage={changeLanguage} />
+
+            {/* Mobile Menu Button */}
             <button
               onClick={openDrawer}
-              className="p-2 hover:bg-light-primaryContainer/40 dark:hover:bg-dark-primaryContainer/40 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-light-primary dark:focus:ring-dark-primary"
+              className="lg:hidden p-2.5 rounded-lg text-light-onSurface dark:text-dark-onSurface hover:bg-light-surfaceContainerLow dark:hover:bg-dark-surfaceContainerLow transition-colors"
               aria-label="Open menu"
               aria-expanded={drawerOpen}>
-              <Image
-                src={menuNormal}
-                className="filter-white"
-                alt="Open menu"
-                width={24}
-                height={24}
-              />
+              <Menu className="w-6 h-6" />
             </button>
           </div>
         </div>

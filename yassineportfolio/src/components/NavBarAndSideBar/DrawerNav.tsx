@@ -11,7 +11,6 @@ import {
   User,
   Zap,
   BookOpen,
-  FileText,
   Mail,
   LogIn,
 } from "lucide-react";
@@ -87,12 +86,6 @@ export const DrawerNav: React.FC<DrawerNavProps> = ({
       path: "/blog",
     },
     {
-      title: t("resume", { defaultValue: "Resume" }),
-      icon: <FileText className="w-5 h-5" />,
-      onIcon: <FileText className="w-5 h-5" />,
-      path: "/resume",
-    },
-    {
       title: t("contact"),
       icon: <Mail className="w-5 h-5" />,
       onIcon: <Mail className="w-5 h-5" />,
@@ -151,12 +144,12 @@ export const DrawerNav: React.FC<DrawerNavProps> = ({
               <li key={index}>
                 <Link
                   href={item.path}
-                  className={`h-[56px] w-full rounded-full flex items-center gap-3 text-label-large font-roboto font-medium transition-colors ${
+                  className={`h-[56px] w-full rounded-full flex items-center gap-3 text-label-large font-roboto font-medium transition-all duration-200 ${
                     isRTL ? "pr-[16px]" : "pl-[16px]"
                   } ${
                     pathname === item.path
-                      ? "bg-light-secondaryContainer dark:bg-dark-secondaryContainer text-light-onSecondaryContainer dark:text-dark-onSecondaryContainer"
-                      : "text-light-onSurface dark:text-dark-onSurface hover:bg-light-secondaryContainer/50 dark:hover:bg-dark-secondaryContainer/50"
+                      ? "bg-light-primaryContainer dark:bg-dark-primaryContainer text-light-onPrimaryContainer dark:text-dark-onPrimaryContainer shadow-sm"
+                      : "text-light-onSurface dark:text-dark-onSurface hover:bg-light-primaryContainer/50 dark:hover:bg-dark-primaryContainer/50 hover:text-light-primary dark:hover:text-dark-primary"
                   }`}
                   onClick={closeDrawerAction}>
                   <div className="flex-shrink-0">
@@ -180,10 +173,33 @@ export const DrawerNav: React.FC<DrawerNavProps> = ({
           </div>
         </div>
 
+        {/* Admin Button */}
+        <div className="flex-shrink-0 px-4 pb-4">
+          <Link
+            href="/admin/login"
+            className="w-full h-10 flex items-center justify-center gap-2 rounded-full bg-light-surfaceContainer dark:bg-dark-surfaceContainer text-light-onSurface dark:text-dark-onSurface hover:bg-light-primaryContainer dark:hover:bg-dark-primaryContainer hover:text-light-primary dark:hover:text-dark-primary text-sm font-medium transition-all duration-200 shadow-sm"
+            onClick={closeDrawerAction}>
+            <svg
+              className="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24">
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+              />
+            </svg>
+            Admin
+          </Link>
+        </div>
+
         {/* Footer - Fixed at bottom */}
-        <div className="flex-shrink-0 p-6 border-t border-light-outline dark:border-dark-outline text-center text-body-medium text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant">
-          <span className="mx-1">&copy;{new Date().getFullYear()}</span>
-          <span className="mx-1">{t("All rights reserved")}</span>
+        <div className="flex-shrink-0 px-6 pb-6 text-center text-body-small text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant">
+          <span>&copy; {new Date().getFullYear()}</span>
+          <span className="mx-1">•</span>
+          <span>{t("All rights reserved")}</span>
         </div>
       </div>
     </>
