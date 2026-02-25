@@ -4,58 +4,61 @@ import StatCard from "@/components/portfolio/StatCard";
 import { Award, Users, Code, Zap } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Skills - Yassine chahid",
+  title: "Skills - Yassine Chahid",
   description:
-    "Explore my technical skills and expertise in web and mobile development.",
+    "Explore my technical skills in React, Next.js, Laravel, MySQL, and modern web development technologies.",
 };
 
 export default function Skills() {
   const skillsByCategory = {
     Frontend: [
-      { name: "React/Next.js", level: 95 },
-      { name: "TypeScript", level: 90 },
+      { name: "JavaScript (ES6+)", level: 92 },
+      { name: "React", level: 90 },
+      { name: "Next.js", level: 88 },
       { name: "Tailwind CSS", level: 95 },
-      { name: "Framer Motion", level: 85 },
-      { name: "State Management", level: 88 },
+      { name: "Bootstrap", level: 90 },
     ],
     Backend: [
-      { name: "Node.js/Express", level: 85 },
-      { name: "GraphQL", level: 80 },
-      { name: "API Design", level: 88 },
-      { name: "Database Design", level: 82 },
-      { name: "Authentication/Security", level: 85 },
+      { name: "Laravel", level: 88 },
+      { name: "PHP", level: 85 },
+      { name: "MySQL", level: 90 },
+      { name: "Appwrite BaaS", level: 87 },
+      { name: "RESTful APIs", level: 90 },
     ],
     Tools: [
-      { name: "Git/GitHub", level: 95 },
-      { name: "Figma", level: 85 },
+      { name: "Git/GitHub", level: 92 },
+      { name: "VS Code", level: 95 },
+      { name: "Postman", level: 88 },
+      { name: "npm/Composer", level: 90 },
     ],
     Soft: [
       { name: "Communication", level: 90 },
       { name: "Problem Solving", level: 92 },
-      { name: "Project Management", level: 80 },
+      { name: "Team Collaboration", level: 88 },
+      { name: "English Language", level: 95 },
     ],
   };
 
   const stats = [
     {
-      label: "Projects Completed",
-      value: "50+",
+      label: "Projects Built",
+      value: "Many",
       icon: <Code className="w-8 h-8" />,
     },
     {
-      label: "Happy Clients",
-      value: "30+",
-      icon: <Users className="w-8 h-8" />,
+      label: "Technologies Mastered",
+      value: "8+",
+      icon: <Zap className="w-8 h-8" />,
     },
     {
       label: "Years Experience",
       value: "2+",
-      icon: <Zap className="w-8 h-8" />,
+      icon: <Award className="w-8 h-8" />,
     },
     {
-      label: "Awards & Recognition",
-      value: "10+",
-      icon: <Award className="w-8 h-8" />,
+      label: "Educational Degrees",
+      value: "2",
+      icon: <Users className="w-8 h-8" />,
     },
   ];
 
@@ -68,8 +71,9 @@ export default function Skills() {
             My Skills
           </h1>
           <p className="text-body-large text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant max-w-3xl">
-            A comprehensive overview of my technical expertise and proficiency
-            levels across different domains of software development.
+            A comprehensive overview of my technical expertise across modern web
+            development. I&apos;ve built many projects and applications using
+            these technologies, constantly improving and learning new skills.
           </p>
         </div>
       </section>
@@ -114,25 +118,25 @@ export default function Skills() {
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-light-surfaceContainerLow dark:bg-dark-surfaceContainerLow">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-headline-large font-bold text-light-onBackground dark:text-dark-onBackground mb-12 text-center">
-            Certifications & Learning
+            Education & Credentials
           </h2>
           <div className="grid md:grid-cols-2 gap-6">
             {[
               {
-                title: "Full Stack Development Bootcamp",
-                issuer: "Codecademy",
-                year: "2021",
+                title: "Full-Stack Development Digital",
+                issuer:
+                  "OFPPT (Office de la Formation Professionnelle et de la Promotion du Travail)",
+                year: "Diploma",
               },
               {
-                title: "React Advanced Patterns",
-                issuer: "Frontend Masters",
-                year: "2023",
+                title: "English Language Studies",
+                issuer: "University",
+                year: "License Degree",
               },
             ].map((cert, idx) => (
               <div
                 key={idx}
-                className="p-6 rounded-2xl border border-light-outline dark:border-dark-outline bg-light-background dark:bg-dark-background hover:border-light-primary dark:hover:border-dark-primary transition-colors"
-              >
+                className="p-6 rounded-2xl border border-light-outline dark:border-dark-outline bg-light-background dark:bg-dark-background hover:border-light-primary dark:hover:border-dark-primary transition-colors">
                 <h3 className="text-headline-small font-bold text-light-onBackground dark:text-dark-onBackground mb-2">
                   {cert.title}
                 </h3>

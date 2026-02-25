@@ -3,77 +3,77 @@ import { Code, Zap, Layout, Rocket, Shield, Smartphone } from "lucide-react";
 import ServiceCard from "@/components/portfolio/ServiceCard";
 
 export const metadata: Metadata = {
-  title: "About Me - Yassine chahid",
+  title: "About Me - Yassine Chahid",
   description:
-    "Learn about my background, expertise, and journey as a frontend developer.",
+    "Learn about my journey as a Full-Stack Developer specializing in React, Next.js, Laravel, and modern web technologies.",
 };
 
 export default function About() {
   const services = [
     {
-      title: "Web Development",
-      description: "Building responsive, high-performance web applications",
+      title: "Frontend Development",
+      description: "Building modern, responsive web interfaces",
       icon: <Code className="w-8 h-8" />,
       features: [
-        "React &amp; Next.js development",
-        "TypeScript for type safety",
-        "Performance optimization",
-        "SEO best practices",
+        "React & Next.js applications",
+        "JavaScript/ES6+ expertise",
+        "Tailwind CSS & Bootstrap",
+        "Responsive & mobile-first design",
       ],
     },
     {
-      title: "UI/UX Design",
-      description: "Creating beautiful and intuitive user interfaces",
-      icon: <Layout className="w-8 h-8" />,
-      features: [
-        "Figma &amp; design systems",
-        "Responsive design",
-        "Accessibility (WCAG)",
-        "Component libraries",
-      ],
-    },
-    {
-      title: "Frontend Architecture",
-      description: "Designing scalable and maintainable code structures",
-      icon: <Zap className="w-8 h-8" />,
-      features: [
-        "State management",
-        "Testing & CI/CD",
-        "Code optimization",
-        "Documentation",
-      ],
-    },
-    {
-      title: "Mobile Development",
-      description: "Creating native and cross-platform mobile experiences",
-      icon: <Smartphone className="w-8 h-8" />,
-      features: [
-        "React Native development",
-        "iOS & Android optimization",
-        "App store deployment",
-        "Native module integration",
-      ],
-    },
-    {
-      title: "Full-Stack Solutions",
-      description: "End-to-end development with backend integration",
+      title: "Backend Development",
+      description: "Creating robust server-side solutions",
       icon: <Rocket className="w-8 h-8" />,
       features: [
-        "Node.js & Express",
-        "API integration",
-        "Database design",
-        "Authentication & security",
+        "Laravel PHP framework",
+        "RESTful API development",
+        "MySQL database design",
+        "Appwrite BaaS integration",
       ],
     },
     {
-      title: "Security & DevOps",
-      description: "Ensuring secure and reliable deployments",
+      title: "Full-Stack Applications",
+      description: "End-to-end web application development",
+      icon: <Zap className="w-8 h-8" />,
+      features: [
+        "Complete project development",
+        "Frontend-backend integration",
+        "Authentication & authorization",
+        "Real-time features",
+      ],
+    },
+    {
+      title: "UI/UX Implementation",
+      description: "Translating designs into pixel-perfect code",
+      icon: <Layout className="w-8 h-8" />,
+      features: [
+        "Component-based architecture",
+        "Modern CSS frameworks",
+        "Responsive layouts",
+        "Cross-browser compatibility",
+      ],
+    },
+    {
+      title: "Database Management",
+      description: "Efficient data storage and retrieval",
       icon: <Shield className="w-8 h-8" />,
       features: [
-        "Security best practices",
-        "Cloud deployment",
-        "Performance monitoring",
-        "CI/CD pipelines",
+        "MySQL optimization",
+        "Database schema design",
+        "Query optimization",
+        "Data security",
+      ],
+    },
+    {
+      title: "Modern Development",
+      description: "Using cutting-edge tools and practices",
+      icon: <Smartphone className="w-8 h-8" />,
+      features: [
+        "Appwrite cloud services",
+        "Version control (Git)",
+        "API integration",
+        "Performance optimization",
       ],
     },
   ];
@@ -87,10 +87,12 @@ export default function About() {
             About Me
           </h1>
           <p className="text-body-large text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant max-w-3xl">
-            I&apos;m Yassine chahid, a Senior Frontend Developer with 2+ years
-            of experience crafting beautiful, performant web and mobile
-            applications. My passion is transforming complex requirements into
-            elegant, user-centric solutions.
+            I&apos;m Yassine Chahid, a Full-Stack Developer with 2+ years of
+            experience building modern web applications. I specialize in
+            creating responsive, scalable solutions using cutting-edge
+            technologies like React, Next.js, Laravel, and Appwrite. My passion
+            is transforming ideas into elegant, user-centric digital
+            experiences.
           </p>
         </div>
       </section>
@@ -104,22 +106,26 @@ export default function About() {
             </h2>
             <div className="space-y-4 text-body-large text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant">
               <p>
-                I started my career as a self-taught developer, driven by a
-                passion for creating beautiful digital experiences. Over the
-                years, I&apos;ve evolved from building simple websites to
-                architecting complex applications used by thousands of users.
+                I started my journey as a passionate developer, driven by
+                curiosity and the desire to build impactful applications. Over
+                the years, I&apos;ve built numerous projects and apps, mastering
+                both frontend and backend development to deliver complete
+                solutions.
               </p>
               <p>
-                My expertise spans modern frontend technologies including React,
-                Next.js, TypeScript, and Tailwind CSS. I&apos;m also comfortable
-                with mobile development using React Native and have solid
-                backend knowledge with Node.js.
+                My expertise includes JavaScript, React, and Next.js for
+                building dynamic user interfaces, combined with Laravel and
+                MySQL for robust backend systems. I&apos;m proficient in styling
+                frameworks like Tailwind CSS and Bootstrap, and I leverage
+                Appwrite BaaS for rapid development and scalable backend
+                services.
               </p>
               <p>
-                What sets me apart is my holistic approach to development—I
-                don&apos;t just write code, I think about users, performance,
-                accessibility, and long-term maintainability. Every project is
-                an opportunity to learn something new.
+                What drives me is creating solutions that make a difference.
+                Whether it&apos;s a full-stack web application, a responsive
+                dashboard, or a complex data-driven platform, I bring
+                dedication, attention to detail, and a commitment to code
+                quality to every project.
               </p>
             </div>
           </div>
@@ -166,23 +172,22 @@ export default function About() {
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
             {[
+              "JavaScript",
               "React",
               "Next.js",
-              "TypeScript",
+              "Laravel",
+              "PHP",
+              "MySQL",
               "Tailwind CSS",
-              "Node.js",
-              "Express",
-              "MongoDB",
-              "PostgreSQL",
-              "GraphQL",
-              "Firebase",
-              "AWS",
-              "Docker",
+              "Bootstrap",
+              "Appwrite",
+              "RESTful APIs",
+              "Git",
+              "Responsive Design",
             ].map((tech, idx) => (
               <div
                 key={idx}
-                className="p-4 rounded-xl border border-light-outline dark:border-dark-outline bg-light-background dark:bg-dark-background text-center text-body-medium font-medium text-light-onBackground dark:text-dark-onBackground hover:border-light-primary dark:hover:border-dark-primary transition-colors"
-              >
+                className="p-4 rounded-xl border border-light-outline dark:border-dark-outline bg-light-background dark:bg-dark-background text-center text-body-medium font-medium text-light-onBackground dark:text-dark-onBackground hover:border-light-primary dark:hover:border-dark-primary transition-colors">
                 {tech}
               </div>
             ))}
