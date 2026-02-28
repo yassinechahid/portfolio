@@ -40,10 +40,10 @@ const Navbar = () => {
   const changeLanguage = (lang: string) => i18n.changeLanguage(lang);
 
   const navLinks = [
-    { title: t("about", { defaultValue: "About" }), path: "/about" },
-    { title: t("projects", { defaultValue: "Projects" }), path: "/projects" },
-    { title: t("skills", { defaultValue: "Skills" }), path: "/skills" },
-    { title: t("blog", { defaultValue: "Blog" }), path: "/blog" },
+    { title: t("nav.about"), path: "/about" },
+    { title: t("nav.projects"), path: "/projects" },
+    { title: t("nav.skills"), path: "/skills" },
+    { title: t("nav.blog"), path: "/blog" },
   ];
 
   return (
@@ -70,10 +70,10 @@ const Navbar = () => {
             </div>
             <div className="hidden sm:block">
               <div className="text-lg font-bold text-light-onSurface dark:text-dark-onSurface">
-                Yassine Chahid
+                {t("nav.name")}
               </div>
               <div className="text-xs text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant">
-                Full-Stack Developer
+                {t("nav.role")}
               </div>
             </div>
           </Link>
@@ -87,7 +87,7 @@ const Navbar = () => {
                   ? "text-light-primary dark:text-dark-primary bg-light-primaryContainer/50 dark:bg-dark-primaryContainer/50"
                   : "text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant hover:text-light-primary dark:hover:text-dark-primary hover:bg-light-primaryContainer/30 dark:hover:bg-dark-primaryContainer/30"
               }`}>
-              Home
+              {t("nav.home")}
             </Link>
             {navLinks.map((link) => {
               const active = isActive(link.path);
@@ -113,14 +113,14 @@ const Navbar = () => {
             <Link
               href="/contact"
               className="hidden lg:inline-flex items-center gap-2 px-5 py-1.5 text-sm font-semibold bg-light-primary dark:bg-dark-primary text-light-onPrimary dark:text-dark-onPrimary rounded-full hover:shadow-lg hover:scale-105 transition-all duration-200">
-              {t("contact", { defaultValue: "Contact Me" })}
+              {t("nav.contact")}
             </Link>
 
             {/* Admin Button - Desktop */}
             <Link
               href="/admin/dashboard"
               className="hidden lg:inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant hover:text-light-primary dark:hover:text-dark-primary hover:bg-light-primaryContainer/30 dark:hover:bg-dark-primaryContainer/30 rounded-full transition-all duration-200">
-              Admin
+              {t("nav.admin")}
             </Link>
 
             {/* Theme Toggle */}
@@ -132,7 +132,7 @@ const Navbar = () => {
             {/* Mobile Menu Button */}
             <button
               onClick={openDrawer}
-              className="lg:hidden p-2.5 rounded-lg text-light-onSurface dark:text-dark-onSurface hover:bg-light-surfaceContainerLow dark:hover:bg-dark-surfaceContainerLow transition-colors"
+              className="lg:hidden p-2.5 rounded-xl text-light-onSurface dark:text-dark-onSurface hover:bg-light-surfaceContainerLow dark:hover:bg-dark-surfaceContainerLow transition-colors"
               aria-label="Open menu"
               aria-expanded={drawerOpen}>
               <Menu className="w-6 h-6" />

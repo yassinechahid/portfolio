@@ -8,6 +8,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Send } from "lucide-react";
 import Swal from "sweetalert2";
+import { useTranslation } from "react-i18next";
 import LabeledInput from "@/components/LabeledInput";
 import LabeledTextArea from "@/components/LabeledTextArea";
 import PhoneNumberInputField from "@/components/PhoneNumberInputField";
@@ -21,6 +22,7 @@ interface ContactFormData {
 }
 
 export default function ContactForm() {
+  const { t } = useTranslation();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const {
@@ -102,18 +104,21 @@ export default function ContactForm() {
 
     // Name validation
     if (!data.name.trim()) {
-      setError("name", { type: "required", message: "Name is required" });
+      setError("name", {
+        type: "required",
+        message: t("contact.form.validation.nameRequired"),
+      });
       isValid = false;
     } else if (data.name.trim().length < 2) {
       setError("name", {
         type: "minLength",
-        message: "Name must be at least 2 characters",
+        message: t("contact.form.validation.nameTooShort"),
       });
       isValid = false;
     } else if (data.name.trim().length > 100) {
       setError("name", {
         type: "maxLength",
-        message: "Name must not exceed 100 characters",
+        message: t("contact.form.validation.nameTooLong"),
       });
       isValid = false;
     }
@@ -121,10 +126,16 @@ export default function ContactForm() {
     // Email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!data.email.trim()) {
-      setError("email", { type: "required", message: "Email is required" });
+      setError("email", {
+        type: "required",
+        message: t("contact.form.validation.emailRequired"),
+      });
       isValid = false;
     } else if (!emailRegex.test(data.email.trim())) {
-      setError("email", { type: "pattern", message: "Invalid email format" });
+      setError("email", {
+        type: "pattern",
+        message: t("contact.form.validation.emailInvalid"),
+      });
       isValid = false;
     }
 
@@ -133,7 +144,7 @@ export default function ContactForm() {
       if (data.phone.trim().length < 8) {
         setError("phone", {
           type: "minLength",
-          message: "Phone number must be at least 8 digits",
+          message: t("contact.form.validation.phoneTooShort"),
         });
         isValid = false;
       }
@@ -141,36 +152,42 @@ export default function ContactForm() {
 
     // Subject validation
     if (!data.subject.trim()) {
-      setError("subject", { type: "required", message: "Subject is required" });
+      setError("subject", {
+        type: "required",
+        message: t("contact.form.validation.subjectRequired"),
+      });
       isValid = false;
     } else if (data.subject.trim().length < 3) {
       setError("subject", {
         type: "minLength",
-        message: "Subject must be at least 3 characters",
+        message: t("contact.form.validation.subjectTooShort"),
       });
       isValid = false;
     } else if (data.subject.trim().length > 200) {
       setError("subject", {
         type: "maxLength",
-        message: "Subject must not exceed 200 characters",
+        message: t("contact.form.validation.subjectTooLong"),
       });
       isValid = false;
     }
 
     // Message validation
     if (!data.message.trim()) {
-      setError("message", { type: "required", message: "Message is required" });
+      setError("message", {
+        type: "required",
+        message: t("contact.form.validation.messageRequired"),
+      });
       isValid = false;
     } else if (data.message.trim().length < 10) {
       setError("message", {
         type: "minLength",
-        message: "Message must be at least 10 characters",
+        message: t("contact.form.validation.messageTooShort"),
       });
       isValid = false;
     } else if (data.message.trim().length > 2000) {
       setError("message", {
         type: "maxLength",
-        message: "Message must not exceed 2000 characters",
+        message: t("contact.form.validation.messageTooLong"),
       });
       isValid = false;
     }
@@ -222,15 +239,15 @@ export default function ContactForm() {
       // Show success message
       Swal.fire({
         icon: "success",
-        title: "Message Sent!",
+        title: t("contact.form.successTitle"),
         html: `
           <div class="text-left">
             <p class="mb-2">✓ Message saved to database</p>
-            <p class="text-sm text-gray-600 mt-4">Thank you for reaching out. I'll get back to you soon!</p>
+            <p class="text-sm text-gray-600 mt-4">${t("contact.form.successMessage")}</p>
           </div>
         `,
         confirmButtonColor: "#6366f1",
-        confirmButtonText: "Great!",
+        confirmButtonText: t("contact.form.successConfirm"),
         timer: 5000,
         timerProgressBar: true,
       });
@@ -241,17 +258,17 @@ export default function ContactForm() {
       console.error("Form submission error:", error);
 
       // User-friendly error message
-      let errorMessage = "Failed to send message. Please try again.";
+      let errorMessage = t("contact.form.errorMessage");
 
       if (error?.code === 401) {
-        errorMessage = "Permission denied. Please try again later.";
+        errorMessage = t("contact.form.errorPermission");
       } else if (error?.code === 404) {
-        errorMessage = "Database connection issue. Please try again.";
+        errorMessage = t("contact.form.errorConnection");
       }
 
       Swal.fire({
         icon: "error",
-        title: "Error",
+        title: t("contact.form.errorTitle"),
         text: errorMessage,
         confirmButtonColor: "#6366f1",
       });
@@ -263,15 +280,15 @@ export default function ContactForm() {
   return (
     <div className="w-full max-w-2xl mx-auto">
       <div className="rounded-2xl bg-light-surfaceContainerHigh dark:bg-dark-surfaceContainerHigh border border-light-outlineVariant dark:border-dark-outlineVariant">
-        <div className="p-8">
+        <div className="p-3 ">
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
             {/* Header */}
             <div className="space-y-2 mb-8">
               <h2 className="text-headline-large font-bold text-light-onSurface dark:text-dark-onSurface">
-                Send Me a Message
+                {t("contact.form.heading")}
               </h2>
               <p className="text-body-medium text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant">
-                Fill out the form below and I&apos;ll get back to you soon.
+                {t("contact.form.subheading")}
               </p>
             </div>
 
@@ -279,7 +296,7 @@ export default function ContactForm() {
             <div className="grid grid-cols-1 gap-6">
               <div>
                 <LabeledInput
-                  label="Full Name *"
+                  label={t("contact.form.nameLabel")}
                   name="name"
                   type="text"
                   value={formValues.name}
@@ -297,7 +314,7 @@ export default function ContactForm() {
 
               <div>
                 <LabeledInput
-                  label="Email Address *"
+                  label={t("contact.form.emailLabel")}
                   name="email"
                   type="email"
                   value={formValues.email}
@@ -321,13 +338,13 @@ export default function ContactForm() {
                   value={formValues.phone || ""}
                   onChange={(value) => handlePhoneChange(value)}
                   error={errors.phone?.message}
-                  label="Phone Number (Optional)"
+                  label={t("contact.form.phoneLabel")}
                 />
               </div>
 
               <div>
                 <LabeledInput
-                  label="Subject *"
+                  label={t("contact.form.subjectLabel")}
                   name="subject"
                   type="text"
                   value={formValues.subject}
@@ -347,7 +364,7 @@ export default function ContactForm() {
             {/* Message - Full width */}
             <div>
               <LabeledTextArea
-                label="Message *"
+                label={t("contact.form.messageLabel")}
                 name="message"
                 value={formValues.message}
                 onChange={(e) => handleMessageChange(e.target.value)}
@@ -371,7 +388,9 @@ export default function ContactForm() {
                 <Send
                   className={`w-5 h-5 ${isSubmitting ? "animate-pulse" : ""}`}
                 />
-                {isSubmitting ? "Sending..." : "Send Message"}
+                {isSubmitting
+                  ? t("contact.form.sending")
+                  : t("contact.form.sendButton")}
               </button>
             </div>
           </form>

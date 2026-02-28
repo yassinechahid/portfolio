@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -9,40 +11,66 @@ import {
   Twitter,
 } from "lucide-react";
 import AnimatedText from "@/components/portfolio/AnimatedText";
+import { useTranslation } from "react-i18next";
 
 export default function Home() {
+  const { t } = useTranslation();
   const skills = [
-    { name: "Next.js/React", level: 95 },
-    { name: "TypeScript", level: 90 },
-    { name: "Tailwind CSS", level: 95 },
+    { name: t("home.skills.skillNames.nextjs"), level: 95 },
+    { name: t("home.skills.skillNames.typescript"), level: 90 },
+    { name: t("home.skills.skillNames.tailwind"), level: 95 },
   ];
 
   const projects = [
     {
-      title: "E-Commerce Platform",
-      description: "Full-stack e-commerce with real-time inventory",
-      tags: ["Next.js", "typeScript"],
+      title: t("home.projects.project1.title"),
+      description: t("home.projects.project1.description"),
+      tags: Object.values(
+        t("home.projects.project1.tags", {
+          returnObjects: true,
+        }) as Record<string, string>,
+      ),
       image: "/yassine/1.jpg",
     },
     {
-      title: "AI Content Generator",
-      description: "AI-powered content creation tool with GPT-4",
-      tags: ["OpenAI", "React", "Node.js"],
+      title: t("home.projects.project2.title"),
+      description: t("home.projects.project2.description"),
+      tags: Object.values(
+        t("home.projects.project2.tags", {
+          returnObjects: true,
+        }) as Record<string, string>,
+      ),
       image: "/yassine/2.webp",
     },
     {
-      title: "Health Monitoring App",
-      description: "Mobile app for health tracking and analytics",
-      tags: ["Next.js", "TypeScript"],
+      title: t("home.projects.project3.title"),
+      description: t("home.projects.project3.description"),
+      tags: Object.values(
+        t("home.projects.project3.tags", {
+          returnObjects: true,
+        }) as Record<string, string>,
+      ),
       image: "/yassine/3.jpg",
     },
   ];
 
   const stats = [
-    { label: "Projects Completed", value: "10+" },
-    { label: "Happy Clients", value: "10+" },
-    { label: "Years Experience", value: "2+" },
-    { label: "Open Source Repos", value: "15+" },
+    {
+      label: t("home.stats.projectsCompleted"),
+      value: t("home.stats.projectsValue"),
+    },
+    {
+      label: t("home.stats.happyClients"),
+      value: t("home.stats.clientsValue"),
+    },
+    {
+      label: t("home.stats.yearsExperience"),
+      value: t("home.stats.experienceValue"),
+    },
+    {
+      label: t("home.stats.openSourceRepos"),
+      value: t("home.stats.reposValue"),
+    },
   ];
 
   return (
@@ -56,15 +84,17 @@ export default function Home() {
               <div className="space-y-4">
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-light-primaryContainer dark:bg-dark-primaryContainer text-light-onPrimaryContainer dark:text-dark-onPrimaryContainer">
                   <Sparkles className="w-4 h-4" />
-                  <span className="text-label-medium">Frontend Developer</span>
+                  <span className="text-label-medium">
+                    {t("home.hero.badge")}
+                  </span>
                 </div>
 
                 <h1 className="text-display-small md:text-display-medium lg:text-display-large text-light-onBackground dark:text-dark-onBackground font-bold leading-tight">
                   <AnimatedText
                     phrases={[
-                      "Crafting Digital Experiences",
-                      "Building Beautiful Interfaces",
-                      "Creating Innovative Solutions",
+                      t("home.hero.animatedPhrases.phrase1"),
+                      t("home.hero.animatedPhrases.phrase2"),
+                      t("home.hero.animatedPhrases.phrase3"),
                     ]}
                     speed={80}
                     deleteSpeed={40}
@@ -74,9 +104,7 @@ export default function Home() {
                 </h1>
 
                 <p className="text-body-large text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant max-w-2xl">
-                  I transform complex problems into beautiful, intuitive
-                  solutions. With 2+ years of experience in modern web
-                  technologies, I create digital products that users love.
+                  {t("home.hero.intro")}
                 </p>
               </div>
 
@@ -85,14 +113,14 @@ export default function Home() {
                 <Link
                   href="/contact"
                   className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-light-primary dark:bg-dark-primary text-light-onPrimary dark:text-dark-onPrimary hover:shadow-xl active:scale-95 transition-all duration-300 text-label-large font-medium">
-                  Start a Project
+                  {t("home.hero.startProject")}
                   <ArrowRight className="w-5 h-5" />
                 </Link>
 
                 <Link
                   href="/projects"
                   className="inline-flex items-center gap-2 px-8 py-4 rounded-full border-2 border-light-outline dark:border-dark-outline text-light-primary dark:text-dark-primary hover:bg-light-primaryContainer/30 dark:hover:bg-dark-primaryContainer/30 hover:border-light-primary dark:hover:border-dark-primary active:scale-95 transition-all duration-300 text-label-large font-medium">
-                  View My Work
+                  {t("home.hero.viewWork")}
                 </Link>
               </div>
 
@@ -137,7 +165,7 @@ export default function Home() {
                 <div className="relative rounded-3xl overflow-visible border-2 border-light-outlineVariant dark:border-dark-outlineVariant shadow-2xl">
                   <Image
                     src="/assets/yassine.png"
-                    alt="Yassine chahid - Senior Frontend Developer"
+                    alt={t("home.hero.imageAlt")}
                     width={400}
                     height={400}
                     priority
@@ -148,10 +176,10 @@ export default function Home() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end p-4 sm:p-6 md:p-8 rounded-3xl">
                     <div className="text-white">
                       <h3 className="text-base sm:text-lg md:text-headline-small font-bold mb-1 sm:mb-2">
-                        Yassine chahid
+                        {t("home.hero.name")}
                       </h3>
                       <p className="text-xs sm:text-sm md:text-body-medium">
-                        Senior Frontend Developer
+                        {t("home.hero.title")}
                       </p>
                     </div>
                   </div>
@@ -163,7 +191,7 @@ export default function Home() {
                         2+
                       </div>
                       <p className="text-xs xs:text-label-small sm:text-label-small md:text-label-small text-light-onTertiaryContainer dark:text-dark-onTertiaryContainer">
-                        Years
+                        {t("home.hero.yearsLabel")}
                       </p>
                     </div>
                   </div>
@@ -182,10 +210,10 @@ export default function Home() {
       {/* Stats Section */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-light-surfaceContainerLowest dark:bg-dark-surfaceContainerLowest">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
-              <div key={index} className="text-center group">
-                <div className="p-6 rounded-2xl bg-light-surface dark:bg-dark-surface border border-light-outline/20 dark:border-dark-outline/20 group-hover:border-light-primary/50 dark:group-hover:border-dark-primary/50 transition-all duration-300 group-hover:shadow-lg">
+              <div key={index} className="text-center group h-full">
+                <div className="aspect-square p-6 rounded-2xl bg-light-surface dark:bg-dark-surface border border-light-outline/20 dark:border-dark-outline/20 group-hover:border-light-primary/50 dark:group-hover:border-dark-primary/50 transition-all duration-300 group-hover:shadow-lg flex flex-col items-center justify-center">
                   <div className="text-display-small text-light-primary dark:text-dark-primary font-bold">
                     {stat.value}
                   </div>
@@ -204,10 +232,10 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-headline-large text-light-onBackground dark:text-dark-onBackground font-bold mb-4">
-              Technical Expertise
+              {t("home.skills.heading")}
             </h2>
             <p className="text-body-large text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant max-w-3xl mx-auto">
-              Mastery in modern web technologies and frameworks
+              {t("home.skills.subheading")}
             </p>
           </div>
 
@@ -242,16 +270,16 @@ export default function Home() {
           <div className="flex justify-between items-end mb-12">
             <div>
               <h2 className="text-headline-large text-light-onBackground dark:text-dark-onBackground font-bold mb-4">
-                Featured Projects
+                {t("home.projects.heading")}
               </h2>
               <p className="text-body-large text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant">
-                Showcasing my best work
+                {t("home.projects.subheading")}
               </p>
             </div>
             <Link
               href="/projects"
               className="text-label-large text-light-primary dark:text-dark-primary hover:underline">
-              View all projects →
+              {t("home.projects.viewAll")}
             </Link>
           </div>
 
@@ -270,7 +298,8 @@ export default function Home() {
 
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
                     <span className="text-label-large text-white font-semibold flex items-center gap-2">
-                      View Case Study <ArrowRight className="w-4 h-4" />
+                      {t("home.projects.viewCaseStudy")}{" "}
+                      <ArrowRight className="w-4 h-4" />
                     </span>
                   </div>
                 </div>
@@ -308,31 +337,30 @@ export default function Home() {
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-light-primaryContainer/50 dark:bg-dark-primaryContainer/50 text-light-primary dark:text-dark-primary mb-6">
                 <Sparkles className="w-5 h-5" />
                 <span className="text-label-large font-semibold">
-                  Let&apos;s Work Together
+                  {t("home.cta.badge")}
                 </span>
               </div>
 
               <h2 className="text-headline-large text-light-onBackground dark:text-dark-onBackground font-bold mb-6">
-                Build Something Amazing Together
+                {t("home.cta.heading")}
               </h2>
 
               <p className="text-body-large text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant mb-8 max-w-2xl mx-auto leading-relaxed">
-                Have a project in mind? I&apos;d love to hear about it.
-                Let&apos;s connect and bring your ideas to life.
+                {t("home.cta.description")}
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
                   href="/contact"
                   className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-light-primary dark:bg-dark-primary text-light-onPrimary dark:text-dark-onPrimary hover:shadow-xl active:scale-95 transition-all duration-300 text-label-large font-semibold">
-                  Get In Touch
+                  {t("home.cta.getInTouch")}
                   <Mail className="w-5 h-5" />
                 </Link>
 
                 <Link
                   href="/about"
                   className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full border-2 border-light-outline dark:border-dark-outline text-light-primary dark:text-dark-primary hover:bg-light-primaryContainer/30 dark:hover:bg-dark-primaryContainer/30 hover:border-light-primary dark:hover:border-dark-primary active:scale-95 transition-all duration-300 text-label-large font-medium">
-                  Learn More About Me
+                  {t("home.cta.learnMore")}
                 </Link>
               </div>
             </div>

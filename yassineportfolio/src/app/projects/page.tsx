@@ -1,63 +1,42 @@
-import { Metadata } from "next";
-import ProjectCard from "@/components/portfolio/ProjectCard";
+"use client";
 
-export const metadata: Metadata = {
-  title: "Projects - Yassine chahid",
-  description:
-    "Explore my portfolio of web and mobile projects, showcasing my skills and expertise.",
-};
+import ProjectCard from "@/components/portfolio/ProjectCard";
+import { useTranslation } from "react-i18next";
 
 export default function Projects() {
-  const projects = [
+  const { t } = useTranslation();
+  const projectsData = [
     {
-      title: "E-Commerce Platform",
-      description:
-        "Full-stack e-commerce solution with real-time inventory management, payment processing, and admin dashboard.",
       tags: ["Next.js", "Stripe", "MongoDB", "Tailwind CSS", "Socket.io"],
       image: "/yassine/1.jpg",
       liveUrl: "https://ecommerce-demo.com",
       githubUrl: "https://github.com/yassine-chahid/ecommerce",
     },
     {
-      title: "AI Content Generator",
-      description:
-        "Intelligent content creation tool powered by OpenAI, featuring template system and batch processing.",
       tags: ["React", "OpenAI API", "Node.js", "PostgreSQL"],
       image: "/yassine/2.webp",
       liveUrl: "https://ai-content-gen.com",
       githubUrl: "https://github.com/yassine-chahid/ai-content",
     },
     {
-      title: "Analytics Dashboard",
-      description:
-        "Real-time analytics platform with interactive charts, data export, and custom report generation.",
       tags: ["React", "D3.js", "Node.js", "PostgreSQL"],
       image: "/yassine/3.jpg",
       liveUrl: "https://analytics-platform.io",
       githubUrl: "https://github.com/yassine-chahid/analytics",
     },
     {
-      title: "Mobile Fitness Tracker",
-      description:
-        "Cross-platform mobile app for tracking workouts, nutrition, and progress with social features.",
       tags: ["React Native", "Firebase", "Redux", "Expo"],
       image: "/yassine/4.jpg",
       liveUrl: "https://fitness-tracker.io",
       githubUrl: "https://github.com/yassine-chahid/fitness-app",
     },
     {
-      title: "Task Management System",
-      description:
-        "Collaborative task management platform with real-time updates, file sharing, and team collaboration.",
       tags: ["Next.js", "WebSocket", "PostgreSQL", "TypeScript"],
       image: "/yassine/5.webp",
       liveUrl: "https://taskhub.io",
       githubUrl: "https://github.com/yassine-chahid/task-manager",
     },
     {
-      title: "Social Media Dashboard",
-      description:
-        "Unified dashboard for managing multiple social media accounts with analytics and scheduling.",
       tags: ["React", "Node.js", "MongoDB", "Chart.js"],
       image: "/yassine/6.jpg",
       liveUrl: "https://social-dashboard.io",
@@ -65,18 +44,26 @@ export default function Projects() {
     },
   ];
 
+  const projectsItems = t("projects.items", {
+    returnObjects: true,
+  }) as Record<string, { title: string; description: string }>;
+
+  const projects = projectsData.map((data, idx) => ({
+    title: projectsItems[idx].title,
+    description: projectsItems[idx].description,
+    ...data,
+  }));
+
   return (
     <main className="min-h-screen bg-light-background dark:bg-dark-background">
       {/* Header */}
       <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto">
           <h1 className="text-display-large font-bold text-light-onBackground dark:text-dark-onBackground mb-6">
-            My Projects
+            {t("projects.title")}
           </h1>
           <p className="text-body-large text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant max-w-3xl">
-            Here&apos;s a selection of projects I&apos;ve worked on. Each one
-            represents a unique challenge and an opportunity to showcase my
-            skills in building scalable, user-friendly applications.
+            {t("projects.description")}
           </p>
         </div>
       </section>
@@ -84,7 +71,7 @@ export default function Projects() {
       {/* Projects Grid */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
-          <div className="grid lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 auto-rows-fr">
             {projects.map((project, idx) => (
               <ProjectCard
                 key={idx}
@@ -104,17 +91,15 @@ export default function Projects() {
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-light-primaryContainer dark:bg-dark-primaryContainer">
         <div className="max-w-5xl mx-auto text-center">
           <h2 className="text-headline-large font-bold text-light-onPrimaryContainer dark:text-dark-onPrimaryContainer mb-4">
-            Have a project in mind?
+            {t("projects.cta.heading")}
           </h2>
           <p className="text-body-large text-light-onPrimaryContainer/80 dark:text-dark-onPrimaryContainer/80 mb-8">
-            I&apos;m always interested in working on exciting projects.
-            Let&apos;s collaborate!
+            {t("projects.cta.description")}
           </p>
           <a
             href="/contact"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-light-primary dark:bg-dark-primary text-light-onPrimary dark:text-dark-onPrimary hover:opacity-90 transition-opacity text-label-large font-medium"
-          >
-            Start a Project
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-light-primary dark:bg-dark-primary text-light-onPrimary dark:text-dark-onPrimary hover:opacity-90 transition-opacity text-label-large font-medium">
+            {t("projects.cta.button")}
           </a>
         </div>
       </section>

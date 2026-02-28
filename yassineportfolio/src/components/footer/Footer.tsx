@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { useTranslation } from "react-i18next";
 import Link from "next/link";
@@ -39,9 +41,9 @@ export default function Footer() {
   ];
 
   const legalLinks = [
-    { label: "Privacy", href: "/privacy" },
-    { label: "Terms", href: "/terms" },
-    { label: "Cookies", href: "/cookies" },
+    { label: t("footer.privacy"), href: "/privacy" },
+    { label: t("footer.terms"), href: "/terms" },
+    { label: t("footer.cookies"), href: "/cookies" },
   ];
 
   return (
@@ -63,10 +65,7 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-base text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant leading-relaxed max-w-md">
-              {t(
-                "footerDescription",
-                "Full-stack developer passionate about creating elegant solutions and beautiful user experiences.",
-              )}
+              {t("footer.description")}
             </p>
 
             {/* Social Links */}
@@ -91,16 +90,16 @@ export default function Footer() {
           {/* Quick Navigation */}
           <div className="space-y-6">
             <h3 className="text-xl font-bold text-light-onSurface dark:text-dark-onSurface">
-              {t("navigation", "Navigation")}
+              {t("footer.navigation")}
             </h3>
             <nav>
               <ul className="space-y-3">
                 {[
-                  { label: t("home", "Home"), href: "/" },
-                  { label: t("about", "About"), href: "/about" },
-                  { label: t("projects", "Projects"), href: "/projects" },
-                  { label: t("skills", "Skills"), href: "/skills" },
-                  { label: t("contact", "Contact"), href: "/contact" },
+                  { label: t("nav.home"), href: "/" },
+                  { label: t("nav.about"), href: "/about" },
+                  { label: t("nav.projects"), href: "/projects" },
+                  { label: t("nav.skills"), href: "/skills" },
+                  { label: t("nav.contact"), href: "/contact" },
                 ].map((link) => (
                   <li key={link.href}>
                     <Link
@@ -118,12 +117,12 @@ export default function Footer() {
           {/* Contact & Status */}
           <div className="space-y-6">
             <h3 className="text-xl font-bold text-light-onSurface dark:text-dark-onSurface">
-              {t("getInTouch", "Get In Touch")}
+              {t("footer.getInTouch")}
             </h3>
             <div className="space-y-4">
               <div>
                 <p className="text-sm font-semibold text-light-primary dark:text-dark-primary mb-2">
-                  {t("email", "Email")}
+                  {t("footer.email")}
                 </p>
                 <a
                   href="mailto:chahidyassine14@gmail.com"
@@ -134,10 +133,10 @@ export default function Footer() {
 
               <div>
                 <p className="text-sm font-semibold text-light-primary dark:text-dark-primary mb-2">
-                  {t("location", "Location")}
+                  {t("footer.location")}
                 </p>
                 <p className="text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant">
-                  {t("locationValue", "Morocco")}
+                  {t("footer.locationValue")}
                 </p>
               </div>
 
@@ -145,7 +144,7 @@ export default function Footer() {
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-500/10 border border-green-500/20">
                   <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
                   <span className="text-sm font-medium text-green-600 dark:text-green-400">
-                    {t("available", "Available for work")}
+                    {t("footer.available")}
                   </span>
                 </div>
               </div>
@@ -165,12 +164,12 @@ export default function Footer() {
               <span className="font-semibold text-light-onSurface dark:text-dark-onSurface">
                 Yassine Chahid
               </span>
-              . {t("allRightsReserved", "All rights reserved.")}
+              . {t("footer.allRightsReserved")}
             </p>
             <p className="text-sm text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant inline-flex items-center gap-1.5">
-              {t("madeWith", "Made with")}{" "}
+              {t("footer.madeWith")}{" "}
               <Heart className="w-4 h-4 text-red-500 fill-red-500 animate-pulse" />{" "}
-              {t("usingTech", "using Next.js & Tailwind CSS")}
+              {t("footer.usingTech")}
             </p>
           </div>
 
@@ -197,7 +196,7 @@ export default function Footer() {
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             className="group flex items-center gap-2 px-5 py-2.5 rounded-full bg-light-primaryContainer dark:bg-dark-primaryContainer text-light-onPrimaryContainer dark:text-dark-onPrimaryContainer hover:bg-light-primary dark:hover:bg-dark-primary hover:text-light-onPrimary dark:hover:text-dark-onPrimary transition-all duration-300 hover:scale-105 active:scale-95 shadow-sm hover:shadow-md"
             aria-label="Back to top">
-            <span className="text-sm font-medium">{t("backToTop", "Top")}</span>
+            <span className="text-sm font-medium">{t("footer.backToTop")}</span>
             <ArrowUp className="w-4 h-4 group-hover:-translate-y-1 transition-transform duration-300" />
           </button>
         </div>

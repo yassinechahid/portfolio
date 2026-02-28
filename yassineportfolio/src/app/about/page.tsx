@@ -1,80 +1,71 @@
-import { Metadata } from "next";
+"use client";
+
 import { Code, Zap, Layout, Rocket, Shield, Smartphone } from "lucide-react";
 import ServiceCard from "@/components/portfolio/ServiceCard";
-
-export const metadata: Metadata = {
-  title: "About Me - Yassine Chahid",
-  description:
-    "Learn about my journey as a Full-Stack Developer specializing in React, Next.js, Laravel, and modern web technologies.",
-};
+import { useTranslation } from "react-i18next";
 
 export default function About() {
+  const { t } = useTranslation();
   const services = [
     {
-      title: "Frontend Development",
-      description: "Building modern, responsive web interfaces",
+      title: t("about.services.service1.title"),
+      description: t("about.services.service1.description"),
       icon: <Code className="w-8 h-8" />,
-      features: [
-        "React & Next.js applications",
-        "JavaScript/ES6+ expertise",
-        "Tailwind CSS & Bootstrap",
-        "Responsive & mobile-first design",
-      ],
+      features: Object.values(
+        t("about.services.service1.features", {
+          returnObjects: true,
+        }) as Record<string, string>,
+      ),
     },
     {
-      title: "Backend Development",
-      description: "Creating robust server-side solutions",
+      title: t("about.services.service2.title"),
+      description: t("about.services.service2.description"),
       icon: <Rocket className="w-8 h-8" />,
-      features: [
-        "Laravel PHP framework",
-        "RESTful API development",
-        "MySQL database design",
-        "Appwrite BaaS integration",
-      ],
+      features: Object.values(
+        t("about.services.service2.features", {
+          returnObjects: true,
+        }) as Record<string, string>,
+      ),
     },
     {
-      title: "Full-Stack Applications",
-      description: "End-to-end web application development",
+      title: t("about.services.service3.title"),
+      description: t("about.services.service3.description"),
       icon: <Zap className="w-8 h-8" />,
-      features: [
-        "Complete project development",
-        "Frontend-backend integration",
-        "Authentication & authorization",
-        "Real-time features",
-      ],
+      features: Object.values(
+        t("about.services.service3.features", {
+          returnObjects: true,
+        }) as Record<string, string>,
+      ),
     },
     {
-      title: "UI/UX Implementation",
-      description: "Translating designs into pixel-perfect code",
+      title: t("about.services.service4.title"),
+      description: t("about.services.service4.description"),
       icon: <Layout className="w-8 h-8" />,
-      features: [
-        "Component-based architecture",
-        "Modern CSS frameworks",
-        "Responsive layouts",
-        "Cross-browser compatibility",
-      ],
+      features: Object.values(
+        t("about.services.service4.features", {
+          returnObjects: true,
+        }) as Record<string, string>,
+      ),
     },
     {
-      title: "Database Management",
-      description: "Efficient data storage and retrieval",
+      title: t("about.services.service5.title"),
+      description: t("about.services.service5.description"),
       icon: <Shield className="w-8 h-8" />,
-      features: [
-        "MySQL optimization",
-        "Database schema design",
-        "Query optimization",
-        "Data security",
-      ],
+      features: Object.values(
+        t("about.services.service5.features", {
+          returnObjects: true,
+        }) as Record<string, string>,
+      ),
     },
     {
-      title: "Modern Development",
-      description: "Using cutting-edge tools and practices",
+      title: t("about.services.service6.title"),
+      description: t("about.services.service6.description"),
       icon: <Smartphone className="w-8 h-8" />,
-      features: [
-        "Appwrite cloud services",
-        "Version control (Git)",
-        "API integration",
-        "Performance optimization",
-      ],
+      features: Object.values(
+        t("about.services.service6.features", {
+          returnObjects: true,
+        }) as Record<string, string>,
+      ),
     },
   ];
 
@@ -84,15 +75,10 @@ export default function About() {
       <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto">
           <h1 className="text-display-large font-bold text-light-onBackground dark:text-dark-onBackground mb-6">
-            About Me
+            {t("about.header.title")}
           </h1>
           <p className="text-body-large text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant max-w-3xl">
-            I&apos;m Yassine Chahid, a Full-Stack Developer with 2+ years of
-            experience building modern web applications. I specialize in
-            creating responsive, scalable solutions using cutting-edge
-            technologies like React, Next.js, Laravel, and Appwrite. My passion
-            is transforming ideas into elegant, user-centric digital
-            experiences.
+            {t("about.header.intro")}
           </p>
         </div>
       </section>
@@ -102,41 +88,22 @@ export default function About() {
         <div className="max-w-5xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
           <div>
             <h2 className="text-headline-large font-bold text-light-onBackground dark:text-dark-onBackground mb-6">
-              My Journey
+              {t("about.journey.heading")}
             </h2>
             <div className="space-y-4 text-body-large text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant">
-              <p>
-                I started my journey as a passionate developer, driven by
-                curiosity and the desire to build impactful applications. Over
-                the years, I&apos;ve built numerous projects and apps, mastering
-                both frontend and backend development to deliver complete
-                solutions.
-              </p>
-              <p>
-                My expertise includes JavaScript, React, and Next.js for
-                building dynamic user interfaces, combined with Laravel and
-                MySQL for robust backend systems. I&apos;m proficient in styling
-                frameworks like Tailwind CSS and Bootstrap, and I leverage
-                Appwrite BaaS for rapid development and scalable backend
-                services.
-              </p>
-              <p>
-                What drives me is creating solutions that make a difference.
-                Whether it&apos;s a full-stack web application, a responsive
-                dashboard, or a complex data-driven platform, I bring
-                dedication, attention to detail, and a commitment to code
-                quality to every project.
-              </p>
+              <p>{t("about.journey.paragraph1")}</p>
+              <p>{t("about.journey.paragraph2")}</p>
+              <p>{t("about.journey.paragraph3")}</p>
             </div>
           </div>
-          <div className="relative">
-            <div className="aspect-square rounded-3xl bg-gradient-to-br from-light-primaryContainer to-light-secondaryContainer dark:from-dark-primaryContainer dark:to-dark-secondaryContainer p-8 flex items-center justify-center">
+          <div className="relative max-w-[400px] mx-auto lg:mx-0">
+            <div className="aspect-square rounded-3xl bg-gradient-to-br from-light-primaryContainer to-light-secondaryContainer dark:from-dark-primaryContainer dark:to-dark-secondaryContainer p-6 flex items-center justify-center shadow-lg">
               <div className="text-center">
-                <div className="text-6xl font-bold text-light-primary dark:text-dark-primary mb-4">
-                  2+
+                <div className="text-display-large font-bold text-light-primary dark:text-dark-primary mb-2">
+                  {t("about.journey.experienceYears")}
                 </div>
-                <p className="text-body-large text-light-onBackground dark:text-dark-onBackground">
-                  Years of Experience
+                <p className="text-body-medium text-light-onBackground dark:text-dark-onBackground">
+                  {t("about.journey.experienceLabel")}
                 </p>
               </div>
             </div>
@@ -148,7 +115,7 @@ export default function About() {
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-headline-large font-bold text-light-onBackground dark:text-dark-onBackground mb-12 text-center">
-            Services & Expertise
+            {t("about.services.heading")}
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((service, idx) => (
@@ -168,23 +135,14 @@ export default function About() {
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-light-surfaceContainerLow dark:bg-dark-surfaceContainerLow">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-headline-large font-bold text-light-onBackground dark:text-dark-onBackground mb-12 text-center">
-            Tech Stack
+            {t("about.techStack.heading")}
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-            {[
-              "JavaScript",
-              "React",
-              "Next.js",
-              "Laravel",
-              "PHP",
-              "MySQL",
-              "Tailwind CSS",
-              "Bootstrap",
-              "Appwrite",
-              "RESTful APIs",
-              "Git",
-              "Responsive Design",
-            ].map((tech, idx) => (
+            {Object.values(
+              t("about.techStack.technologies", {
+                returnObjects: true,
+              }) as Record<string, string>,
+            ).map((tech, idx) => (
               <div
                 key={idx}
                 className="p-4 rounded-xl border border-light-outline dark:border-dark-outline bg-light-background dark:bg-dark-background text-center text-body-medium font-medium text-light-onBackground dark:text-dark-onBackground hover:border-light-primary dark:hover:border-dark-primary transition-colors">

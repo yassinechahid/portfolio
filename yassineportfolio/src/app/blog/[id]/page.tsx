@@ -1,40 +1,17 @@
-import { Metadata } from "next";
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useParams } from "next/navigation";
 import { Calendar, Clock, ArrowLeft, Tag } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import { blogPosts } from "@/data/blogPosts";
 import { notFound } from "next/navigation";
 
-interface PageProps {
-  params: Promise<{ id: string }>;
-}
-
-export async function generateStaticParams() {
-  return blogPosts.map((post) => ({
-    id: post.id.toString(),
-  }));
-}
-
-export async function generateMetadata({
-  params,
-}: PageProps): Promise<Metadata> {
-  const { id } = await params;
-  const post = blogPosts.find((p) => p.id === parseInt(id));
-
-  if (!post) {
-    return {
-      title: "Post Not Found",
-    };
-  }
-
-  return {
-    title: `${post.title} - Yassine Chahid`,
-    description: post.excerpt,
-  };
-}
-
-export default async function BlogPost({ params }: PageProps) {
-  const { id } = await params;
+export default function BlogPost() {
+  const { t } = useTranslation();
+  const params = useParams();
+  const id = params.id as string;
   const post = blogPosts.find((p) => p.id === parseInt(id));
 
   if (!post) {
@@ -51,36 +28,36 @@ export default async function BlogPost({ params }: PageProps) {
             href="/blog"
             className="inline-flex items-center gap-2 text-body-medium text-light-primary dark:text-dark-primary hover:opacity-80 transition-opacity mb-8">
             <ArrowLeft className="w-5 h-5" />
-            Back to Blog
+            {t("blog.backToBlog")}
           </Link>
 
           {/* Category Badge */}
           <div className="flex items-center gap-3 mb-6">
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-light-primaryContainer dark:bg-dark-primaryContainer text-light-onPrimaryContainer dark:text-dark-onPrimaryContainer text-label-medium font-medium">
               <Tag className="w-4 h-4" />
-              {post.category}
+              {t(post.category)}
             </span>
             {post.featured && (
               <span className="px-4 py-2 rounded-full bg-light-tertiaryContainer dark:bg-dark-tertiaryContainer text-light-onTertiaryContainer dark:text-dark-onTertiaryContainer text-label-medium font-medium">
-                Featured
+                {t("blog.featured")}
               </span>
             )}
           </div>
 
           {/* Title */}
           <h1 className="text-display-medium md:text-display-large font-bold text-light-onBackground dark:text-dark-onBackground mb-6">
-            {post.title}
+            {t(post.title)}
           </h1>
 
           {/* Meta Info */}
           <div className="flex items-center gap-6 text-body-medium text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant mb-8">
             <div className="flex items-center gap-2">
               <Calendar className="w-5 h-5" />
-              {post.date}
+              {t(post.date)}
             </div>
             <div className="flex items-center gap-2">
               <Clock className="w-5 h-5" />
-              {post.readTime}
+              {t(post.readTime)}
             </div>
           </div>
 
@@ -88,7 +65,7 @@ export default async function BlogPost({ params }: PageProps) {
           <div className="relative w-full h-96 rounded-3xl overflow-hidden border-2 border-light-outlineVariant dark:border-dark-outlineVariant mb-12">
             <Image
               src={post.image}
-              alt={post.title}
+              alt={t(post.title)}
               fill
               className="object-cover"
               priority
@@ -103,13 +80,13 @@ export default async function BlogPost({ params }: PageProps) {
           <div className="bg-light-surfaceContainerLow dark:bg-dark-surfaceContainerLow rounded-3xl p-8 md:p-12 border border-light-outlineVariant dark:border-dark-outlineVariant">
             {/* Excerpt */}
             <p className="text-title-large text-light-onSurface dark:text-dark-onSurface mb-8 leading-relaxed">
-              {post.excerpt}
+              {t(post.excerpt)}
             </p>
 
             {/* Content */}
             <div className="prose prose-lg dark:prose-invert max-w-none">
               <div className="whitespace-pre-line text-body-large text-light-onSurface dark:text-dark-onSurface leading-relaxed">
-                {post.content}
+                {t(post.content)}
               </div>
             </div>
 
@@ -120,13 +97,13 @@ export default async function BlogPost({ params }: PageProps) {
                   href="/blog"
                   className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-light-primary dark:bg-dark-primary text-light-onPrimary dark:text-dark-onPrimary hover:opacity-90 transition-opacity text-label-large font-medium">
                   <ArrowLeft className="w-5 h-5" />
-                  All Articles
+                  {t("blog.allArticles")}
                 </Link>
 
                 <Link
                   href="/contact"
                   className="inline-flex items-center gap-2 px-6 py-3 rounded-full border-2 border-light-outline dark:border-dark-outline text-light-onSurface dark:text-dark-onSurface hover:bg-light-surfaceContainerLow dark:hover:bg-dark-surfaceContainerLow transition-colors text-label-large font-medium">
-                  Get in Touch
+                  {t("blog.getInTouch")}
                 </Link>
               </div>
             </div>
@@ -138,7 +115,7 @@ export default async function BlogPost({ params }: PageProps) {
       <section className="pb-20 px-4 sm:px-6 lg:px-8 bg-light-surfaceContainerLow dark:bg-dark-surfaceContainerLow">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-headline-large font-bold text-light-onBackground dark:text-dark-onBackground mb-12 text-center">
-            More Articles
+            {t("blog.moreArticles")}
           </h2>
           <div className="grid md:grid-cols-3 gap-6">
             {blogPosts

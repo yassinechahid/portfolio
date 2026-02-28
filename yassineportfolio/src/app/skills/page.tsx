@@ -1,62 +1,59 @@
-import { Metadata } from "next";
+"use client";
+
 import SkillBar from "@/components/portfolio/SkillBar";
 import StatCard from "@/components/portfolio/StatCard";
 import { Award, Users, Code, Zap } from "lucide-react";
-
-export const metadata: Metadata = {
-  title: "Skills - Yassine Chahid",
-  description:
-    "Explore my technical skills in React, Next.js, Laravel, MySQL, and modern web development technologies.",
-};
+import { useTranslation } from "react-i18next";
 
 export default function Skills() {
+  const { t } = useTranslation();
   const skillsByCategory = {
-    Frontend: [
-      { name: "JavaScript (ES6+)", level: 92 },
-      { name: "React", level: 90 },
-      { name: "Next.js", level: 88 },
-      { name: "Tailwind CSS", level: 95 },
-      { name: "Bootstrap", level: 90 },
+    [t("skills.categories.frontend")]: [
+      { name: t("skills.skillNames.javascript"), level: 92 },
+      { name: t("skills.skillNames.react"), level: 90 },
+      { name: t("skills.skillNames.nextjs"), level: 88 },
+      { name: t("skills.skillNames.tailwind"), level: 95 },
+      { name: t("skills.skillNames.bootstrap"), level: 90 },
     ],
-    Backend: [
-      { name: "Laravel", level: 88 },
-      { name: "PHP", level: 85 },
-      { name: "MySQL", level: 90 },
-      { name: "Appwrite BaaS", level: 87 },
-      { name: "RESTful APIs", level: 90 },
+    [t("skills.categories.backend")]: [
+      { name: t("skills.skillNames.laravel"), level: 88 },
+      { name: t("skills.skillNames.php"), level: 85 },
+      { name: t("skills.skillNames.mysql"), level: 90 },
+      { name: t("skills.skillNames.appwrite"), level: 87 },
+      { name: t("skills.skillNames.restfulApis"), level: 90 },
     ],
-    Tools: [
-      { name: "Git/GitHub", level: 92 },
-      { name: "VS Code", level: 95 },
-      { name: "Postman", level: 88 },
-      { name: "npm/Composer", level: 90 },
+    [t("skills.categories.tools")]: [
+      { name: t("skills.skillNames.git"), level: 92 },
+      { name: t("skills.skillNames.vscode"), level: 95 },
+      { name: t("skills.skillNames.postman"), level: 88 },
+      { name: t("skills.skillNames.npm"), level: 90 },
     ],
-    Soft: [
-      { name: "Communication", level: 90 },
-      { name: "Problem Solving", level: 92 },
-      { name: "Team Collaboration", level: 88 },
-      { name: "English Language", level: 95 },
+    [t("skills.categories.soft")]: [
+      { name: t("skills.skillNames.communication"), level: 90 },
+      { name: t("skills.skillNames.problemSolving"), level: 92 },
+      { name: t("skills.skillNames.teamCollaboration"), level: 88 },
+      { name: t("skills.skillNames.englishLanguage"), level: 95 },
     ],
   };
 
   const stats = [
     {
-      label: "Projects Built",
-      value: "Many",
+      label: t("skills.stats.projectsBuilt"),
+      value: t("skills.stats.projectsBuiltValue"),
       icon: <Code className="w-8 h-8" />,
     },
     {
-      label: "Technologies Mastered",
+      label: t("skills.stats.technologiesMastered"),
       value: "8+",
       icon: <Zap className="w-8 h-8" />,
     },
     {
-      label: "Years Experience",
+      label: t("skills.stats.yearsExperience"),
       value: "2+",
       icon: <Award className="w-8 h-8" />,
     },
     {
-      label: "Educational Degrees",
+      label: t("skills.stats.educationalDegrees"),
       value: "2",
       icon: <Users className="w-8 h-8" />,
     },
@@ -68,12 +65,10 @@ export default function Skills() {
       <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto">
           <h1 className="text-display-large font-bold text-light-onBackground dark:text-dark-onBackground mb-6">
-            My Skills
+            {t("skills.title")}
           </h1>
           <p className="text-body-large text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant max-w-3xl">
-            A comprehensive overview of my technical expertise across modern web
-            development. I&apos;ve built many projects and applications using
-            these technologies, constantly improving and learning new skills.
+            {t("skills.description")}
           </p>
         </div>
       </section>
@@ -118,22 +113,17 @@ export default function Skills() {
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-light-surfaceContainerLow dark:bg-dark-surfaceContainerLow">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-headline-large font-bold text-light-onBackground dark:text-dark-onBackground mb-12 text-center">
-            Education & Credentials
+            {t("skills.education.title")}
           </h2>
           <div className="grid md:grid-cols-2 gap-6">
-            {[
-              {
-                title: "Full-Stack Development Digital",
-                issuer:
-                  "OFPPT (Office de la Formation Professionnelle et de la Promotion du Travail)",
-                year: "Diploma",
-              },
-              {
-                title: "English Language Studies",
-                issuer: "University",
-                year: "License Degree",
-              },
-            ].map((cert, idx) => (
+            {Object.values(
+              t("skills.education.items", {
+                returnObjects: true,
+              }) as Record<
+                string,
+                { title: string; issuer: string; year: string }
+              >,
+            ).map((cert, idx) => (
               <div
                 key={idx}
                 className="p-6 rounded-2xl border border-light-outline dark:border-dark-outline bg-light-background dark:bg-dark-background hover:border-light-primary dark:hover:border-dark-primary transition-colors">

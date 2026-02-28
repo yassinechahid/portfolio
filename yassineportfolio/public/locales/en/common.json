@@ -6,14 +6,502 @@
     "es": "Spanish",
     "am": "Tamazight"
   },
+  "nav": {
+    "name": "Yassine Chahid",
+    "role": "Full-Stack Developer",
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "skills": "Skills",
+    "blog": "Blog",
+    "contact": "Contact Me",
+    "admin": "Admin"
+  },
   "drawerNav": {
     "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "skills": "Skills",
+    "blog": "Blog",
+    "contact": "Contact",
+    "admin": "Admin",
+    "allRightsReserved": "All rights reserved",
     "discoverPlatform": "Discover platform",
     "userSpace": "User space",
     "mtAcademy": "MT Academy",
     "community": "Community & Partnerships",
     "media": "Media & Resources",
-    "contact": "Contact & assistance",
     "closeMenu": "close menu"
+  },
+  "home": {
+    "hero": {
+      "badge": "Frontend Developer",
+      "animatedPhrases": {
+        "phrase1": "Crafting Digital Experiences",
+        "phrase2": "Building Beautiful Interfaces",
+        "phrase3": "Creating Innovative Solutions"
+      },
+      "intro": "I transform complex problems into beautiful, intuitive solutions. With 2+ years of experience in modern web technologies, I create digital products that users love.",
+      "startProject": "Start a Project",
+      "viewWork": "View My Work",
+      "imageAlt": "Yassine chahid - Senior Frontend Developer",
+      "name": "Yassine chahid",
+      "title": "Senior Frontend Developer",
+      "yearsLabel": "Years"
+    },
+    "stats": {
+      "projectsCompleted": "Projects Completed",
+      "happyClients": "Happy Clients",
+      "yearsExperience": "Years Experience",
+      "openSourceRepos": "Open Source Repos",
+      "projectsValue": "10+",
+      "clientsValue": "10+",
+      "experienceValue": "2+",
+      "reposValue": "15+"
+    },
+    "skills": {
+      "heading": "Technical Expertise",
+      "subheading": "Mastery in modern web technologies and frameworks",
+      "skillNames": {
+        "nextjs": "Next.js/React",
+        "typescript": "TypeScript",
+        "tailwind": "Tailwind CSS"
+      }
+    },
+    "projects": {
+      "heading": "Featured Projects",
+      "subheading": "Showcasing my best work",
+      "viewAll": "View all projects →",
+      "viewCaseStudy": "View Case Study",
+      "project1": {
+        "title": "E-Commerce Platform",
+        "description": "Full-stack e-commerce with real-time inventory",
+        "tags": {
+          "0": "Next.js",
+          "1": "TypeScript"
+        }
+      },
+      "project2": {
+        "title": "AI Content Generator",
+        "description": "AI-powered content creation tool with GPT-4",
+        "tags": {
+          "0": "OpenAI",
+          "1": "React",
+          "2": "Node.js"
+        }
+      },
+      "project3": {
+        "title": "Health Monitoring App",
+        "description": "Mobile app for health tracking and analytics",
+        "tags": {
+          "0": "Next.js",
+          "1": "TypeScript"
+        }
+      }
+    },
+    "cta": {
+      "badge": "Let's Work Together",
+      "heading": "Build Something Amazing Together",
+      "description": "Have a project in mind? I'd love to hear about it. Let's connect and bring your ideas to life.",
+      "getInTouch": "Get In Touch",
+      "learnMore": "Learn More About Me"
+    }
+  },
+  "about": {
+    "header": {
+      "title": "About Me",
+      "intro": "I'm Yassine Chahid, a Full-Stack Developer with 2+ years of experience building modern web applications. I specialize in creating responsive, scalable solutions using cutting-edge technologies like React, Next.js, Laravel, and Appwrite. My passion is transforming ideas into elegant, user-centric digital experiences."
+    },
+    "journey": {
+      "heading": "My Journey",
+      "paragraph1": "I started my journey as a passionate developer, driven by curiosity and the desire to build impactful applications. Over the years, I've built numerous projects and apps, mastering both frontend and backend development to deliver complete solutions.",
+      "paragraph2": "My expertise includes JavaScript, React, and Next.js for building dynamic user interfaces, combined with Laravel and MySQL for robust backend systems. I'm proficient in styling frameworks like Tailwind CSS and Bootstrap, and I leverage Appwrite BaaS for rapid development and scalable backend services.",
+      "paragraph3": "What drives me is creating solutions that make a difference. Whether it's a full-stack web application, a responsive dashboard, or a complex data-driven platform, I bring dedication, attention to detail, and a commitment to code quality to every project.",
+      "experienceYears": "2+",
+      "experienceLabel": "Years of Experience"
+    },
+    "services": {
+      "heading": "Services & Expertise",
+      "service1": {
+        "title": "Frontend Development",
+        "description": "Building modern, responsive web interfaces",
+        "features": {
+          "0": "React & Next.js applications",
+          "1": "JavaScript/ES6+ expertise",
+          "2": "Tailwind CSS & Bootstrap",
+          "3": "Responsive & mobile-first design"
+        }
+      },
+      "service2": {
+        "title": "Backend Development",
+        "description": "Creating robust server-side solutions",
+        "features": {
+          "0": "Laravel PHP framework",
+          "1": "RESTful API development",
+          "2": "MySQL database design",
+          "3": "Appwrite BaaS integration"
+        }
+      },
+      "service3": {
+        "title": "Full-Stack Applications",
+        "description": "End-to-end web application development",
+        "features": {
+          "0": "Complete project development",
+          "1": "Frontend-backend integration",
+          "2": "Authentication & authorization",
+          "3": "Real-time features"
+        }
+      },
+      "service4": {
+        "title": "UI/UX Implementation",
+        "description": "Translating designs into pixel-perfect code",
+        "features": {
+          "0": "Component-based architecture",
+          "1": "Modern CSS frameworks",
+          "2": "Responsive layouts",
+          "3": "Cross-browser compatibility"
+        }
+      },
+      "service5": {
+        "title": "Database Management",
+        "description": "Efficient data storage and retrieval",
+        "features": {
+          "0": "MySQL optimization",
+          "1": "Database schema design",
+          "2": "Query optimization",
+          "3": "Data security"
+        }
+      },
+      "service6": {
+        "title": "Modern Development",
+        "description": "Using cutting-edge tools and practices",
+        "features": {
+          "0": "Appwrite cloud services",
+          "1": "Version control (Git)",
+          "2": "API integration",
+          "3": "Performance optimization"
+        }
+      }
+    },
+    "techStack": {
+      "heading": "Tech Stack",
+      "technologies": {
+        "0": "JavaScript",
+        "1": "React",
+        "2": "Next.js",
+        "3": "Laravel",
+        "4": "PHP",
+        "5": "MySQL",
+        "6": "Tailwind CSS",
+        "7": "Bootstrap",
+        "8": "Appwrite",
+        "9": "RESTful APIs",
+        "10": "Git",
+        "11": "Responsive Design"
+      }
+    }
+  },
+  "footer": {
+    "description": "Full-stack developer passionate about creating elegant solutions and beautiful user experiences.",
+    "navigation": "Navigation",
+    "getInTouch": "Get In Touch",
+    "email": "Email",
+    "location": "Location",
+    "locationValue": "Morocco",
+    "available": "Available for work",
+    "allRightsReserved": "All rights reserved.",
+    "madeWith": "Made with",
+    "usingTech": "using Next.js & Tailwind CSS",
+    "backToTop": "Top",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "cookies": "Cookies"
+  },
+  "contact": {
+    "title": "Let's Work Together",
+    "subtitle": "I'm available for freelance work and full-time opportunities.",
+    "contactDetails": "Contact Details",
+    "social": "Social",
+    "phone": "+212 658 188 142",
+    "location": "Morocco",
+    "form": {
+      "heading": "Send Me a Message",
+      "subheading": "Fill out the form below and I'll get back to you soon.",
+      "nameLabel": "Full Name *",
+      "emailLabel": "Email Address *",
+      "phoneLabel": "Phone Number (Optional)",
+      "subjectLabel": "Subject *",
+      "messageLabel": "Message *",
+      "sendButton": "Send Message",
+      "sending": "Sending...",
+      "successTitle": "Message Sent!",
+      "successMessage": "Thank you for reaching out. I'll get back to you soon!",
+      "successConfirm": "Great!",
+      "errorTitle": "Error",
+      "errorMessage": "Failed to send message. Please try again.",
+      "errorPermission": "Permission denied. Please try again later.",
+      "errorConnection": "Database connection issue. Please try again.",
+      "validation": {
+        "nameRequired": "Name is required",
+        "nameTooShort": "Name must be at least 2 characters",
+        "nameTooLong": "Name must be less than 100 characters",
+        "emailRequired": "Email is required",
+        "emailInvalid": "Please enter a valid email address",
+        "phoneTooShort": "Phone number must be at least 8 characters",
+        "subjectRequired": "Subject is required",
+        "subjectTooShort": "Subject must be at least 3 characters",
+        "subjectTooLong": "Subject must be less than 200 characters",
+        "messageRequired": "Message is required",
+        "messageTooShort": "Message must be at least 10 characters",
+        "messageTooLong": "Message must be less than 2000 characters"
+      }
+    }
+  },
+  "blog": {
+    "title": "Blog & Articles",
+    "description": "Insights and practical knowledge about React, Next.js, Laravel, MySQL, Tailwind CSS, Appwrite, and modern web development. Learn from real-world experience building full-stack applications.",
+    "categoryAll": "All",
+    "featured": "Featured",
+    "readArticle": "Read Article",
+    "readMore": "Read More",
+    "backToBlog": "Back to Blog",
+    "allArticles": "All Articles",
+    "getInTouch": "Get in Touch",
+    "moreArticles": "More Articles",
+    "notFound": {
+      "title": "Blog Post Not Found",
+      "message": "The blog post you're looking for doesn't exist or has been removed.",
+      "goHome": "Go Home"
+    }
+  },
+  "cookies": {
+    "title": "Cookie Policy",
+    "lastUpdated": "Last updated: February 24, 2026",
+    "whatAreCookies": {
+      "heading": "What Are Cookies",
+      "content": "Cookies are small text files that are stored on your device when you visit our website. They help us provide you with a better experience by remembering your preferences and understanding how you use our site."
+    },
+    "howWeUseCookies": {
+      "heading": "How We Use Cookies",
+      "intro": "We use cookies for various purposes, including:",
+      "purposes": {
+        "0": "Remembering your theme preferences (light/dark mode)",
+        "1": "Storing your language selection",
+        "2": "Analyzing site traffic and usage patterns",
+        "3": "Improving site functionality and user experience"
+      }
+    },
+    "typesOfCookies": {
+      "heading": "Types of Cookies We Use",
+      "essential": {
+        "title": "Essential Cookies",
+        "description": "These cookies are necessary for the website to function properly and cannot be disabled in our systems."
+      },
+      "preference": {
+        "title": "Preference Cookies",
+        "description": "These cookies enable the website to remember your preferences such as theme and language settings."
+      },
+      "analytics": {
+        "title": "Analytics Cookies",
+        "description": "These cookies help us understand how visitors interact with our website by collecting and reporting information anonymously."
+      }
+    },
+    "managingCookies": {
+      "heading": "Managing Cookies",
+      "content": "You can control and manage cookies through your browser settings. Please note that removing or blocking cookies may impact your user experience and some features may no longer function properly."
+    },
+    "contactUs": {
+      "heading": "Contact Us",
+      "content": "If you have any questions about our use of cookies, please contact us at"
+    }
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "lastUpdated": "Last updated: February 24, 2026",
+    "informationCollection": {
+      "heading": "Information Collection",
+      "content": "We collect information you provide directly to us when you use our contact form, subscribe to our newsletter, or interact with our services. This may include your name, email address, and any messages you send."
+    },
+    "howWeUseInfo": {
+      "heading": "How We Use Your Information",
+      "content": "We use the information we collect to respond to your inquiries, send you updates about our work, and improve our services. We do not sell or share your personal information with third parties."
+    },
+    "dataSecurity": {
+      "heading": "Data Security",
+      "content": "We take reasonable measures to protect your personal information from unauthorized access, use, or disclosure. However, no internet transmission is completely secure, and we cannot guarantee absolute security."
+    },
+    "yourRights": {
+      "heading": "Your Rights",
+      "content": "You have the right to access, update, or delete your personal information at any time. To exercise these rights, please contact us at chahidyassine14@gmail.com."
+    },
+    "contactUs": {
+      "heading": "Contact Us",
+      "content": "If you have any questions about this Privacy Policy, please contact us at"
+    }
+  },
+  "projects": {
+    "title": "My Projects",
+    "description": "Here's a selection of projects I've worked on. Each one represents a unique challenge and an opportunity to showcase my skills in building scalable, user-friendly applications.",
+    "items": {
+      "0": {
+        "title": "E-Commerce Platform",
+        "description": "Full-stack e-commerce solution with real-time inventory management, payment processing, and admin dashboard."
+      },
+      "1": {
+        "title": "AI Content Generator",
+        "description": "Intelligent content creation tool powered by OpenAI, featuring template system and batch processing."
+      },
+      "2": {
+        "title": "Analytics Dashboard",
+        "description": "Real-time analytics platform with interactive charts, data export, and custom report generation."
+      },
+      "3": {
+        "title": "Mobile Fitness Tracker",
+        "description": "Cross-platform mobile app for tracking workouts, nutrition, and progress with social features."
+      },
+      "4": {
+        "title": "Task Management System",
+        "description": "Collaborative task management platform with real-time updates, file sharing, and team collaboration."
+      },
+      "5": {
+        "title": "Social Media Dashboard",
+        "description": "Unified dashboard for managing multiple social media accounts with analytics and scheduling."
+      }
+    },
+    "cta": {
+      "heading": "Have a project in mind?",
+      "description": "I'm always interested in working on exciting projects. Let's collaborate!",
+      "button": "Start a Project"
+    }
+  },
+  "skills": {
+    "title": "My Skills",
+    "description": "A comprehensive overview of my technical expertise across modern web development. I've built many projects and applications using these technologies, constantly improving and learning new skills.",
+    "stats": {
+      "projectsBuilt": "Projects Built",
+      "projectsBuiltValue": "Many",
+      "technologiesMastered": "Technologies Mastered",
+      "yearsExperience": "Years Experience",
+      "educationalDegrees": "Educational Degrees"
+    },
+    "categories": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "tools": "Tools",
+      "soft": "Soft"
+    },
+    "skillNames": {
+      "javascript": "JavaScript (ES6+)",
+      "react": "React",
+      "nextjs": "Next.js",
+      "tailwind": "Tailwind CSS",
+      "bootstrap": "Bootstrap",
+      "laravel": "Laravel",
+      "php": "PHP",
+      "mysql": "MySQL",
+      "appwrite": "Appwrite BaaS",
+      "restfulApis": "RESTful APIs",
+      "git": "Git/GitHub",
+      "vscode": "VS Code",
+      "postman": "Postman",
+      "npm": "npm/Composer",
+      "communication": "Communication",
+      "problemSolving": "Problem Solving",
+      "teamCollaboration": "Team Collaboration",
+      "englishLanguage": "English Language"
+    },
+    "education": {
+      "title": "Education & Credentials",
+      "items": {
+        "0": {
+          "title": "Full-Stack Development Digital",
+          "issuer": "OFPPT (Office de la Formation Professionnelle et de la Promotion du Travail)",
+          "year": "Diploma"
+        },
+        "1": {
+          "title": "English Language Studies",
+          "issuer": "University",
+          "year": "License Degree"
+        }
+      }
+    }
+  },
+  "terms": {
+    "title": "Terms of Service",
+    "lastUpdated": "Last updated: February 24, 2026",
+    "useOfService": {
+      "heading": "Use of Service",
+      "content": "By accessing and using this website, you accept and agree to be bound by the terms and provisions of this agreement. The content of this portfolio website is for your general information and use only."
+    },
+    "intellectualProperty": {
+      "heading": "Intellectual Property",
+      "content": "All content, designs, code, and materials on this website are the intellectual property of Yassine Chahid unless otherwise stated. You may not reproduce, distribute, or create derivative works without explicit permission."
+    },
+    "limitationOfLiability": {
+      "heading": "Limitation of Liability",
+      "content": "This website is provided \"as is\" without any representations or warranties. We shall not be liable for any damages arising from the use of this website or the information contained herein."
+    },
+    "externalLinks": {
+      "heading": "External Links",
+      "content": "This website may contain links to external websites. We are not responsible for the content or practices of these external sites and do not endorse them."
+    },
+    "changesToTerms": {
+      "heading": "Changes to Terms",
+      "content": "We reserve the right to modify these terms at any time. Your continued use of the website following any changes constitutes acceptance of those changes."
+    },
+    "contact": {
+      "heading": "Contact",
+      "content": "For any questions regarding these terms, please contact us at"
+    }
+  },
+  "blogContent": {
+    "title": {
+      "post1": "Building Modern Web Apps with React and Next.js",
+      "post2": "Laravel Backend Development Best Practices",
+      "post3": "MySQL Database Design and Optimization",
+      "post4": "Styling Modern UIs with Tailwind CSS",
+      "post5": "Appwrite BaaS: Backend Made Simple",
+      "post6": "Bootstrap to Tailwind: Modern UI Development"
+    },
+    "excerpt": {
+      "post1": "Learn how to leverage React and Next.js to build fast, SEO-friendly web applications with server-side rendering and static generation.",
+      "post2": "Master Laravel's powerful features for building robust backend APIs. Learn about Eloquent ORM, middleware, authentication, and API design.",
+      "post3": "Essential techniques for designing efficient MySQL databases. Master indexing, query optimization, and relationship design for better performance.",
+      "post4": "Learn how Tailwind CSS's utility-first approach speeds up development and creates consistent, responsive designs without leaving your HTML.",
+      "post5": "Discover how Appwrite simplifies backend development with its comprehensive Backend-as-a-Service platform. Perfect for rapid development.",
+      "post6": "Comparing Bootstrap and Tailwind CSS approaches. Learn when to use each and how to leverage both frameworks for responsive design."
+    },
+    "content": {
+      "post1": "React and Next.js have revolutionized the way we build web applications. Next.js provides a powerful framework on top of React that enables server-side rendering, static site generation, and more.\n\n**Key Benefits:**\n- **Performance:** Next.js automatically optimizes your application for the best performance with code splitting and lazy loading.\n- **SEO:** Server-side rendering ensures your content is crawlable by search engines.\n- **Developer Experience:** Hot reloading, TypeScript support, and intuitive file-based routing make development a breeze.\n\n**Getting Started:**\n1. Install Next.js: `npx create-next-app@latest`\n2. Create pages in the `app` directory\n3. Use server components for better performance\n4. Deploy to Vercel for seamless hosting\n\nI've built many projects using this stack, and it's perfect for everything from blogs to complex web applications.",
+      "post2": "Laravel is a powerful PHP framework that makes backend development elegant and efficient. With its expressive syntax and robust features, you can build scalable applications quickly.\n\n**Why Laravel:**\n- **Eloquent ORM:** Beautiful and intuitive database interactions\n- **Built-in Authentication:** Secure user management out of the box\n- **RESTful APIs:** Easy to create well-structured APIs\n- **Middleware:** Clean request filtering and validation\n\n**Essential Laravel Features:**\n1. **Database Migrations:** Version control for your database schema\n2. **Eloquent Relationships:** Define model relationships elegantly\n3. **API Resources:** Transform your models for JSON responses\n4. **Queue System:** Handle background jobs efficiently\n\n**Integration with Frontend:**\nLaravel pairs perfectly with React/Next.js frontends. Use Laravel as your API backend and connect it with your JavaScript frontend for a powerful full-stack solution.\n\nI've used Laravel in many projects, and it's my go-to choice for PHP backend development.",
+      "post3": "Database design is crucial for application performance. MySQL is a reliable relational database that powers millions of applications worldwide.\n\n**Database Design Principles:**\n- **Normalization:** Organize data to reduce redundancy\n- **Proper Indexing:** Speed up queries with the right indexes\n- **Foreign Keys:** Maintain referential integrity\n- **Data Types:** Choose appropriate types for efficiency\n\n**Optimization Techniques:**\n1. Use EXPLAIN to analyze query performance\n2. Add indexes on frequently searched columns\n3. Avoid SELECT * - fetch only what you need\n4. Use prepared statements to prevent SQL injection\n\n**Working with Laravel:**\nLaravel's query builder and Eloquent ORM make MySQL interactions smooth. You can write expressive queries without sacrificing performance:\n\n```php\n$users = User::with('posts')\n    ->where('active', true)\n    ->latest()\n    ->paginate(20);\n```\n\nProper database design has saved me countless hours in optimization later.",
+      "post4": "Tailwind CSS has transformed how I build user interfaces. The utility-first approach means faster development and consistent designs across projects.\n\n**Why Tailwind CSS:**\n- **Rapid Development:** Build UIs without leaving your HTML\n- **Responsive Design:** Mobile-first utilities make responsive design easy\n- **Customization:** Extend and customize to match your design system\n- **Small Bundle Size:** Only ship the CSS you use\n\n**Key Features:**\n1. **JIT Mode:** Generate classes on-demand for ultimate flexibility\n2. **Dark Mode:** Built-in dark mode support with class-based or media queries\n3. **Component Extraction:** Reuse styles with @apply directive\n4. **Plugins:** Extend functionality with forms, typography, etc.\n\n**Tailwind with React:**\nCombining Tailwind with React components creates a powerful workflow. You can build reusable components with consistent styling:\n\n```jsx\n<button className=\"px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors\">\n  Click Me\n</button>\n```\n\nI use Tailwind in all my projects now - it's become an essential part of my toolkit.",
+      "post5": "Appwrite is a powerful Backend-as-a-Service platform that handles authentication, databases, storage, and more - letting you focus on building features.\n\n**Appwrite Features:**\n- **Database:** NoSQL database with powerful queries\n- **Authentication:** Multiple auth methods out of the box\n- **Storage:** File upload and management\n- **Functions:** Serverless functions for custom logic\n- **Real-time:** WebSocket support for live updates\n\n**Why Use Appwrite:**\n1. Self-hosted or cloud options\n2. SDK support for all major platforms\n3. Built-in security and permissions\n4. Easy to integrate with any frontend\n\n**Getting Started:**\n```javascript\nimport { Client, Databases } from 'appwrite';\n\nconst client = new Client()\n    .setEndpoint('https://cloud.appwrite.io/v1')\n    .setProject('your-project-id');\n\nconst databases = new Databases(client);\n```\n\n**Real-World Usage:**\nI've built several applications using Appwrite as the backend. It's perfect for projects where you want to move fast without compromising on features.\n\nThe permission system is particularly powerful - you can control exactly who can access what data at a granular level.",
+      "post6": "Both Bootstrap and Tailwind CSS are excellent frameworks, but they serve different philosophies. Understanding both makes you a versatile developer.\n\n**Bootstrap:**\n- Component-based framework\n- Pre-built components out of the box\n- Great for rapid prototyping\n- Extensive JavaScript plugins\n- Consistent design language\n\n**Tailwind CSS:**\n- Utility-first approach\n- Full design control\n- Smaller final bundle size\n- Requires more initial setup\n- More flexible customization\n\n**When to Use Bootstrap:**\n- Quick prototypes needed\n- Team familiar with Bootstrap\n- Projects needing ready-made components\n- When you want opinionated design\n\n**When to Use Tailwind:**\n- Custom designs required\n- Performance is critical\n- You want complete control\n- Building a design system\n\n**My Experience:**\nI've used both extensively. Bootstrap is perfect for admin panels and internal tools where you need functionality fast. Tailwind shines for client-facing applications where design uniqueness matters.\n\nMany of my projects use Tailwind now, but I still reach for Bootstrap components when I need something like a complex modal or carousel quickly."
+    },
+    "date": {
+      "post1": "February 20, 2026",
+      "post2": "February 15, 2026",
+      "post3": "February 10, 2026",
+      "post4": "February 5, 2026",
+      "post5": "January 30, 2026",
+      "post6": "January 25, 2026"
+    },
+    "readTime": {
+      "post1": "8 min read",
+      "post2": "10 min read",
+      "post3": "12 min read",
+      "post4": "9 min read",
+      "post5": "11 min read",
+      "post6": "8 min read"
+    },
+    "category": {
+      "post1": "React",
+      "post2": "Laravel",
+      "post3": "Database",
+      "post4": "CSS",
+      "post5": "Backend",
+      "post6": "CSS"
+    }
   }
 }

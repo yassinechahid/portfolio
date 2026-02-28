@@ -1,7 +1,12 @@
+"use client";
+
 import Link from "next/link";
 import { ArrowLeft, FileQuestion } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 export default function NotFound() {
+  const { t } = useTranslation();
+
   return (
     <main className="min-h-screen bg-light-background dark:bg-dark-background flex items-center justify-center px-4">
       <div className="max-w-2xl w-full text-center">
@@ -14,12 +19,10 @@ export default function NotFound() {
 
         {/* Content */}
         <h1 className="text-display-medium font-bold text-light-onBackground dark:text-dark-onBackground mb-4">
-          Blog Post Not Found
+          {t("blog.notFound.title")}
         </h1>
         <p className="text-body-large text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant mb-8">
-          {
-            "The blog post you're looking for doesn't exist or has been removed."
-          }
+          {t("blog.notFound.message")}
         </p>
 
         {/* Actions */}
@@ -28,12 +31,12 @@ export default function NotFound() {
             href="/blog"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-light-primary dark:bg-dark-primary text-light-onPrimary dark:text-dark-onPrimary hover:opacity-90 transition-opacity text-label-large font-medium">
             <ArrowLeft className="w-5 h-5" />
-            Back to Blog
+            {t("blog.backToBlog")}
           </Link>
           <Link
             href="/"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-full border-2 border-light-outline dark:border-dark-outline text-light-onSurface dark:text-dark-onSurface hover:bg-light-surfaceContainerLow dark:hover:bg-dark-surfaceContainerLow transition-colors text-label-large font-medium">
-            Go Home
+            {t("blog.notFound.goHome")}
           </Link>
         </div>
       </div>

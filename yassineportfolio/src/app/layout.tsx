@@ -6,7 +6,7 @@ import { LocaleLayoutProps } from "@/types/children";
 import ClientRoot from "@/components/ClientRoot";
 
 export const metadata: Metadata = {
-  title: "YassineDev",
+  title: "Yassine chahid",
   description:
     "YassineDev, la solution innovante pour faciliter l'accès aux soins !",
 };
