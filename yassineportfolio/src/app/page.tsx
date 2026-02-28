@@ -9,8 +9,10 @@ import {
   Twitter,
 } from "lucide-react";
 import AnimatedText from "@/components/portfolio/AnimatedText";
+import { useTranslation } from "react-i18next";
 
 export default function Home() {
+  const {t}=useTranslation();
   const skills = [
     { name: "Next.js/React", level: 95 },
     { name: "TypeScript", level: 90 },

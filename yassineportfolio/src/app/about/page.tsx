@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import { Code, Zap, Layout, Rocket, Shield, Smartphone } from "lucide-react";
 import ServiceCard from "@/components/portfolio/ServiceCard";
+import { useTranslation } from "react-i18next";
 
 export const metadata: Metadata = {
   title: "About Me - Yassine Chahid",
@@ -9,6 +10,7 @@ export const metadata: Metadata = {
 };
 
 export default function About() {
+  const {t}=useTranslation();
   const services = [
     {
       title: "Frontend Development",
