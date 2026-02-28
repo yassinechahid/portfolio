@@ -73,13 +73,11 @@ const LanguageMenu: React.FC<LanguageMenuProps> = ({ changeLanguage }) => {
     <div className="relative inline-block" ref={menuRef}>
       <button
         onClick={toggleMenu}
-        className="text-light-onSurface dark:text-dark-onSurface flex items-center hover:bg-light-primaryContainer/40 dark:hover:bg-dark-primaryContainer/40 gap-2 px-2 py-1 rounded-lg cursor-pointer transition duration-200"
+        className="text-light-onSurface dark:text-dark-onSurface flex items-center hover:bg-light-primaryContainer/40 dark:hover:bg-dark-primaryContainer/40 gap-2 p-2.5 rounded-xl cursor-pointer transition duration-200"
       >
         <Image
           src={currentFlag}
           alt="current language"
-          width={24}
-          height={24}
         />
       </button>
 

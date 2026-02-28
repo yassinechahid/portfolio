@@ -96,13 +96,13 @@ export default function About() {
               <p>{t("about.journey.paragraph3")}</p>
             </div>
           </div>
-          <div className="relative">
-            <div className="aspect-square rounded-3xl bg-gradient-to-br from-light-primaryContainer to-light-secondaryContainer dark:from-dark-primaryContainer dark:to-dark-secondaryContainer p-8 flex items-center justify-center">
+          <div className="relative max-w-[400px] mx-auto lg:mx-0">
+            <div className="aspect-square rounded-3xl bg-gradient-to-br from-light-primaryContainer to-light-secondaryContainer dark:from-dark-primaryContainer dark:to-dark-secondaryContainer p-6 flex items-center justify-center shadow-lg">
               <div className="text-center">
-                <div className="text-6xl font-bold text-light-primary dark:text-dark-primary mb-4">
+                <div className="text-display-large font-bold text-light-primary dark:text-dark-primary mb-2">
                   {t("about.journey.experienceYears")}
                 </div>
-                <p className="text-body-large text-light-onBackground dark:text-dark-onBackground">
+                <p className="text-body-medium text-light-onBackground dark:text-dark-onBackground">
                   {t("about.journey.experienceLabel")}
                 </p>
               </div>

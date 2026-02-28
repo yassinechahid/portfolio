@@ -120,7 +120,7 @@ export const DrawerNav: React.FC<DrawerNavProps> = ({
         </div>
 
         {/* Navigation Links - Scrollable area */}
-        <div className="flex-1 overflow-y-auto px-4 py-6">
+        <div className="flex-1 overflow-y-auto mx-1 px-4 py-6">
           <ul className="space-y-2">
             {NavLinks.map((item, index) => (
               <li key={index}>

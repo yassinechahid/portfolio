@@ -210,10 +210,10 @@ export default function Home() {
       {/* Stats Section */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-light-surfaceContainerLowest dark:bg-dark-surfaceContainerLowest">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
-              <div key={index} className="text-center group">
-                <div className="p-6 rounded-2xl bg-light-surface dark:bg-dark-surface border border-light-outline/20 dark:border-dark-outline/20 group-hover:border-light-primary/50 dark:group-hover:border-dark-primary/50 transition-all duration-300 group-hover:shadow-lg">
+              <div key={index} className="text-center group h-full">
+                <div className="aspect-square p-6 rounded-2xl bg-light-surface dark:bg-dark-surface border border-light-outline/20 dark:border-dark-outline/20 group-hover:border-light-primary/50 dark:group-hover:border-dark-primary/50 transition-all duration-300 group-hover:shadow-lg flex flex-col items-center justify-center">
                   <div className="text-display-small text-light-primary dark:text-dark-primary font-bold">
                     {stat.value}
                   </div>

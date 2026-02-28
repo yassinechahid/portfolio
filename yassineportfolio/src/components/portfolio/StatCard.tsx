@@ -15,14 +15,14 @@ export default function StatCard({ label, value, icon }: StatCardProps) {
       className="p-6 rounded-2xl border border-light-outline dark:border-dark-outline bg-light-surfaceContainerLow dark:bg-dark-surfaceContainerLow hover:border-light-primary dark:hover:border-dark-primary transition-colors"
     >
       {icon && (
-        <div className="mb-4 text-light-primary dark:text-dark-primary">
+        <div className="mb-4 flex justify-center items-center text-light-primary dark:text-dark-primary">
           {icon}
         </div>
       )}
-      <div className="text-display-small font-bold text-light-primary dark:text-dark-primary mb-2">
+      <div className="text-display-small flex justify-center items-center font-bold text-light-primary dark:text-dark-primary mb-2">
         {value}
       </div>
-      <div className="text-body-medium text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant">
+      <div className="text-body-medium flex justify-center items-center text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant">
         {label}
       </div>
     </motion.div>

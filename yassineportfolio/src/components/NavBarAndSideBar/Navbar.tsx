@@ -132,7 +132,7 @@ const Navbar = () => {
             {/* Mobile Menu Button */}
             <button
               onClick={openDrawer}
-              className="lg:hidden p-2.5 rounded-lg text-light-onSurface dark:text-dark-onSurface hover:bg-light-surfaceContainerLow dark:hover:bg-dark-surfaceContainerLow transition-colors"
+              className="lg:hidden p-2.5 rounded-xl text-light-onSurface dark:text-dark-onSurface hover:bg-light-surfaceContainerLow dark:hover:bg-dark-surfaceContainerLow transition-colors"
               aria-label="Open menu"
               aria-expanded={drawerOpen}>
               <Menu className="w-6 h-6" />

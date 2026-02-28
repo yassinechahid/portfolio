@@ -280,7 +280,7 @@ export default function ContactForm() {
   return (
     <div className="w-full max-w-2xl mx-auto">
       <div className="rounded-2xl bg-light-surfaceContainerHigh dark:bg-dark-surfaceContainerHigh border border-light-outlineVariant dark:border-dark-outlineVariant">
-        <div className="p-8">
+        <div className="p-3 ">
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
             {/* Header */}
             <div className="space-y-2 mb-8">
