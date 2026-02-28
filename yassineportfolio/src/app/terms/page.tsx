@@ -1,7 +1,12 @@
+"use client";
+
 import React from "react";
 import { FileText } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 export default function TermsPage() {
+  const { t } = useTranslation();
+
   return (
     <div className="min-h-screen bg-light-background dark:bg-dark-background">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -11,10 +16,10 @@ export default function TermsPage() {
             <FileText className="w-8 h-8 text-light-primary dark:text-dark-primary" />
           </div>
           <h1 className="text-4xl md:text-5xl font-bold text-light-onBackground dark:text-dark-onBackground mb-4">
-            Terms of Service
+            {t("terms.title")}
           </h1>
           <p className="text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant">
-            Last updated: February 24, 2026
+            {t("terms.lastUpdated")}
           </p>
         </div>
 
@@ -23,68 +28,55 @@ export default function TermsPage() {
           <div className="bg-light-surfaceContainerLow dark:bg-dark-surfaceContainerLow rounded-2xl p-8 space-y-6">
             <section>
               <h2 className="text-2xl font-bold text-light-onBackground dark:text-dark-onBackground mb-4">
-                Use of Service
+                {t("terms.useOfService.heading")}
               </h2>
               <p className="text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant leading-relaxed">
-                By accessing and using this website, you accept and agree to be
-                bound by the terms and provisions of this agreement. The content
-                of this portfolio website is for your general information and
-                use only.
+                {t("terms.useOfService.content")}
               </p>
             </section>
 
             <section>
               <h2 className="text-2xl font-bold text-light-onBackground dark:text-dark-onBackground mb-4">
-                Intellectual Property
+                {t("terms.intellectualProperty.heading")}
               </h2>
               <p className="text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant leading-relaxed">
-                All content, designs, code, and materials on this website are
-                the intellectual property of Yassine Chahid unless otherwise
-                stated. You may not reproduce, distribute, or create derivative
-                works without explicit permission.
+                {t("terms.intellectualProperty.content")}
               </p>
             </section>
 
             <section>
               <h2 className="text-2xl font-bold text-light-onBackground dark:text-dark-onBackground mb-4">
-                Limitation of Liability
+                {t("terms.limitationOfLiability.heading")}
               </h2>
               <p className="text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant leading-relaxed">
-                This website is provided {"as is"} without any representations
-                or warranties. We shall not be liable for any damages arising
-                from the use of this website or the information contained
-                herein.
+                {t("terms.limitationOfLiability.content")}
               </p>
             </section>
 
             <section>
               <h2 className="text-2xl font-bold text-light-onBackground dark:text-dark-onBackground mb-4">
-                External Links
+                {t("terms.externalLinks.heading")}
               </h2>
               <p className="text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant leading-relaxed">
-                This website may contain links to external websites. We are not
-                responsible for the content or practices of these external sites
-                and do not endorse them.
+                {t("terms.externalLinks.content")}
               </p>
             </section>
 
             <section>
               <h2 className="text-2xl font-bold text-light-onBackground dark:text-dark-onBackground mb-4">
-                Changes to Terms
+                {t("terms.changesToTerms.heading")}
               </h2>
               <p className="text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant leading-relaxed">
-                We reserve the right to modify these terms at any time. Your
-                continued use of the website following any changes constitutes
-                acceptance of those changes.
+                {t("terms.changesToTerms.content")}
               </p>
             </section>
 
             <section>
               <h2 className="text-2xl font-bold text-light-onBackground dark:text-dark-onBackground mb-4">
-                Contact
+                {t("terms.contact.heading")}
               </h2>
               <p className="text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant leading-relaxed">
-                For any questions regarding these terms, please contact us at{" "}
+                {t("terms.contact.content")}{" "}
                 <a
                   href="mailto:chahidyassine14@gmail.com"
                   className="text-light-primary dark:text-dark-primary hover:underline">

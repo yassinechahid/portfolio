@@ -6,7 +6,17 @@
     "es": "Espagnol",
     "am": "Tamazight"
   },
-
+  "nav": {
+    "name": "Yassine Chahid",
+    "role": "Développeur Full-Stack",
+    "home": "Accueil",
+    "about": "À propos",
+    "projects": "Projets",
+    "skills": "Compétences",
+    "blog": "Blog",
+    "contact": "Me contacter",
+    "admin": "Admin"
+  },
   "drawerNav": {
     "home": "Accueil",
     "discoverPlatform": "Découvrir plateforme",
@@ -16,5 +26,14 @@
     "media": "Médias & Ressources",
     "contact": "Contact & assistance",
     "closeMenu": "fermer le menu"
+  },
+  "skills": {
+    "stats": {
+      "projectsBuilt": "Projets Réalisés",
+      "projectsBuiltValue": "Nombreux",
+      "technologiesMastered": "Technologies Maîtrisées",
+      "yearsExperience": "Années d'Expérience",
+      "educationalDegrees": "Diplômes Éducatifs"
+    }
   }
 }

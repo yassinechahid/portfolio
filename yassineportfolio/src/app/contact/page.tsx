@@ -1,23 +1,21 @@
-import { Metadata } from "next";
+"use client";
+
 import ContactForm from "@/components/portfolio/ContactForm";
 import { Mail, Phone, MapPin, Linkedin, Github, Twitter } from "lucide-react";
-
-export const metadata: Metadata = {
-  title: "Contact - Yassine Chahid",
-  description: "Get in touch with me for projects and collaborations.",
-};
+import { useTranslation } from "react-i18next";
 
 export default function Contact() {
+  const { t } = useTranslation();
   return (
     <main className="min-h-screen bg-light-background dark:bg-dark-background">
       {/* Simple Hero */}
       <section className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto text-center">
           <h1 className="text-display-medium md:text-display-large font-bold text-light-onBackground dark:text-dark-onBackground mb-4">
-            Let&apos;s Work Together
+            {t("contact.title")}
           </h1>
           <p className="text-body-large text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant max-w-2xl mx-auto">
-            I&apos;m available for freelance work and full-time opportunities.
+            {t("contact.subtitle")}
           </p>
         </div>
       </section>
@@ -36,7 +34,7 @@ export default function Contact() {
               {/* Quick Contact */}
               <div className="bg-light-surfaceContainerHigh dark:bg-dark-surfaceContainerHigh rounded-2xl p-6 border border-light-outlineVariant dark:border-dark-outlineVariant">
                 <h3 className="text-title-medium font-semibold text-light-onSurface dark:text-dark-onSurface mb-4">
-                  Contact Details
+                  {t("contact.contactDetails")}
                 </h3>
 
                 <div className="space-y-4">
@@ -51,12 +49,12 @@ export default function Contact() {
                     href="tel:+212658188142"
                     className="flex items-center gap-3 text-body-medium text-light-onSurface dark:text-dark-onSurface hover:text-light-primary dark:hover:text-dark-primary transition-colors">
                     <Phone className="w-5 h-5 flex-shrink-0" />
-                    <span>+212 658 188 142</span>
+                    <span>{t("contact.phone")}</span>
                   </a>
 
                   <div className="flex items-center gap-3 text-body-medium text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant">
                     <MapPin className="w-5 h-5 flex-shrink-0" />
-                    <span>Morocco</span>
+                    <span>{t("contact.location")}</span>
                   </div>
                 </div>
               </div>
@@ -64,7 +62,7 @@ export default function Contact() {
               {/* Social Links */}
               <div className="bg-light-surfaceContainerHigh dark:bg-dark-surfaceContainerHigh rounded-2xl p-6 border border-light-outlineVariant dark:border-dark-outlineVariant">
                 <h3 className="text-title-medium font-semibold text-light-onSurface dark:text-dark-onSurface mb-4">
-                  Social
+                  {t("contact.social")}
                 </h3>
 
                 <div className="flex flex-wrap gap-3">

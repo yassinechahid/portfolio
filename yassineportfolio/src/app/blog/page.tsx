@@ -4,15 +4,22 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import { blogPosts } from "@/data/blogPosts";
 
 export default function Blog() {
-  const [selectedCategory, setSelectedCategory] = useState<string>("All");
+  const { t } = useTranslation();
+  const [selectedCategory, setSelectedCategory] = useState<string>(
+    t("blog.categoryAll"),
+  );
 
-  const categories = ["All", ...new Set(blogPosts.map((p) => p.category))];
+  const categories = [
+    t("blog.categoryAll"),
+    ...new Set(blogPosts.map((p) => p.category)),
+  ];
 
   const filteredPosts =
-    selectedCategory === "All"
+    selectedCategory === t("blog.categoryAll")
       ? blogPosts
       : blogPosts.filter((p) => p.category === selectedCategory);
 
@@ -24,12 +31,10 @@ export default function Blog() {
       <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto">
           <h1 className="text-display-large font-bold text-light-onBackground dark:text-dark-onBackground mb-6">
-            Blog & Articles
+            {t("blog.title")}
           </h1>
           <p className="text-body-large text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant max-w-3xl">
-            Insights and practical knowledge about React, Next.js, Laravel,
-            MySQL, Tailwind CSS, Appwrite, and modern web development. Learn
-            from real-world experience building full-stack applications.
+            {t("blog.description")}
           </p>
         </div>
       </section>
@@ -79,30 +84,30 @@ export default function Blog() {
                 <div className="space-y-4">
                   <div className="flex items-center gap-3">
                     <span className="px-3 py-1 rounded-full bg-light-primary dark:bg-dark-primary text-light-onPrimary dark:text-dark-onPrimary text-label-small font-medium">
-                      {featuredPost.category}
+                      {t(featuredPost.category)}
                     </span>
                     <span className="text-label-small text-white">
-                      Featured
+                      {t("blog.featured")}
                     </span>
                   </div>
                   <h2 className="text-display-small font-bold text-white">
-                    {featuredPost.title}
+                    {t(featuredPost.title)}
                   </h2>
                   <p className="text-body-large text-white/80">
-                    {featuredPost.excerpt}
+                    {t(featuredPost.excerpt)}
                   </p>
                   <div className="flex items-center gap-4 text-body-small text-white/60 pt-4">
                     <div className="flex items-center gap-1">
                       <Calendar className="w-4 h-4" />
-                      {featuredPost.date}
+                      {t(featuredPost.date)}
                     </div>
                     <div className="flex items-center gap-1">
                       <Clock className="w-4 h-4" />
-                      {featuredPost.readTime}
+                      {t(featuredPost.readTime)}
                     </div>
                   </div>
                   <div className="flex items-center gap-2 text-light-primary dark:text-dark-primary group-hover:gap-4 transition-all pt-4">
-                    Read Article
+                    {t("blog.readArticle")}
                     <ArrowRight className="w-5 h-5" />
                   </div>
                 </div>
@@ -137,27 +142,27 @@ export default function Blog() {
                   <div className="p-6 flex-1 flex flex-col">
                     <div className="mb-3">
                       <span className="px-3 py-1 rounded-full bg-light-primaryContainer dark:bg-dark-primaryContainer text-light-onPrimaryContainer dark:text-dark-onPrimaryContainer text-label-small font-medium">
-                        {post.category}
+                        {t(post.category)}
                       </span>
                     </div>
                     <h3 className="text-headline-small font-bold text-light-onBackground dark:text-dark-onBackground mb-2">
-                      {post.title}
+                      {t(post.title)}
                     </h3>
                     <p className="text-body-medium text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant mb-4 flex-1">
-                      {post.excerpt}
+                      {t(post.excerpt)}
                     </p>
                     <div className="flex items-center gap-4 text-body-small text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant pt-4 border-t border-light-outline dark:border-dark-outline">
                       <div className="flex items-center gap-1">
                         <Calendar className="w-4 h-4" />
-                        {post.date}
+                        {t(post.date)}
                       </div>
                       <div className="flex items-center gap-1">
                         <Clock className="w-4 h-4" />
-                        {post.readTime}
+                        {t(post.readTime)}
                       </div>
                     </div>
                     <div className="flex items-center gap-2 text-light-primary dark:text-dark-primary mt-4 group-hover:gap-3 transition-all">
-                      Read More
+                      {t("blog.readMore")}
                       <ArrowRight className="w-4 h-4" />
                     </div>
                   </div>

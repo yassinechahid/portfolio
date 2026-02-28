@@ -5,17 +5,9 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useTranslation } from "react-i18next";
-import {
-  Home,
-  Briefcase,
-  User,
-  Zap,
-  BookOpen,
-  Mail,
-} from "lucide-react";
+import { Home, Briefcase, User, Zap, BookOpen, Mail } from "lucide-react";
 
 import menuClose from "@/public/assets/menuClose.svg";
-import logo from "@/public/assets/sideIcon5.svg";
 
 interface DrawerNavProps {
   open: boolean;
@@ -61,31 +53,31 @@ export const DrawerNav: React.FC<DrawerNavProps> = ({
       path: "/",
     },
     {
-      title: t("projects"),
+      title: t("drawerNav.projects"),
       icon: <Briefcase className="w-5 h-5" />,
       onIcon: <Briefcase className="w-5 h-5" />,
       path: "/projects",
     },
     {
-      title: t("about"),
+      title: t("drawerNav.about"),
       icon: <User className="w-5 h-5" />,
       onIcon: <User className="w-5 h-5" />,
       path: "/about",
     },
     {
-      title: t("skills", { defaultValue: "Skills" }),
+      title: t("drawerNav.skills"),
       icon: <Zap className="w-5 h-5" />,
       onIcon: <Zap className="w-5 h-5" />,
       path: "/skills",
     },
     {
-      title: t("blog", { defaultValue: "Blog" }),
+      title: t("drawerNav.blog"),
       icon: <BookOpen className="w-5 h-5" />,
       onIcon: <BookOpen className="w-5 h-5" />,
       path: "/blog",
     },
     {
-      title: t("contact"),
+      title: t("drawerNav.contact"),
       icon: <Mail className="w-5 h-5" />,
       onIcon: <Mail className="w-5 h-5" />,
       path: "/contact",
@@ -123,15 +115,6 @@ export const DrawerNav: React.FC<DrawerNavProps> = ({
                   className="dark:filter dark:invert"
                 />
               </div>
-              <Link
-                href="/"
-                className="text-label-large font-roboto font-medium">
-                <Image
-                  src={logo}
-                  alt="logo"
-                  className="dark:filter dark:invert"
-                />
-              </Link>
             </button>
           </div>
         </div>
@@ -179,7 +162,7 @@ export const DrawerNav: React.FC<DrawerNavProps> = ({
                 d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
               />
             </svg>
-            Admin
+            {t("drawerNav.admin")}
           </Link>
         </div>
 
@@ -187,7 +170,7 @@ export const DrawerNav: React.FC<DrawerNavProps> = ({
         <div className="flex-shrink-0 px-6 pb-6 text-center text-body-small text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant">
           <span>&copy; {new Date().getFullYear()}</span>
           <span className="mx-1">•</span>
-          <span>{t("All rights reserved")}</span>
+          <span>{t("drawerNav.allRightsReserved")}</span>
         </div>
       </div>
     </>

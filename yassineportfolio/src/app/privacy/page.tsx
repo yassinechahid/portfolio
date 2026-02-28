@@ -1,7 +1,12 @@
+"use client";
+
 import React from "react";
 import { Shield } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 export default function PrivacyPage() {
+  const { t } = useTranslation();
+
   return (
     <div className="min-h-screen bg-light-background dark:bg-dark-background">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -11,10 +16,10 @@ export default function PrivacyPage() {
             <Shield className="w-8 h-8 text-light-primary dark:text-dark-primary" />
           </div>
           <h1 className="text-4xl md:text-5xl font-bold text-light-onBackground dark:text-dark-onBackground mb-4">
-            Privacy Policy
+            {t("privacy.title")}
           </h1>
           <p className="text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant">
-            Last updated: February 24, 2026
+            {t("privacy.lastUpdated")}
           </p>
         </div>
 
@@ -23,57 +28,49 @@ export default function PrivacyPage() {
           <div className="bg-light-surfaceContainerLow dark:bg-dark-surfaceContainerLow rounded-2xl p-8 space-y-6">
             <section>
               <h2 className="text-2xl font-bold text-light-onBackground dark:text-dark-onBackground mb-4">
-                Information Collection
+                {t("privacy.informationCollection.heading")}
               </h2>
               <p className="text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant leading-relaxed">
-                We collect information you provide directly to us when you use our contact form,
-                subscribe to our newsletter, or interact with our services. This may include your
-                name, email address, and any messages you send.
+                {t("privacy.informationCollection.content")}
               </p>
             </section>
 
             <section>
               <h2 className="text-2xl font-bold text-light-onBackground dark:text-dark-onBackground mb-4">
-                How We Use Your Information
+                {t("privacy.howWeUseInfo.heading")}
               </h2>
               <p className="text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant leading-relaxed">
-                We use the information we collect to respond to your inquiries, send you updates
-                about our work, and improve our services. We do not sell or share your personal
-                information with third parties.
+                {t("privacy.howWeUseInfo.content")}
               </p>
             </section>
 
             <section>
               <h2 className="text-2xl font-bold text-light-onBackground dark:text-dark-onBackground mb-4">
-                Data Security
+                {t("privacy.dataSecurity.heading")}
               </h2>
               <p className="text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant leading-relaxed">
-                We take reasonable measures to protect your personal information from unauthorized
-                access, use, or disclosure. However, no internet transmission is completely secure,
-                and we cannot guarantee absolute security.
+                {t("privacy.dataSecurity.content")}
               </p>
             </section>
 
             <section>
               <h2 className="text-2xl font-bold text-light-onBackground dark:text-dark-onBackground mb-4">
-                Your Rights
+                {t("privacy.yourRights.heading")}
               </h2>
               <p className="text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant leading-relaxed">
-                You have the right to access, update, or delete your personal information at any
-                time. To exercise these rights, please contact us at chahidyassine14@gmail.com.
+                {t("privacy.yourRights.content")}
               </p>
             </section>
 
             <section>
               <h2 className="text-2xl font-bold text-light-onBackground dark:text-dark-onBackground mb-4">
-                Contact Us
+                {t("privacy.contactUs.heading")}
               </h2>
               <p className="text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant leading-relaxed">
-                If you have any questions about this Privacy Policy, please contact us at{" "}
+                {t("privacy.contactUs.content")}{" "}
                 <a
                   href="mailto:chahidyassine14@gmail.com"
-                  className="text-light-primary dark:text-dark-primary hover:underline"
-                >
+                  className="text-light-primary dark:text-dark-primary hover:underline">
                   chahidyassine14@gmail.com
                 </a>
                 .
