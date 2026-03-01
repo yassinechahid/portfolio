@@ -126,3 +126,45 @@ body {
     bottom: -130px !important;
   }
 }
+
+/* Code Block Styling */
+.prose pre {
+  @apply bg-slate-900 dark:bg-slate-950 rounded-lg overflow-x-auto;
+}
+
+.prose code {
+  @apply text-sm font-mono;
+}
+
+.prose pre code {
+  @apply bg-transparent p-0 text-slate-50;
+}
+
+.prose :not(pre) > code {
+  @apply px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-pink-600 dark:text-pink-400 font-mono text-sm;
+}
+
+/* Markdown Content Styling */
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4 {
+  @apply font-bold text-light-onBackground dark:text-dark-onBackground;
+}
+
+.prose p {
+  @apply text-light-onSurface dark:text-dark-onSurface mb-4;
+}
+
+.prose ul,
+.prose ol {
+  @apply text-light-onSurface dark:text-dark-onSurface ml-6 mb-4;
+}
+
+.prose strong {
+  @apply text-light-onBackground dark:text-dark-onBackground font-bold;
+}
+
+.prose a {
+  @apply text-light-primary dark:text-dark-primary hover:underline;
+}
