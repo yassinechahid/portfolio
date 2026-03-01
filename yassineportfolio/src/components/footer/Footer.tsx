@@ -35,7 +35,7 @@ export default function Footer() {
     },
     {
       icon: Mail,
-      href: "mailto:chahidyassine14@gmail.com",
+      href: "mailto:chahidyc15@gmail.com",
       label: "Email",
     },
   ];
@@ -125,9 +125,9 @@ export default function Footer() {
                   {t("footer.email")}
                 </p>
                 <a
-                  href="mailto:chahidyassine14@gmail.com"
+                  href="mailto:chahidyc15@gmail.com"
                   className="text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant hover:text-light-primary dark:hover:text-dark-primary transition-colors">
-                  chahidyassine14@gmail.com
+                  chahidyc15@gmail.com
                 </a>
               </div>
 
