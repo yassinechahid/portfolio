@@ -13,15 +13,16 @@ export default function Blog() {
     t("blog.categoryAll"),
   );
 
-  const categories = [
-    t("blog.categoryAll"),
-    ...new Set(blogPosts.map((p) => p.category)),
-  ];
+  // Get unique categories by translating first, then deduplicating
+  const allCategories = blogPosts.map((p) => t(p.category));
+  const uniqueCategories = Array.from(new Set(allCategories));
+
+  const categories = [t("blog.categoryAll"), ...uniqueCategories];
 
   const filteredPosts =
     selectedCategory === t("blog.categoryAll")
       ? blogPosts
-      : blogPosts.filter((p) => p.category === selectedCategory);
+      : blogPosts.filter((p) => t(p.category) === selectedCategory);
 
   const featuredPost = filteredPosts.find((p) => p.featured);
 
@@ -43,9 +44,9 @@ export default function Blog() {
       <section className="py-10 px-4 sm:px-6 lg:px-8 border-b border-light-outline dark:border-dark-outline">
         <div className="max-w-5xl mx-auto">
           <div className="flex overflow-x-auto gap-3 pb-2">
-            {categories.map((cat, idx) => (
+            {categories.map((cat) => (
               <button
-                key={idx}
+                key={cat}
                 onClick={() => setSelectedCategory(cat)}
                 className={`px-4 py-2 rounded-full whitespace-nowrap text-label-medium font-medium transition-colors ${
                   selectedCategory === cat

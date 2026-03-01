@@ -73,7 +73,6 @@ export default function BlogPost() {
           </div>
         </div>
       </section>
-
       {/* Content Section */}
       <section className="pb-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
@@ -110,51 +109,56 @@ export default function BlogPost() {
           </div>
         </div>
       </section>
-
       {/* Related Posts */}
-      <section className="pb-20 px-4 sm:px-6 lg:px-8 bg-light-surfaceContainerLow dark:bg-dark-surfaceContainerLow">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-headline-large font-bold text-light-onBackground dark:text-dark-onBackground mb-12 text-center">
-            {t("blog.moreArticles")}
-          </h2>
-          <div className="grid md:grid-cols-3 gap-6">
-            {blogPosts
-              .filter((p) => p.id !== post.id && p.category === post.category)
-              .slice(0, 3)
-              .map((relatedPost) => (
-                <Link
-                  key={relatedPost.id}
-                  href={`/blog/${relatedPost.id}`}
-                  className="group">
-                  <div className="rounded-2xl border border-light-outline dark:border-dark-outline overflow-hidden hover:border-light-primary dark:hover:border-dark-primary transition-all h-full flex flex-col bg-light-background dark:bg-dark-background">
-                    {/* Image */}
-                    <div className="relative w-full h-48 overflow-hidden bg-light-surfaceContainerLow dark:bg-dark-surfaceContainerLow">
-                      <Image
-                        src={relatedPost.image}
-                        alt={relatedPost.title}
-                        fill
-                        className="object-cover group-hover:scale-110 transition-transform duration-500"
-                      />
-                    </div>
+      {blogPosts.some(
+        (p) => p.id !== post.id && t(p.category) === t(post.category),
+      ) && (
+        <section className="pb-20 px-4 sm:px-6 lg:px-8 bg-light-surfaceContainerLow dark:bg-dark-surfaceContainerLow">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-headline-large font-bold text-light-onBackground dark:text-dark-onBackground mb-12 text-center">
+              {t("blog.moreArticles")}
+            </h2>
+            <div className="grid md:grid-cols-3 gap-6">
+              {blogPosts
+                .filter(
+                  (p) => p.id !== post.id && t(p.category) === t(post.category),
+                )
+                .slice(0, 3)
+                .map((relatedPost) => (
+                  <Link
+                    key={relatedPost.id}
+                    href={`/blog/${relatedPost.id}`}
+                    className="group">
+                    <div className="rounded-2xl border border-light-outline dark:border-dark-outline overflow-hidden hover:border-light-primary dark:hover:border-dark-primary transition-all h-full flex flex-col bg-light-background dark:bg-dark-background">
+                      {/* Image */}
+                      <div className="relative w-full h-48 overflow-hidden bg-light-surfaceContainerLow dark:bg-dark-surfaceContainerLow">
+                        <Image
+                          src={relatedPost.image}
+                          alt={relatedPost.title}
+                          fill
+                          className="object-cover group-hover:scale-110 transition-transform duration-500"
+                        />
+                      </div>
 
-                    {/* Content */}
-                    <div className="p-6 flex-1 flex flex-col">
-                      <span className="px-3 py-1 rounded-full bg-light-primaryContainer dark:bg-dark-primaryContainer text-light-onPrimaryContainer dark:text-dark-onPrimaryContainer text-label-small font-medium mb-3 self-start">
-                        {relatedPost.category}
-                      </span>
-                      <h3 className="text-headline-small font-bold text-light-onBackground dark:text-dark-onBackground mb-2 line-clamp-2">
-                        {relatedPost.title}
-                      </h3>
-                      <p className="text-body-medium text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant line-clamp-2">
-                        {relatedPost.excerpt}
-                      </p>
+                      {/* Content */}
+                      <div className="p-6 flex-1 flex flex-col">
+                        <span className="px-3 py-1 rounded-full bg-light-primaryContainer dark:bg-dark-primaryContainer text-light-onPrimaryContainer dark:text-dark-onPrimaryContainer text-label-small font-medium mb-3 self-start">
+                          {t(relatedPost.category)}
+                        </span>
+                        <h3 className="text-headline-small font-bold text-light-onBackground dark:text-dark-onBackground mb-2 line-clamp-2">
+                          {t(relatedPost.title)}
+                        </h3>
+                        <p className="text-body-medium text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant line-clamp-2">
+                          {t(relatedPost.excerpt)}
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                </Link>
-              ))}
+                  </Link>
+                ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
     </main>
   );
 }
