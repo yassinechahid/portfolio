@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import { useTranslation } from "react-i18next";
 import {
   defaultCountries,
   parseCountry,
@@ -18,9 +17,7 @@ export default function PhoneNumberInputField({
   value,
   onChange,
   error,
-  label,
 }: PhoneNumberInputFieldProps) {
-  const { t } = useTranslation();
 
   const allowed = defaultCountries.filter((c) => {
     const { iso2 } = parseCountry(c);
@@ -29,11 +26,6 @@ export default function PhoneNumberInputField({
 
   return (
     <div className="flex flex-col gap-3 w-full">
-      {label && (
-        <label className="text-label-large text-light-onSurfaceVariant font-medium dark:text-dark-onSurfaceVariant">
-          {t("Phone number")}
-        </label>
-      )}
       <div
         className={`flex h-14 rounded-xl bg-light-surface dark:bg-dark-surface border overflow-visible transition-all ${
           error
