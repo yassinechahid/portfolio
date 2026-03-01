@@ -73,29 +73,33 @@
       "subheading": "Présentation de mes meilleurs travaux",
       "viewAll": "Voir tous les projets →",
       "viewCaseStudy": "Voir l'étude de cas",
+      "visitWebsite": "Visiter le site",
       "project1": {
-        "title": "Plateforme e-commerce",
-        "description": "E-commerce full-stack avec inventaire en temps réel",
+        "title": "Site Portfolio Personnel",
+        "description": "Portfolio professionnel présentant projets et compétences avec design moderne",
         "tags": {
-          "0": "Next.js",
-          "1": "TypeScript"
+          "0": "React",
+          "1": "Node.js",
+          "2": "Appwrite",
+          "3": "TypeScript"
         }
       },
       "project2": {
-        "title": "Générateur de contenu IA",
-        "description": "Outil de création de contenu propulsé par l'IA avec GPT-4",
+        "title": "Site Web de Voyage et Tourisme",
+        "description": "Horizon Atlas Tours - Plateforme de tourisme élégante avec réservations",
         "tags": {
-          "0": "OpenAI",
-          "1": "React",
-          "2": "Node.js"
+          "0": "Next.js",
+          "1": "Tailwind CSS",
+          "2": "TypeScript"
         }
       },
       "project3": {
-        "title": "Application de suivi santé",
-        "description": "Application mobile pour le suivi et l'analyse de santé",
+        "title": "Site de Commande de Nourriture",
+        "description": "Plateforme de livraison moderne avec expérience de commande fluide",
         "tags": {
           "0": "Next.js",
-          "1": "TypeScript"
+          "1": "React",
+          "2": "Node.js"
         }
       }
     },
@@ -332,7 +336,7 @@
     },
     "yourRights": {
       "heading": "Vos droits",
-      "content": "Vous avez le droit d'accéder, de mettre à jour ou de supprimer vos informations personnelles à tout moment. Pour exercer ces droits, veuillez nous contacter à chahidyassine14@gmail.com."
+      "content": "Vous avez le droit d'accéder, de mettre à jour ou de supprimer vos informations personnelles à tout moment. Pour exercer ces droits, veuillez nous contacter à chahidyc15@gmail.com."
     },
     "contactUs": {
       "heading": "Contactez-nous",
@@ -344,34 +348,34 @@
     "description": "Voici une sélection de projets sur lesquels j'ai travaillé. Chacun représente un défi unique et une opportunité de mettre en valeur mes compétences dans la création d'applications évolutives et conviviales.",
     "items": {
       "0": {
-        "title": "Plateforme e-commerce",
-        "description": "Solution e-commerce full-stack avec gestion d'inventaire en temps réel, traitement des paiements et tableau de bord admin."
+        "title": "Site Web E-Commerce",
+        "description": "Développement frontend pour une plateforme e-commerce moderne. Création d'une interface responsive avec affichage de produits, panier d'achat et tableau de bord utilisateur avec React et Laravel."
       },
       "1": {
-        "title": "Générateur de contenu IA",
-        "description": "Outil de création de contenu intelligent propulsé par OpenAI, avec système de modèles et traitement par lots."
+        "title": "Site Portfolio Personnel",
+        "description": "Conception et développement de mon site portfolio professionnel présentant projets, compétences et expérience. Créé avec React, Node.js et Appwrite avec un design UI/UX moderne."
       },
       "2": {
-        "title": "Tableau de bord analytique",
-        "description": "Plateforme d'analyse en temps réel avec graphiques interactifs, exportation de données et génération de rapports personnalisés."
+        "title": "Site de Commande de Nourriture",
+        "description": "Développement du frontend pour une plateforme de livraison de nourriture avec menus de restaurants, interface de commande et expérience utilisateur fluide. Développé avec Next.js et React."
       },
       "3": {
-        "title": "Application de suivi fitness",
-        "description": "Application mobile multiplateforme pour suivre les entraînements, la nutrition et les progrès avec fonctionnalités sociales."
+        "title": "Site de Rendez-vous Médicaux",
+        "description": "Développement du frontend pour la plateforme de santé montoubib.com. Création d'interfaces intuitives pour la prise de rendez-vous, profils de médecins et fonctionnalités de consultation."
       },
       "4": {
-        "title": "Système de gestion de tâches",
-        "description": "Plateforme collaborative de gestion de tâches avec mises à jour en temps réel, partage de fichiers et collaboration d'équipe."
+        "title": "Site Web de Voyage et Tourisme",
+        "description": "Développement du frontend pour le site Horizon Atlas Tours. Conception d'interfaces élégantes pour forfaits touristiques, formulaires de réservation et présentation de destinations avec design responsive."
       },
       "5": {
-        "title": "Tableau de bord réseaux sociaux",
-        "description": "Tableau de bord unifié pour gérer plusieurs comptes de réseaux sociaux avec analyses et planification."
+        "title": "Tableau de Bord Réseaux Sociaux",
+        "description": "Développement du frontend pour une plateforme de gestion de réseaux sociaux avec graphiques interactifs, affichages analytiques et interfaces de planification utilisant des technologies web modernes."
       }
     },
     "cta": {
-      "heading": "Vous avez un projet en tête ?",
-      "description": "Je suis toujours intéressé par le travail sur des projets passionnants. Collaborons !",
-      "button": "Commencer un projet"
+      "heading": "Prêt à Démarrer Votre Prochain Projet ?",
+      "description": "Je suis disponible pour du travail freelance et des collaborations passionnantes. Créons quelque chose d'incroyable ensemble !",
+      "button": "Contactez-moi"
     }
   },
   "skills": {
@@ -456,51 +460,56 @@
   },
   "blogContent": {
     "title": {
-      "post1": "Développer des applications web modernes avec React et Next.js",
-      "post2": "Meilleures pratiques de développement backend avec Laravel",
-      "post3": "Conception et optimisation de bases de données MySQL",
-      "post4": "Styliser des interfaces modernes avec Tailwind CSS",
-      "post5": "Appwrite BaaS : Le backend simplifié",
-      "post6": "De Bootstrap à Tailwind : Développement d'interfaces modernes"
+      "post1": "Débuter avec Next.js : Le framework React pour la production",
+      "post2": "React Hooks et meilleures pratiques de gestion d'état",
+      "post3": "Meilleures pratiques de développement backend avec Laravel",
+      "post4": "Conception et optimisation de bases de données MySQL",
+      "post5": "Styliser des interfaces modernes avec Tailwind CSS",
+      "post6": "Appwrite BaaS : Le backend simplifié",
+      "post7": "De Bootstrap à Tailwind : Développement d'interfaces modernes"
     },
     "excerpt": {
-      "post1": "Apprenez à utiliser React et Next.js pour construire des applications web rapides et optimisées pour le SEO avec rendu côté serveur et génération statique.",
-      "post2": "Maîtrisez les fonctionnalités puissantes de Laravel pour construire des API backend robustes. Découvrez Eloquent ORM, les middleware, l'authentification et la conception d'API.",
-      "post3": "Techniques essentielles pour concevoir des bases de données MySQL efficaces. Maîtrisez l'indexation, l'optimisation des requêtes et la conception des relations pour de meilleures performances.",
-      "post4": "Découvrez comment l'approche utility-first de Tailwind CSS accélère le développement et crée des designs responsives et cohérents sans quitter votre HTML.",
-      "post5": "Découvrez comment Appwrite simplifie le développement backend avec sa plateforme complète Backend-as-a-Service. Parfait pour le développement rapide.",
-      "post6": "Comparaison des approches Bootstrap et Tailwind CSS. Apprenez quand utiliser chacun et comment tirer parti des deux frameworks pour le design responsive."
+      "post1": "Découvrez pourquoi Next.js est le framework de référence pour créer des applications React production-ready avec rendu côté serveur, génération statique et performances optimales.",
+      "post2": "Maîtrisez React Hooks et les patterns modernes de gestion d'état. Apprenez useState, useEffect, hooks personnalisés et quand utiliser Context API vs bibliothèques externes.",
+      "post3": "Maîtrisez les fonctionnalités puissantes de Laravel pour construire des API backend robustes. Découvrez Eloquent ORM, les middleware, l'authentification et la conception d'API.",
+      "post4": "Techniques essentielles pour concevoir des bases de données MySQL efficaces. Maîtrisez l'indexation, l'optimisation des requêtes et la conception des relations pour de meilleures performances.",
+      "post5": "Découvrez comment l'approche utility-first de Tailwind CSS accélère le développement et crée des designs responsives et cohérents sans quitter votre HTML.",
+      "post6": "Découvrez comment Appwrite simplifie le développement backend avec sa plateforme complète Backend-as-a-Service. Parfait pour le développement rapide.",
+      "post7": "Comparaison des approches Bootstrap et Tailwind CSS. Apprenez quand utiliser chacun et comment tirer parti des deux frameworks pour le design responsive."
     },
     "content": {
-      "post1": "Dans le paysage du développement web moderne, React et Next.js forment une combinaison puissante qui a véritablement révolutionné notre façon de construire des applications web. Next.js offre un framework intégré qui combine la puissance de React avec des fonctionnalités avancées comme le rendu côté serveur, la génération de sites statiques et l'optimisation automatique des performances.\n\n**Pourquoi Next.js est le choix optimal :**\n- **Performances exceptionnelles :** Optimization automatique complète incluant le code splitting, le lazy loading et l'optimisation automatique des images.\n- **SEO avancé :** Le rendu côté serveur assure un crawling efficace des moteurs de recherche, améliorant le classement de votre site.\n- **Expérience développeur supérieure :** Hot reloading instantané, support TypeScript complet et système de routing intuitif basé sur les fichiers.\n- **Server Components :** Exploitez la puissance du serveur pour améliorer les performances et réduire la taille du bundle JavaScript.\n\n**Guide de démarrage rapide :**\n1. Installer Next.js : `npx create-next-app@latest`\n2. Créer des pages dans le répertoire `app`\n3. Utiliser les Server Components pour des performances optimales\n4. Déployer sur Vercel en un clic\n\n**D'après l'expérience réelle :**\nAprès avoir construit de nombreux projets avec cette stack technologique, je peux affirmer avec confiance qu'elle est idéale pour tout projet - que vous construisiez un blog simple, une plateforme e-commerce complète, ou une application web complexe avec des centaines de pages. Le résultat est toujours : applications rapides, architecture scalable et maintenance facile.",
-      "post2": "Laravel se présente comme l'un des frameworks PHP les plus élégants du développement web moderne. Avec sa syntaxe expressive et son ensemble de fonctionnalités complètes, il transforme le développement backend en un art tout en maintenant une robustesse et une sécurité de niveau entreprise.\n\n**Forces principales de Laravel :**\n- **Eloquent ORM :** Interactions de base de données intuitives et élégantes qui rendent les requêtes complexes naturelles\n- **Sécurité intégrée :** Authentification, autorisation et protection contre les vulnérabilités courantes\n- **Excellence des API :** Développement d'API RESTful simplifié avec les contrôleurs de ressources\n- **Système Middleware :** Pipeline de filtrage et validation des requêtes propre et puissant\n\n**Fonctionnalités essentielles qui comptent :**\n1. **Migrations de base de données :** Véritable contrôle de version pour votre schéma de base de données\n2. **Relations Eloquent :** Définissez des relations de modèles complexes avec une syntaxe élégante\n3. **Ressources API :** Transformez vos modèles en réponses JSON parfaitement structurées\n4. **Système de Files et Jobs :** Gérez les tâches intensives efficacement en arrière-plan\n\n**Intégration Full-Stack moderne :**\nLaravel s'intègre parfaitement avec les frameworks JavaScript modernes comme React et Next.js. Utilisez Laravel comme backend API robuste et connectez-le à votre frontend moderne pour une solution full-stack puissante et scalable.\n\n**D'après l'expérience professionnelle :**\nAyant utilisé Laravel dans des environnements de production allant des startups aux applications d'entreprise, je peux témoigner de sa fiabilité et de sa productivité. C'est devenu mon choix privilégié pour le développement backend PHP.",
-      "post3": "La conception de base de données est la pierre angulaire des performances et de la scalabilité des applications. MySQL, l'une des bases de données relationnelles les plus fiables au monde, alimente des millions d'applications globalement - des petites startups aux géants technologiques.\n\n**Principes fondamentaux de conception :**\n- **Normalisation :** Organisation stratégique des données pour éliminer la redondance\n- **Indexation intelligente :** Accélérez les performances avec des index bien conçus\n- **Intégrité référentielle :** Maintenez la cohérence via les clés étrangères\n- **Types de données optimaux :** Choisissez des types efficaces adaptés à vos besoins\n\n**Stratégies d'optimisation avancées :**\n1. Utilisez EXPLAIN pour analyser et optimiser les plans d'exécution\n2. Créez des index composites pour les patterns de recherche multi-colonnes\n3. Implémentez le cache de requêtes pour les données fréquemment accédées\n4. Utilisez les prepared statements pour sécurité et performance\n5. Surveillez les logs de requêtes lentes et optimisez-les\n\n**Meilleures pratiques d'intégration Laravel :**\nLe query builder et Eloquent ORM de Laravel fournissent une interface élégante à MySQL tout en maintenant les performances. Vous pouvez écrire des requêtes expressives et lisibles sans sacrifier la vitesse d'exécution.\n\n**Impact réel :**\nUne conception appropriée de base de données m'a constamment fait économiser d'innombrables heures d'optimisation. Un schéma bien conçu évolue naturellement avec votre application.",
-      "post4": "Appwrite représente un changement de paradigme dans le développement backend - une plateforme Backend-as-a-Service (BaaS) complète qui gère l'authentification, les bases de données, le stockage, les fonctions serverless et les capacités temps réel, permettant aux développeurs de se concentrer entièrement sur la construction de fonctionnalités.\n\n**Ensemble de fonctionnalités complet :**\n- **Base de données flexible :** NoSQL avec requêtes puissantes, relations et subscriptions temps réel\n- **Support multi-authentification :** Email/mot de passe, fournisseurs OAuth, auth téléphonique et sessions anonymes\n- **Stockage sécurisé :** Upload de fichiers, gestion, transformations d'images et intégration CDN\n- **Cloud Functions :** Fonctions serverless pour logique métier personnalisée et traitement en arrière-plan\n- **Moteur temps réel :** Support WebSocket pour mises à jour live et fonctionnalités collaboratives\n\n**Pourquoi les développeurs choisissent Appwrite :** \n1. **Options Self-Hosted & Cloud :** Contrôle complet avec auto-hébergement ou déploiement cloud sans tracas\n2. **SDKs cross-platform :** Support officiel pour Web, Flutter, iOS, Android et plateformes serveur\n3. **Sécurité enterprise :** Chiffrement intégré, permissions basées sur les rôles et conformité\n4. **Framework agnostique :** S'intègre parfaitement avec tout framework frontend\n\n**Expérience production-ready :**\nJ'ai déployé plusieurs applications en production utilisant Appwrite comme infrastructure backend. C'est exceptionnellement adapté aux projets nécessitant un développement rapide sans sacrifier les fonctionnalités professionnelles.\n\n**Capacités avancées :**\nLe système de permissions d'Appwrite mérite une mention spéciale - il fournit un contrôle d'accès granulaire basé sur les rôles configurable au niveau du document.",
+      "post1": "Dans le paysage du développement web moderne, React et Next.js forment une combinaison puissante qui a véritablement révolutionné notre façon de construire des applications web. Next.js offre un framework intégré qui combine la puissance de React avec des fonctionnalités avancées comme le rendu côté serveur, la génération de sites statiques et l'optimisation automatique des performances.\n\n**Pourquoi Next.js est le choix optimal :**\n- **Performances exceptionnelles :** Optimization automatique complète incluant le code splitting, le lazy loading et l'optimisation automatique des images.\n- **SEO avancé :** Le rendu côté serveur assure un crawling efficace des moteurs de recherche, améliorant le classement de votre site.\n- **Expérience développeur supérieure :** Hot reloading instantané, support TypeScript complet et système de routing intuitif basé sur les fichiers.\n- **Server Components :** Exploitez la puissance du serveur pour améliorer les performances et réduire la taille du bundle JavaScript.\n\n**Guide de démarrage rapide :**\n\n1. Installer Next.js : `npx create-next-app@latest`\n2. Créer des pages dans le répertoire `app`\n3. Utiliser les Server Components pour des performances optimales\n4. Déployer sur Vercel en un clic\n\n**D'après l'expérience réelle :**\nAprès avoir construit de nombreux projets avec cette stack technologique, je peux affirmer avec confiance qu'elle est idéale pour tout projet - que vous construisiez un blog simple, une plateforme e-commerce complète, ou une application web complexe avec des centaines de pages. Le résultat est toujours : applications rapides, architecture scalable et maintenance facile.",
+      "post2": "Laravel se présente comme l'un des frameworks PHP les plus élégants du développement web moderne. Avec sa syntaxe expressive et son ensemble de fonctionnalités complètes, il transforme le développement backend en un art tout en maintenant une robustesse et une sécurité de niveau entreprise.\n\n**Forces principales de Laravel :**\n- **Eloquent ORM :** Interactions de base de données intuitives et élégantes qui rendent les requêtes complexes naturelles\n- **Sécurité intégrée :** Authentification, autorisation et protection contre les vulnérabilités courantes\n- **Excellence des API :** Développement d'API RESTful simplifié avec les contrôleurs de ressources\n- **Système Middleware :** Pipeline de filtrage et validation des requêtes propre et puissant\n\n**Fonctionnalités essentielles qui comptent :**\n\n1. **Migrations de base de données :** Véritable contrôle de version pour votre schéma de base de données\n2. **Relations Eloquent :** Définissez des relations de modèles complexes avec une syntaxe élégante\n3. **Ressources API :** Transformez vos modèles en réponses JSON parfaitement structurées\n4. **Système de Files et Jobs :** Gérez les tâches intensives efficacement en arrière-plan\n\n**Intégration Full-Stack moderne :**\nLaravel s'intègre parfaitement avec les frameworks JavaScript modernes comme React et Next.js. Utilisez Laravel comme backend API robuste et connectez-le à votre frontend moderne pour une solution full-stack puissante et scalable.\n\n**D'après l'expérience professionnelle :**\nAyant utilisé Laravel dans des environnements de production allant des startups aux applications d'entreprise, je peux témoigner de sa fiabilité et de sa productivité. C'est devenu mon choix privilégié pour le développement backend PHP.",
+      "post3": "La conception de base de données est la pierre angulaire des performances et de la scalabilité des applications. MySQL, l'une des bases de données relationnelles les plus fiables au monde, alimente des millions d'applications globalement - des petites startups aux géants technologiques.\n\n**Principes fondamentaux de conception :**\n- **Normalisation :** Organisation stratégique des données pour éliminer la redondance\n- **Indexation intelligente :** Accélérez les performances avec des index bien conçus\n- **Intégrité référentielle :** Maintenez la cohérence via les clés étrangères\n- **Types de données optimaux :** Choisissez des types efficaces adaptés à vos besoins\n\n**Stratégies d'optimisation avancées :**\n\n1. Utilisez EXPLAIN pour analyser et optimiser les plans d'exécution\n2. Créez des index composites pour les patterns de recherche multi-colonnes\n3. Implémentez le cache de requêtes pour les données fréquemment accédées\n4. Utilisez les prepared statements pour sécurité et performance\n5. Surveillez les logs de requêtes lentes et optimisez-les\n\n**Meilleures pratiques d'intégration Laravel :**\nLe query builder et Eloquent ORM de Laravel fournissent une interface élégante à MySQL tout en maintenant les performances. Vous pouvez écrire des requêtes expressives et lisibles sans sacrifier la vitesse d'exécution.\n\n**Impact réel :**\nUne conception appropriée de base de données m'a constamment fait économiser d'innombrables heures d'optimisation. Un schéma bien conçu évolue naturellement avec votre application.",
+      "post4": "Appwrite représente un changement de paradigme dans le développement backend - une plateforme Backend-as-a-Service (BaaS) complète qui gère l'authentification, les bases de données, le stockage, les fonctions serverless et les capacités temps réel, permettant aux développeurs de se concentrer entièrement sur la construction de fonctionnalités.\n\n**Ensemble de fonctionnalités complet :**\n- **Base de données flexible :** NoSQL avec requêtes puissantes, relations et subscriptions temps réel\n- **Support multi-authentification :** Email/mot de passe, fournisseurs OAuth, auth téléphonique et sessions anonymes\n- **Stockage sécurisé :** Upload de fichiers, gestion, transformations d'images et intégration CDN\n- **Cloud Functions :** Fonctions serverless pour logique métier personnalisée et traitement en arrière-plan\n- **Moteur temps réel :** Support WebSocket pour mises à jour live et fonctionnalités collaboratives\n\n**Pourquoi les développeurs choisissent Appwrite :**\n\n1. **Options Self-Hosted & Cloud :** Contrôle complet avec auto-hébergement ou déploiement cloud sans tracas\n2. **SDKs cross-platform :** Support officiel pour Web, Flutter, iOS, Android et plateformes serveur\n3. **Sécurité enterprise :** Chiffrement intégré, permissions basées sur les rôles et conformité\n4. **Framework agnostique :** S'intègre parfaitement avec tout framework frontend\n\n**Expérience production-ready :**\nJ'ai déployé plusieurs applications en production utilisant Appwrite comme infrastructure backend. C'est exceptionnellement adapté aux projets nécessitant un développement rapide sans sacrifier les fonctionnalités professionnelles.\n\n**Capacités avancées :**\nLe système de permissions d'Appwrite mérite une mention spéciale - il fournit un contrôle d'accès granulaire basé sur les rôles configurable au niveau du document.",
       "post5": "Le paysage des frameworks CSS offre deux philosophies distinctes : l'approche component-driven de Bootstrap versus la méthodologie utility-first de Tailwind. Comprendre les deux frameworks et savoir quand utiliser chacun est ce qui sépare les bons développeurs des excellents.\n\n**Philosophie de Bootstrap :**\n- **Architecture basée composants :** Composants UI pré-conçus et testés prêts à l'emploi\n- **Intégration JavaScript :** Système de plugins complet pour éléments interactifs\n- **Prototypage rapide :** Interfaces fonctionnelles en minutes\n- **Familiarité d'équipe :** Grande communauté et documentation extensive\n- **Design opinioné :** Langage visuel cohérent entre les composants\n\n**Approche de Tailwind :**\n- **Paradigme utility-first :** Composez des designs avec des classes utilitaires de bas niveau\n- **Liberté de design complète :** Aucun composant préétabli contraignant votre créativité\n- **Performance optimale :** Bundles de production dramatiquement plus petits\n- **Profondeur de personnalisation :** Configurez chaque token de design pour matcher votre marque\n- **Workflow moderne :** Parfait pour les frameworks JavaScript basés composants\n\n**Cas d'usage stratégiques de Bootstrap :**\n- **MVPs et Prototypes :** Quand la vitesse de mise sur le marché est critique\n- **Outils internes :** Panels admin et dashboards où la fonctionnalité prime\n- **Projets legacy :** Maintenir la cohérence avec des codebases Bootstrap existantes\n- **Contraintes d'équipe :** Quand les designers ne sont pas disponibles\n\n**Quand Tailwind brille :**\n- **Designs personnalisés :** Implémentation pixel-perfect de designs Figma/Sketch\n- **Apps critiques en performance :** Quand chaque kilobyte compte\n- **Design systems :** Construction de votre propre bibliothèque de composants\n- **SPAs modernes :** Applications React, Vue ou Svelte\n\n**Insight professionnel du monde réel :**\nAvec une expérience extensive dans les deux frameworks, j'ai appris qu'ils ne sont pas en compétition mais complémentaires. Bootstrap excelle pour les outils internes, interfaces admin et prototypes rapides. Tailwind domine dans les applications sur mesure orientées client où design unique et performance sont primordiaux.\n\nDans mon workflow actuel, beaucoup de projets utilisent Tailwind comme solution de styling principale, mais j'exploite toujours les composants JavaScript de Bootstrap quand ils fournissent des fonctionnalités complexes prêtes à l'emploi. La clé est de comprendre les forces de chaque outil."
     },
     "date": {
-      "post1": "20 février 2026",
-      "post2": "15 février 2026",
-      "post3": "10 février 2026",
-      "post4": "5 février 2026",
-      "post5": "30 janvier 2026",
-      "post6": "25 janvier 2026"
+      "post1": "25 février 2026",
+      "post2": "20 février 2026",
+      "post3": "15 février 2026",
+      "post4": "10 février 2026",
+      "post5": "5 février 2026",
+      "post6": "30 janvier 2026",
+      "post7": "25 janvier 2026"
     },
     "readTime": {
-      "post1": "8 min de lecture",
-      "post2": "10 min de lecture",
-      "post3": "12 min de lecture",
-      "post4": "9 min de lecture",
-      "post5": "11 min de lecture",
-      "post6": "8 min de lecture"
+      "post1": "7 min de lecture",
+      "post2": "9 min de lecture",
+      "post3": "10 min de lecture",
+      "post4": "12 min de lecture",
+      "post5": "6 min de lecture",
+      "post6": "11 min de lecture",
+      "post7": "8 min de lecture"
     },
     "category": {
-      "post1": "React",
-      "post2": "Laravel",
-      "post3": "Base de données",
-      "post4": "CSS",
-      "post5": "Backend",
-      "post6": "CSS"
+      "post1": "Next.js",
+      "post2": "React",
+      "post3": "Laravel",
+      "post4": "Base de données",
+      "post5": "CSS",
+      "post6": "Backend",
+      "post7": "CSS"
     }
   }
 }

@@ -119,7 +119,7 @@ export default async function LocaleLayout({ children }: LocaleLayoutProps) {
       "RESTful APIs",
       "Web Development",
     ],
-    email: "chahidyassine14@gmail.com",
+    email: "chahidyc15@gmail.com",
     telephone: "+212658188142",
     address: {
       "@type": "PostalAddress",

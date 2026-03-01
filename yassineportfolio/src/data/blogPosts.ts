@@ -19,8 +19,7 @@ export const blogPosts: BlogPost[] = [
     date: "blogContent.date.post1",
     readTime: "blogContent.readTime.post1",
     category: "blogContent.category.post1",
-    image: "/yassine/1.jpg",
-    featured: true,
+    image: "/images/next-js.jpg",
   },
   {
     id: 2,
@@ -30,7 +29,7 @@ export const blogPosts: BlogPost[] = [
     date: "blogContent.date.post2",
     readTime: "blogContent.readTime.post2",
     category: "blogContent.category.post2",
-    image: "/yassine/2.webp",
+    image: "/images/react.jpg",
   },
   {
     id: 3,
@@ -40,7 +39,7 @@ export const blogPosts: BlogPost[] = [
     date: "blogContent.date.post3",
     readTime: "blogContent.readTime.post3",
     category: "blogContent.category.post3",
-    image: "/yassine/3.jpg",
+    image: "/images/laravel.jpg",
   },
   {
     id: 4,
@@ -50,7 +49,7 @@ export const blogPosts: BlogPost[] = [
     date: "blogContent.date.post4",
     readTime: "blogContent.readTime.post4",
     category: "blogContent.category.post4",
-    image: "/yassine/4.jpg",
+    image: "/images/mysql.jpg",
   },
   {
     id: 5,
@@ -60,7 +59,7 @@ export const blogPosts: BlogPost[] = [
     date: "blogContent.date.post5",
     readTime: "blogContent.readTime.post5",
     category: "blogContent.category.post5",
-    image: "/yassine/5.webp",
+    image: "/images/tailwind.png",
   },
   {
     id: 6,
@@ -70,6 +69,16 @@ export const blogPosts: BlogPost[] = [
     date: "blogContent.date.post6",
     readTime: "blogContent.readTime.post6",
     category: "blogContent.category.post6",
+    image: "/images/appwrite.png",
+  },
+  {
+    id: 7,
+    title: "blogContent.title.post7",
+    excerpt: "blogContent.excerpt.post7",
+    content: "blogContent.content.post7",
+    date: "blogContent.date.post7",
+    readTime: "blogContent.readTime.post7",
+    category: "blogContent.category.post7",
     image: "/yassine/6.jpg",
   },
 ];

@@ -30,7 +30,8 @@ export default function Home() {
           returnObjects: true,
         }) as Record<string, string>,
       ),
-      image: "/yassine/1.jpg",
+      image: "/images/myPortfolio.png",
+      liveUrl: "https://portfolio-chahid.vercel.app/",
     },
     {
       title: t("home.projects.project2.title"),
@@ -40,7 +41,8 @@ export default function Home() {
           returnObjects: true,
         }) as Record<string, string>,
       ),
-      image: "/yassine/2.webp",
+      image: "/images/transport.png",
+      liveUrl: "https://horizonatlstours.com/",
     },
     {
       title: t("home.projects.project3.title"),
@@ -50,7 +52,8 @@ export default function Home() {
           returnObjects: true,
         }) as Record<string, string>,
       ),
-      image: "/yassine/3.jpg",
+      image: "/images/food.png",
+      liveUrl: "https://food-dusky-six.vercel.app/",
     },
   ];
 
@@ -148,7 +151,7 @@ export default function Home() {
                   <Twitter className="w-6 h-6" />
                 </a>
                 <a
-                  href="mailto:chahidyassine14@gmail.com"
+                  href="mailto:chahidyc15@gmail.com"
                   className="p-3 rounded-full bg-light-surfaceContainerLow dark:bg-dark-surfaceContainerLow text-light-onSurface dark:text-dark-onSurface hover:bg-light-primaryContainer dark:hover:bg-dark-primaryContainer hover:text-light-primary dark:hover:text-dark-primary hover:scale-[1.05] transition-all duration-300 shadow-sm hover:shadow-md">
                   <Mail className="w-6 h-6" />
                 </a>
@@ -173,7 +176,9 @@ export default function Home() {
                   />
 
                   {/* Overlay on hover */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end p-4 sm:p-6 md:p-8 rounded-3xl">
+                  <div
+                    dir="ltr"
+                    className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end p-4 sm:p-6 md:p-8 rounded-3xl">
                     <div className="text-white">
                       <h3 className="text-base sm:text-lg md:text-headline-small font-bold mb-1 sm:mb-2">
                         {t("home.hero.name")}
@@ -285,20 +290,25 @@ export default function Home() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, index) => (
-              <div key={index} className="group cursor-pointer">
+              <a
+                key={index}
+                href={project.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group cursor-pointer block">
                 <div className="relative overflow-hidden rounded-3xl mb-6 shadow-lg group-hover:shadow-2xl transition-all duration-500">
                   <div className="aspect-video bg-gradient-to-br from-light-primaryContainer/30 to-light-surfaceContainer/30 dark:from-dark-primaryContainer/30 dark:to-dark-surfaceContainer/30 relative">
                     <Image
                       src={project.image}
                       alt={project.title}
                       fill
-                      className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+                      className="object-fit group-hover:scale-105 transition-transform duration-700 ease-out"
                     />
                   </div>
 
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
                     <span className="text-label-large text-white font-semibold flex items-center gap-2">
-                      {t("home.projects.viewCaseStudy")}{" "}
+                      {t("home.projects.visitWebsite")}
                       <ArrowRight className="w-4 h-4" />
                     </span>
                   </div>
@@ -321,7 +331,7 @@ export default function Home() {
                     </span>
                   ))}
                 </div>
-              </div>
+              </a>
             ))}
           </div>
         </div>

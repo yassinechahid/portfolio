@@ -101,9 +101,9 @@ export default function CookiesPage() {
               <p className="text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant leading-relaxed">
                 {t("cookies.contactUs.content")}{" "}
                 <a
-                  href="mailto:chahidyassine14@gmail.com"
+                  href="mailto:chahidyc15@gmail.com"
                   className="text-light-primary dark:text-dark-primary hover:underline">
-                  chahidyassine14@gmail.com
+                  chahidyc15@gmail.com
                 </a>
                 .
               </p>

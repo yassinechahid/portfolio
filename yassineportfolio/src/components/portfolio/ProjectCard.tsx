@@ -23,6 +23,9 @@ const ProjectCard = ({
   githubUrl,
   featured = false,
 }: ProjectCardProps) => {
+  // Check if githubUrl is private (not a valid URL)
+  const isPrivateRepo = githubUrl && !githubUrl.startsWith("http");
+
   return (
     <motion.div
       whileHover={{ y: -8 }}
@@ -30,18 +33,19 @@ const ProjectCard = ({
         featured ? "lg:col-span-2" : ""
       }`}>
       {/* Background Image */}
-      <div className="relative w-full h-64 overflow-hidden bg-light-surfaceContainerLow dark:bg-dark-surfaceContainerLow">
+      <div className="relative w-full h-64 overflow-hidden bg-light-surfaceVariant dark:bg-dark-surfaceVariant">
         <Image
           src={image}
           alt={title}
           fill
-          className="object-cover group-hover:scale-110 transition-transform duration-500"
+          className="object-fit group-hover:scale-105 transition-transform duration-500"
+          priority={featured}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
 
         {/* Featured Badge */}
         {featured && (
-          <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-light-primary dark:bg-dark-primary text-light-onPrimary dark:text-dark-onPrimary text-label-small font-semibold shadow-lg">
+          <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-light-primary dark:bg-dark-primary text-light-onPrimary dark:text-dark-onPrimary text-label-small font-semibold shadow-lg z-10">
             Featured
           </div>
         )}
@@ -82,7 +86,7 @@ const ProjectCard = ({
               View Live
             </a>
           )}
-          {githubUrl && (
+          {githubUrl && !isPrivateRepo && (
             <a
               href={githubUrl}
               target="_blank"
@@ -91,6 +95,12 @@ const ProjectCard = ({
               <Github className="w-4 h-4" />
               View Code
             </a>
+          )}
+          {isPrivateRepo && (
+            <div className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg border-2 border-light-outline/50 dark:border-dark-outline/50 bg-light-surfaceContainerLow/50 dark:bg-dark-surfaceContainerLow/50 text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant text-label-medium font-semibold cursor-not-allowed opacity-70">
+              <Github className="w-4 h-4" />
+              Private
+            </div>
           )}
         </div>
       </div>

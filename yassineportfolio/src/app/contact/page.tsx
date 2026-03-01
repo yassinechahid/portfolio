@@ -39,10 +39,10 @@ export default function Contact() {
 
                 <div className="space-y-4">
                   <a
-                    href="mailto:chahidyassine14@gmail.com"
+                    href="mailto:chahidyc15@gmail.com"
                     className="flex items-center gap-3 text-body-medium text-light-onSurface dark:text-dark-onSurface hover:text-light-primary dark:hover:text-dark-primary transition-colors">
                     <Mail className="w-5 h-5 flex-shrink-0" />
-                    <span className="break-all">chahidyassine14@gmail.com</span>
+                    <span className="break-all">chahidyc15@gmail.com</span>
                   </a>
 
                   <a
@@ -91,7 +91,7 @@ export default function Contact() {
                     <Twitter className="w-5 h-5" />
                   </a>
                   <a
-                    href="mailto:chahidyassine14@gmail.com"
+                    href="mailto:chahidyc15@gmail.com"
                     className="flex items-center justify-center w-10 h-10 rounded-full bg-light-surfaceContainer dark:bg-dark-surfaceContainer hover:bg-light-primary dark:hover:bg-dark-primary hover:text-light-onPrimary dark:hover:text-dark-onPrimary transition-all"
                     aria-label="Email">
                     <Mail className="w-5 h-5" />
