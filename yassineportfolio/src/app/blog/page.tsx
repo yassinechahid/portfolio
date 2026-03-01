@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
@@ -12,6 +12,22 @@ export default function Blog() {
   const [selectedCategory, setSelectedCategory] = useState<string>(
     t("blog.categoryAll"),
   );
+  const postsRef = useRef<HTMLElement>(null);
+
+  const handleCategoryClick = (category: string) => {
+    setSelectedCategory(category);
+    // Scroll to posts section smoothly with offset for fixed navbar
+    setTimeout(() => {
+      if (postsRef.current) {
+        const yOffset = -50; // Offset for fixed navbar
+        const y =
+          postsRef.current.getBoundingClientRect().top +
+          window.pageYOffset +
+          yOffset;
+        window.scrollTo({ top: y, behavior: "smooth" });
+      }
+    }, 100);
+  };
 
   // Get unique categories by translating first, then deduplicating
   const allCategories = blogPosts.map((p) => t(p.category));
@@ -47,7 +63,7 @@ export default function Blog() {
             {categories.map((cat) => (
               <button
                 key={cat}
-                onClick={() => setSelectedCategory(cat)}
+                onClick={() => handleCategoryClick(cat)}
                 className={`px-4 py-2 rounded-full whitespace-nowrap text-label-medium font-medium transition-colors ${
                   selectedCategory === cat
                     ? "bg-light-primary dark:bg-dark-primary text-light-onPrimary dark:text-dark-onPrimary"
@@ -119,7 +135,7 @@ export default function Blog() {
       )}
 
       {/* Blog Grid */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
+      <section ref={postsRef} className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredPosts
