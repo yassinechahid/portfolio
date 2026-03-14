@@ -348,8 +348,8 @@
     "description": "Here's a selection of projects I've worked on. Each one represents a unique challenge and an opportunity to showcase my skills in building scalable, user-friendly applications.",
     "items": {
       "0": {
-        "title": "E-Commerce Website",
-        "description": "Frontend development for a modern e-commerce platform. Built a responsive interface with product displays, shopping cart, and user dashboard using React and Laravel integration."
+        "title": "EDUBAO AFRIQUE",
+        "description": "Development of the EDUBAO AFRIQUE website that helps students prepare for studying in Germany through digital services such as blocked accounts, insurance, and personalized guidance."
       },
       "1": {
         "title": "Personal Portfolio Website",
@@ -368,8 +368,8 @@
         "description": "Built the frontend for Horizon Atlas Tours website. Designed elegant interfaces for tour packages, booking forms, and destination showcases with responsive design."
       },
       "5": {
-        "title": "Social Media Dashboard",
-        "description": "Developed the frontend for a social media management platform with interactive charts, analytics displays, and scheduling interfaces using modern web technologies."
+        "title": "Smart Education Platform",
+        "description": "Development of an intelligent school platform designed to support modern educational management. The system connects schools, teachers, parents, and students in one ecosystem, improving communication, process management, and educational performance through a centralized digital solution."
       }
     },
     "cta": {

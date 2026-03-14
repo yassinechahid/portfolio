@@ -3,6 +3,13 @@
 
 import { useState, useEffect } from "react";
 import {
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
+  IconButton,
+} from "@mui/material";
+import {
   databases,
   IDGenerator,
   QueryBuilder,
@@ -13,7 +20,6 @@ import {
 import Swal from "sweetalert2";
 import {
   Plus,
-  Search,
   Edit,
   Trash2,
   User as UserIcon,
@@ -21,8 +27,11 @@ import {
   Phone,
   Calendar,
   Shield,
+  X,
 } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
+import LabeledInput from "@/components/LabeledInput";
+import PhoneNumberInputField from "@/components/PhoneNumberInputField";
 
 interface User {
   $id: string;
@@ -42,6 +51,7 @@ export default function UsersPage() {
   const [showAddModal, setShowAddModal] = useState(false);
   const [editingUser, setEditingUser] = useState<User | null>(null);
   const { isAdmin } = useAuth();
+  const isDialogOpen = showAddModal || Boolean(editingUser);
 
   // Form state - MATCHES YOUR COLLECTION EXACTLY
   const [formData, setFormData] = useState({
@@ -52,124 +62,17 @@ export default function UsersPage() {
     status: "active" as "active" | "inactive",
   });
 
-  // ============= DEBUG FUNCTIONS =============
-
-  // 1. Debug: Check collection attributes
-  const debugCollectionAttributes = async () => {
-    try {
-      console.log("🔍 DEBUG: Fetching collection attributes...");
-      // This is a hack to get collection info - try to list with limit 0
-      const response = await databases.listDocuments(
-        DATABASE_ID,
-        COLLECTION_USERS,
-        [QueryBuilder.limit(1)],
-      );
-      console.log("✅ Collection accessible. Total documents:", response.total);
-      return true;
-    } catch (error: any) {
-      console.error("❌ Collection access error:", {
-        message: error.message,
-        code: error.code,
-        type: error.type,
-      });
-      return false;
-    }
-  };
-
-  // 2. Debug: Test with hardcoded values
-  const debugHardcodedCreate = async () => {
-    try {
-      console.log("🧪 DEBUG: Testing with hardcoded values...");
-      const testData = {
-        name: "Debug User",
-        email: `debug${Date.now()}@example.com`,
-        phone: "1234567890",
-        role: "admin",
-        status: "active",
-      };
-
-      console.log(
-        "📤 Hardcoded data being sent:",
-        JSON.stringify(testData, null, 2),
-      );
-
-      const result = await databases.createDocument(
-        DATABASE_ID,
-        COLLECTION_USERS,
-        IDGenerator.unique(),
-        testData,
-      );
-
-      console.log("✅ Hardcoded test SUCCESS! Document created:", result.$id);
-      return true;
-    } catch (error: any) {
-      console.error("❌ Hardcoded test FAILED:", {
-        message: error.message,
-        code: error.code,
-        type: error.type,
-        response: error.response,
-      });
-      return false;
-    }
-  };
-
-  // 3. Debug: Check what users exist
-  const debugListUsers = async () => {
-    try {
-      console.log("📋 DEBUG: Fetching existing users...");
-      const response = await databases.listDocuments(
-        DATABASE_ID,
-        COLLECTION_USERS,
-        [QueryBuilder.limit(5)],
-      );
-      console.log(`✅ Found ${response.total} users total`);
-      console.log(
-        "Sample user (if any):",
-        response.documents[0] || "No users yet",
-      );
-      return response.documents;
-    } catch (error: any) {
-      console.error("❌ Failed to fetch users:", error.message);
-      return [];
-    }
-  };
-
-  // Run debug on component mount
-  useEffect(() => {
-    const runDebug = async () => {
-      console.log("=".repeat(50));
-      console.log("🚀 STARTING DEBUG SEQUENCE");
-      console.log("=".repeat(50));
-
-      await debugCollectionAttributes();
-      await debugListUsers();
-      // Uncomment to test hardcoded create (will create a test user)
-      // await debugHardcodedCreate();
-
-      console.log("=".repeat(50));
-      console.log("🏁 DEBUG SEQUENCE COMPLETE");
-      console.log("=".repeat(50));
-    };
-
-    runDebug();
-  }, []);
-
-  // ============= END DEBUG FUNCTIONS =============
-
   // Fetch users
   const fetchUsers = async () => {
     try {
       setLoading(true);
-      console.log("📥 Fetching users list...");
       const response = await databases.listDocuments(
         DATABASE_ID,
         COLLECTION_USERS,
         [QueryBuilder.orderDesc("$createdAt")],
       );
-      console.log(`✅ Fetched ${response.documents.length} users`);
       setUsers(response.documents as unknown as User[]);
-    } catch (error: any) {
-      console.error("❌ Error fetching users:", error);
+    } catch {
       Swal.fire({
         icon: "error",
         title: "Error",
@@ -209,11 +112,6 @@ export default function UsersPage() {
         .toLowerCase()
         .replace(/[^a-z]/g, "");
 
-      console.log("🔍 ORIGINAL role:", JSON.stringify(formData.role));
-      console.log("🔍 CLEANED role:", JSON.stringify(cleanRole));
-      console.log("🔍 ORIGINAL status:", JSON.stringify(formData.status));
-      console.log("🔍 CLEANED status:", JSON.stringify(cleanStatus));
-
       const dataToSend = {
         name: formData.name.trim(),
         email: formData.email.trim().toLowerCase(),
@@ -221,8 +119,6 @@ export default function UsersPage() {
         role: cleanRole,
         status: cleanStatus,
       };
-
-      console.log("📤 SENDING:", JSON.stringify(dataToSend, null, 2));
 
       await databases.createDocument(
         DATABASE_ID,
@@ -242,10 +138,7 @@ export default function UsersPage() {
       setShowAddModal(false);
       resetForm();
       fetchUsers();
-    } catch (error: any) {
-      console.error("❌ ERROR:", error);
-
-      // Show exactly what was sent
+    } catch {
       Swal.fire({
         icon: "error",
         title: "Error",
@@ -254,7 +147,6 @@ export default function UsersPage() {
           <p class="font-bold">Failed to create user</p>
           <p class="text-sm mt-2">Role sent: "${formData.role}"</p>
           <p class="text-sm">Status sent: "${formData.status}"</p>
-          <p class="text-xs text-gray-500 mt-2">Check console for details</p>
         </div>
       `,
         confirmButtonColor: "#6366f1",
@@ -262,13 +154,8 @@ export default function UsersPage() {
     }
   };
 
-  // Update user with debugging
   const updateUser = async () => {
     if (!editingUser) return;
-
-    console.log("=".repeat(50));
-    console.log("📝 UPDATE USER - User ID:", editingUser.$id);
-    console.log("Form Data:", formData);
 
     try {
       const dataToSend = {
@@ -279,19 +166,12 @@ export default function UsersPage() {
         status: formData.status.trim() as "active" | "inactive",
       };
 
-      console.log(
-        "📤 Updating user with data:",
-        JSON.stringify(dataToSend, null, 2),
-      );
-
       await databases.updateDocument(
         DATABASE_ID,
         COLLECTION_USERS,
         editingUser.$id,
         dataToSend,
       );
-
-      console.log("✅ User updated successfully");
 
       Swal.fire({
         icon: "success",
@@ -305,8 +185,6 @@ export default function UsersPage() {
       resetForm();
       fetchUsers();
     } catch (error: any) {
-      console.error("❌ Error updating user:", error);
-
       let errorMessage = "Failed to update user. ";
       if (error?.message?.includes("role")) {
         errorMessage = `Role must be 'admin' or 'user'. You sent: "${formData.role}"`;
@@ -339,9 +217,7 @@ export default function UsersPage() {
 
     if (result.isConfirmed) {
       try {
-        console.log("🗑️ Deleting user:", userId);
         await databases.deleteDocument(DATABASE_ID, COLLECTION_USERS, userId);
-        console.log("✅ User deleted successfully");
 
         Swal.fire({
           icon: "success",
@@ -352,8 +228,7 @@ export default function UsersPage() {
         });
 
         fetchUsers();
-      } catch (error: any) {
-        console.error("❌ Error deleting user:", error);
+      } catch {
         Swal.fire({
           icon: "error",
           title: "Error",
@@ -375,9 +250,14 @@ export default function UsersPage() {
     });
   };
 
+  const closeDialog = () => {
+    setShowAddModal(false);
+    setEditingUser(null);
+    resetForm();
+  };
+
   // Edit user
   const handleEdit = (user: User) => {
-    console.log("✏️ Editing user:", user.$id);
     setEditingUser(user);
     setFormData({
       name: user.name,
@@ -394,6 +274,14 @@ export default function UsersPage() {
       user.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
       user.email.toLowerCase().includes(searchTerm.toLowerCase()),
   );
+
+  const handleFormInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
 
   if (!isAdmin) {
     return (
@@ -414,7 +302,7 @@ export default function UsersPage() {
   }
 
   return (
-    <div className=" max-w-full overflow-hidden">
+    <div className="max-w-full overflow-hidden space-y-6">
       {/* Header */}
       <div className="flex items-center justify-between flex-wrap gap-4">
         <div>
@@ -426,15 +314,6 @@ export default function UsersPage() {
           </p>
         </div>
         <div className="flex gap-2 flex-wrap">
-          {/* Debug Button - Only visible in development */}
-          {process.env.NODE_ENV === "development" && (
-            <button
-              onClick={debugHardcodedCreate}
-              className="flex items-center gap-2 px-4 py-2.5 bg-slate-600 hover:bg-slate-700 text-white rounded-xl transition-colors shadow-md font-semibold">
-              <span className="text-xs">🐛</span>
-              Test Create
-            </button>
-          )}
           <button
             onClick={() => {
               resetForm();
@@ -448,21 +327,18 @@ export default function UsersPage() {
       </div>
 
       {/* Search Bar */}
-      <div className="bg-white dark:bg-slate-800 rounded-xl shadow-md border-2 border-slate-200 dark:border-slate-700 p-5">
-        <div className="relative">
-          <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
-          <input
-            type="text"
-            placeholder="Search users by name or email..."
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full pl-12 pr-4 py-3.5 border-2 border-slate-300 dark:border-slate-600 rounded-xl bg-white dark:bg-slate-700 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 font-medium"
-          />
-        </div>
+      <div className="bg-white dark:bg-slate-900 rounded-xl shadow-md border-2 border-slate-200 dark:border-slate-800 p-5">
+        <LabeledInput
+          label="Search users by name or email"
+          name="search"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          bgColor="bg-white dark:bg-slate-900"
+        />
       </div>
 
       {/* Users Table */}
-      <div className="bg-white dark:bg-slate-800 rounded-xl shadow-md border-2 border-slate-200 dark:border-slate-700 overflow-hidden">
+      <div className="bg-white dark:bg-slate-900 rounded-xl shadow-md border-2 border-slate-200 dark:border-slate-800 overflow-hidden">
         {loading ? (
           <div className="flex items-center justify-center h-64">
             <div className="text-center">
@@ -602,190 +478,119 @@ export default function UsersPage() {
         )}
       </div>
 
-      {/* Add/Edit User Modal */}
-      {(showAddModal || editingUser) && (
-        <div className="fixed inset-0 bg-black/70 backdrop-blur-md flex items-center justify-center z-50 p-4 animate-in fade-in duration-200">
-          <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-2xl w-full max-w-md p-6 border-2 border-slate-200 dark:border-slate-700 relative animate-in zoom-in-95 duration-300 flex flex-col max-h-[90vh]">
-            {/* Close Button */}
-            <button
-              onClick={() => {
-                setShowAddModal(false);
-                setEditingUser(null);
-                resetForm();
-              }}
-              className="absolute top-4 right-4 p-2 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-xl transition-colors group">
-              <svg
-                className="w-5 h-5 text-slate-400 group-hover:text-slate-600 dark:group-hover:text-slate-200"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor">
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            </button>
+      {/* Add/Edit User Dialog */}
+      <Dialog
+        open={isDialogOpen}
+        onClose={closeDialog}
+        fullWidth
+        maxWidth="sm"
+        PaperProps={{
+          className:
+            "!rounded-2xl !border-2 !border-slate-200 dark:!border-slate-800 !bg-white dark:!bg-slate-900",
+        }}>
+        <DialogTitle className="!p-6 !pb-3 !font-black !text-2xl !text-slate-900 dark:!text-white !flex !items-center !justify-between">
+          <span>{editingUser ? "Edit User" : "Add New User"}</span>
+          <IconButton onClick={closeDialog} aria-label="Close dialog">
+            <X className="h-5 w-5 text-slate-500 dark:text-slate-300" />
+          </IconButton>
+        </DialogTitle>
 
-            {/* Header */}
-            <div className="mb-5 flex-shrink-0">
-              <h2 className="text-2xl font-black text-slate-900 dark:text-white">
-                {editingUser ? "Edit User" : "Add New User"}
-              </h2>
-            </div>
+        <DialogContent className="!px-6 !py-3 !overflow-y-auto">
+          <div className="space-y-4 py-1">
+            <LabeledInput
+              label="Full Name"
+              name="name"
+              value={formData.name}
+              onChange={handleFormInputChange}
+              bgColor="bg-white dark:bg-slate-900"
+            />
 
-            {/* Form - Scrollable Content */}
-            <div className="space-y-3.5 overflow-y-auto flex-1 pr-2">
-              {/* Name Field */}
+            <LabeledInput
+              label="Email Address"
+              name="email"
+              type="email"
+              value={formData.email}
+              onChange={handleFormInputChange}
+              bgColor="bg-white dark:bg-slate-900"
+            />
+
+            <PhoneNumberInputField
+              value={formData.phone}
+              onChange={(value) =>
+                setFormData((prev) => ({
+                  ...prev,
+                  phone: value,
+                }))
+              }
+            />
+
+            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
               <div>
-                <label className="flex items-center gap-1.5 text-xs font-bold text-slate-700 dark:text-slate-300 mb-1.5">
-                  <UserIcon className="w-3.5 h-3.5" />
-                  Full Name *
+                <label className="mb-1.5 flex items-center gap-1.5 text-xs font-bold text-slate-700 dark:text-slate-300">
+                  <Shield className="h-3.5 w-3.5" />
+                  Role
                 </label>
-                <div className="relative">
-                  <input
-                    type="text"
-                    value={formData.name}
-                    onChange={(e) => {
-                      console.log("Name changed to:", e.target.value);
-                      setFormData({ ...formData, name: e.target.value });
-                    }}
-                    className="w-full px-3 py-2.5 border-2 border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 font-medium transition-all text-sm"
-                    placeholder="e.g., John Doe"
-                    required
-                  />
-                </div>
+                <select
+                  value={formData.role}
+                  onChange={(e) => {
+                    const value = e.target.value.trim();
+                    setFormData((prev) => ({
+                      ...prev,
+                      role: value as "admin" | "user",
+                    }));
+                  }}
+                  className="w-full rounded-lg border-2 border-slate-300 bg-white px-3 py-2.5 text-sm font-semibold text-slate-900 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:border-slate-600 dark:bg-slate-700 dark:text-white cursor-pointer">
+                  <option value="user">User</option>
+                  <option value="admin">Admin</option>
+                </select>
               </div>
 
-              {/* Email Field */}
               <div>
-                <label className="flex items-center gap-1.5 text-xs font-bold text-slate-700 dark:text-slate-300 mb-1.5">
-                  <Mail className="w-3.5 h-3.5" />
-                  Email Address *
+                <label className="mb-1.5 flex items-center gap-1.5 text-xs font-bold text-slate-700 dark:text-slate-300">
+                  <Calendar className="h-3.5 w-3.5" />
+                  Status
                 </label>
-                <div className="relative">
-                  <input
-                    type="email"
-                    value={formData.email}
-                    onChange={(e) => {
-                      console.log("Email changed to:", e.target.value);
-                      setFormData({ ...formData, email: e.target.value });
-                    }}
-                    className="w-full px-3 py-2.5 border-2 border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 font-medium transition-all text-sm"
-                    placeholder="john.doe@example.com"
-                    required
-                  />
-                </div>
+                <select
+                  value={formData.status}
+                  onChange={(e) => {
+                    const value = e.target.value.trim();
+                    setFormData((prev) => ({
+                      ...prev,
+                      status: value as "active" | "inactive",
+                    }));
+                  }}
+                  className="w-full rounded-lg border-2 border-slate-300 bg-white px-3 py-2.5 text-sm font-semibold text-slate-900 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:border-slate-600 dark:bg-slate-700 dark:text-white cursor-pointer">
+                  <option value="active">Active</option>
+                  <option value="inactive">Inactive</option>
+                </select>
               </div>
-
-              {/* Phone Field */}
-              <div>
-                <label className="flex items-center gap-1.5 text-xs font-bold text-slate-700 dark:text-slate-300 mb-1.5">
-                  <Phone className="w-3.5 h-3.5" />
-                  Phone Number
-                </label>
-                <div className="relative">
-                  <input
-                    type="tel"
-                    value={formData.phone}
-                    onChange={(e) =>
-                      setFormData({ ...formData, phone: e.target.value })
-                    }
-                    className="w-full px-3 py-2.5 border-2 border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 font-medium transition-all text-sm"
-                    placeholder="+1 (555) 000-0000"
-                  />
-                </div>
-              </div>
-
-              {/* Role and Status in Grid */}
-              <div className="grid grid-cols-2 gap-3">
-                {/* Role Field */}
-                <div>
-                  <label className="flex items-center gap-1.5 text-xs font-bold text-slate-700 dark:text-slate-300 mb-1.5">
-                    <Shield className="w-3.5 h-3.5" />
-                    Role
-                  </label>
-                  <select
-                    value={formData.role}
-                    onChange={(e) => {
-                      const value = e.target.value.trim();
-                      console.log("Role selected - raw:", e.target.value);
-                      console.log("Role selected - trimmed:", value);
-                      console.log(
-                        "Role char codes:",
-                        [...value].map((c) => c.charCodeAt(0)),
-                      );
-                      setFormData({
-                        ...formData,
-                        role: value as "admin" | "user",
-                      });
-                    }}
-                    className="w-full px-3 py-2.5 border-2 border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 font-semibold transition-all cursor-pointer text-sm">
-                    <option value="user">👤 User</option>
-                    <option value="admin">⭐ Admin</option>
-                  </select>
-                </div>
-
-                {/* Status Field */}
-                <div>
-                  <label className="flex items-center gap-1.5 text-xs font-bold text-slate-700 dark:text-slate-300 mb-1.5">
-                    <Calendar className="w-3.5 h-3.5" />
-                    Status
-                  </label>
-                  <select
-                    value={formData.status}
-                    onChange={(e) => {
-                      const value = e.target.value.trim();
-                      console.log("Status selected - raw:", e.target.value);
-                      console.log("Status selected - trimmed:", value);
-                      console.log(
-                        "Status char codes:",
-                        [...value].map((c) => c.charCodeAt(0)),
-                      );
-                      setFormData({
-                        ...formData,
-                        status: value as "active" | "inactive",
-                      });
-                    }}
-                    className="w-full px-3 py-2.5 border-2 border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 font-semibold transition-all cursor-pointer text-sm">
-                    <option value="active">✅ Active</option>
-                    <option value="inactive">⛔ Inactive</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-
-            {/* Action Buttons */}
-            <div className="flex items-center justify-end gap-2.5 mt-5 pt-4 border-t-2 border-slate-200 dark:border-slate-700 flex-shrink-0">
-              <button
-                onClick={() => {
-                  setShowAddModal(false);
-                  setEditingUser(null);
-                  resetForm();
-                }}
-                className="px-4 py-2 text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-lg transition-all font-bold border-2 border-slate-300 dark:border-slate-600 hover:scale-105 active:scale-95">
-                Cancel
-              </button>
-              <button
-                onClick={editingUser ? updateUser : createUser}
-                className="px-4 py-2 text-sm bg-gradient-to-r from-blue-700 to-cyan-600 hover:from-blue-800 hover:to-cyan-700 text-white rounded-lg transition-all shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 font-bold flex items-center gap-2">
-                {editingUser ? (
-                  <>
-                    <Edit className="w-3.5 h-3.5" />
-                    Update User
-                  </>
-                ) : (
-                  <>
-                    <Plus className="w-3.5 h-3.5" />
-                    Create User
-                  </>
-                )}
-              </button>
             </div>
           </div>
-        </div>
-      )}
+        </DialogContent>
+
+        <DialogActions className="!px-6 !pb-6 !pt-3 !border-t-2 !border-slate-200 dark:!border-slate-700 !gap-2.5">
+          <button
+            onClick={closeDialog}
+            className="px-4 py-2 text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-lg transition-all font-bold border-2 border-slate-300 dark:border-slate-600">
+            Cancel
+          </button>
+          <button
+            onClick={editingUser ? updateUser : createUser}
+            className="px-4 py-2 text-sm bg-gradient-to-r from-blue-700 to-cyan-600 hover:from-blue-800 hover:to-cyan-700 text-white rounded-lg transition-all shadow-lg hover:shadow-xl font-bold flex items-center gap-2">
+            {editingUser ? (
+              <>
+                <Edit className="w-3.5 h-3.5" />
+                Update User
+              </>
+            ) : (
+              <>
+                <Plus className="w-3.5 h-3.5" />
+                Create User
+              </>
+            )}
+          </button>
+        </DialogActions>
+      </Dialog>
     </div>
   );
 }

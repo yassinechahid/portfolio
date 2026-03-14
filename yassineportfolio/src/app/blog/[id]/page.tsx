@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useParams } from "next/navigation";
@@ -18,13 +18,16 @@ import {
 import { useTranslation } from "react-i18next";
 import { blogPosts } from "@/data/blogPosts";
 import { notFound } from "next/navigation";
+import { useDirection } from "@/hooks/useDirection";
 
 export default function BlogPost() {
   const { t } = useTranslation();
+  const { isRTL } = useDirection();
   const params = useParams();
   const id = params.id as string;
   const post = blogPosts.find((p) => p.id === parseInt(id));
   const [showShareMenu, setShowShareMenu] = useState(false);
+  const shareMenuRef = useRef<HTMLDivElement | null>(null);
 
   if (!post) {
     notFound();
@@ -49,6 +52,26 @@ export default function BlogPost() {
     window.open(urls[platform], "_blank", "width=600,height=400");
     setShowShareMenu(false);
   };
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent | TouchEvent) => {
+      if (
+        showShareMenu &&
+        shareMenuRef.current &&
+        !shareMenuRef.current.contains(event.target as Node)
+      ) {
+        setShowShareMenu(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("touchstart", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("touchstart", handleClickOutside);
+    };
+  }, [showShareMenu]);
 
   return (
     <main className="min-h-screen bg-light-background dark:bg-dark-background">
@@ -83,7 +106,7 @@ export default function BlogPost() {
 
           {/* Meta Info & Share */}
           <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
-            <div className="flex items-center gap-6 text-body-large text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant">
+            <div className="flex flex-wrap items-center gap-4 sm:gap-6 text-body-large text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant">
               <div className="flex items-center gap-2">
                 <Calendar className="w-5 h-5" />
                 <span>{t(post.date)}</span>
@@ -95,7 +118,7 @@ export default function BlogPost() {
             </div>
 
             {/* Share Button */}
-            <div className="relative">
+            <div ref={shareMenuRef} className="relative flex-shrink-0">
               <button
                 onClick={() => setShowShareMenu(!showShareMenu)}
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border-2 border-light-outline dark:border-dark-outline text-light-onSurface dark:text-dark-onSurface hover:bg-light-surfaceContainerHigh dark:hover:bg-dark-surfaceContainerHigh transition-all text-label-large font-medium">
@@ -105,7 +128,8 @@ export default function BlogPost() {
 
               {/* Share Menu */}
               {showShareMenu && (
-                <div className="absolute right-0 mt-2 w-56 bg-light-surface dark:bg-dark-surface rounded-2xl shadow-xl border border-light-outline dark:border-dark-outline overflow-hidden z-10">
+                <div
+                  className={`absolute mt-2 w-56 bg-light-surface dark:bg-dark-surface rounded-2xl shadow-xl border border-light-outline dark:border-dark-outline overflow-hidden z-10 ${isRTL ? "left-0" : "right-0"}`}>
                   <button
                     onClick={() => handleShare("twitter")}
                     className="w-full flex items-center gap-3 px-4 py-3 hover:bg-light-surfaceContainerHigh dark:hover:bg-dark-surfaceContainerHigh transition-colors text-left">

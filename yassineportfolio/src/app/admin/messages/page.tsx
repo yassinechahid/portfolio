@@ -10,7 +10,6 @@ import {
 
 import Swal from "sweetalert2";
 import {
-  Search,
   Trash2,
   Mail,
   Phone,
@@ -21,6 +20,7 @@ import {
   User,
 } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
+import LabeledInput from "@/components/LabeledInput";
 
 interface Message {
   $id: string;
@@ -51,11 +51,6 @@ export default function MessagesPage() {
   const fetchMessages = async () => {
     try {
       setLoading(true);
-      console.log(
-        "🔍 Fetching messages from:",
-        DATABASE_ID,
-        COLLECTION_MESSAGES,
-      );
 
       const queries = [QueryBuilder.orderDesc("$createdAt")];
 
@@ -71,24 +66,13 @@ export default function MessagesPage() {
         queries,
       );
 
-      console.log("✅ Messages fetched:", response.total, "messages");
-      console.log("📧 Documents:", response.documents);
-
       setMessages(response.documents as unknown as Message[]);
     } catch (error) {
       const err = error as { message?: string; code?: number; type?: string };
-      console.error("❌ Error fetching messages:", error);
-      console.error("Error details:", {
-        message: err.message,
-        code: err.code,
-        type: err.type,
-      });
       Swal.fire({
         icon: "error",
         title: "Error Loading Messages",
-        text:
-          err.message ||
-          "Failed to load messages. Please check console for details.",
+        text: err.message || "Failed to load messages. Please try again.",
       });
     } finally {
       setLoading(false);
@@ -96,17 +80,13 @@ export default function MessagesPage() {
   };
 
   useEffect(() => {
-    console.log("🔐 Is Admin:", isAdmin);
     fetchMessages();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filterStatus]);
 
   const markAsRead = async (messageId: string) => {
     try {
-      console.log("📝 Marking message as read:", messageId);
-
       const updateData = { isRead: true };
-      console.log("Update data:", updateData);
 
       await databases.updateDocument(
         DATABASE_ID,
@@ -114,8 +94,6 @@ export default function MessagesPage() {
         messageId,
         updateData,
       );
-
-      console.log("✅ Message marked as read successfully");
 
       setMessages((prev) =>
         prev.map((msg) =>
@@ -132,12 +110,6 @@ export default function MessagesPage() {
       });
     } catch (error) {
       const err = error as { message?: string; code?: number; type?: string };
-      console.error("❌ Error marking message as read:", error);
-      console.error("Error details:", {
-        message: err.message,
-        code: err.code,
-        type: err.type,
-      });
 
       let errorMsg = "Failed to update message status";
       if (err.code === 401) {
@@ -184,8 +156,7 @@ export default function MessagesPage() {
           timer: 1500,
           showConfirmButton: false,
         });
-      } catch (error) {
-        console.error("Error deleting message:", error);
+      } catch {
         Swal.fire({
           icon: "error",
           title: "Error",
@@ -234,26 +205,6 @@ export default function MessagesPage() {
 
   return (
     <div className="p-8 space-y-6">
-      {/* Debug Panel (Remove after testing) */}
-      <div className="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg p-4 mb-4">
-        <h3 className="font-bold text-yellow-900 dark:text-yellow-200 mb-2">
-          🔍 Debug Info (Check Browser Console)
-        </h3>
-        <div className="text-sm space-y-1 text-yellow-800 dark:text-yellow-300">
-          <p>Database ID: {DATABASE_ID}</p>
-          <p>Collection ID: {COLLECTION_MESSAGES}</p>
-          <p>Is Admin: {String(isAdmin)}</p>
-          <p>Messages Count: {messages.length}</p>
-          <p>Loading: {String(loading)}</p>
-          <p>Filter: {filterStatus}</p>
-          <button
-            onClick={fetchMessages}
-            className="mt-2 px-4 py-2 bg-yellow-600 hover:bg-yellow-700 text-white rounded-lg">
-            🔄 Manually Refresh Messages
-          </button>
-        </div>
-      </div>
-
       {/* Header */}
       <div className="flex justify-between items-center">
         <div>
@@ -272,15 +223,14 @@ export default function MessagesPage() {
       </div>
 
       {/* Filters and Search */}
-      <div className="flex flex-col sm:flex-row gap-4 items-center bg-white dark:bg-slate-800 p-4 rounded-xl shadow-sm border border-slate-200 dark:border-slate-700">
-        <div className="relative flex-1 w-full">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
-          <input
-            type="text"
-            placeholder="Search by name, email, phone or message..."
+      <div className="flex flex-col sm:flex-row gap-4 items-center bg-white dark:bg-slate-900 p-4 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800">
+        <div className="flex-1 w-full">
+          <LabeledInput
+            label="Search messages"
+            name="messageSearch"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full pl-10 pr-4 py-2.5 bg-slate-50 dark:bg-slate-700/50 border border-slate-200 dark:border-slate-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 dark:focus:ring-teal-400 text-slate-900 dark:text-white"
+            bgColor="bg-white dark:bg-slate-900"
           />
         </div>
 
@@ -316,7 +266,7 @@ export default function MessagesPage() {
       </div>
 
       {/* Messages List */}
-      <div className="bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 overflow-hidden">
+      <div className="bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 overflow-hidden">
         {loading ? (
           <div className="flex items-center justify-center py-12">
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-teal-600"></div>
@@ -329,13 +279,13 @@ export default function MessagesPage() {
             </p>
           </div>
         ) : (
-          <div className="divide-y divide-slate-200 dark:divide-slate-700">
+          <div className="divide-y divide-slate-200 dark:divide-slate-800">
             {filteredMessages.map((message) => (
               <div
                 key={message.$id}
-                className={`p-6 hover:bg-slate-50 dark:hover:bg-slate-700/30 transition-all ${
+                className={`p-6 hover:bg-slate-50 dark:hover:bg-slate-800/90 transition-all ${
                   !message.isRead
-                    ? "bg-teal-50/50 dark:bg-teal-900/10 border-l-4 border-teal-500"
+                    ? "bg-teal-50/50 dark:bg-teal-900/20 border-l-4 border-teal-500"
                     : ""
                 }`}>
                 {/* Header Row */}
@@ -421,7 +371,7 @@ export default function MessagesPage() {
                 </div>
 
                 {/* Message Preview */}
-                <div className="bg-slate-50 dark:bg-slate-900/50 rounded-lg p-4">
+                <div className="bg-slate-50 dark:bg-slate-800 rounded-lg p-4">
                   <p className="text-sm text-slate-700 dark:text-slate-300 line-clamp-2">
                     {message.message || message.content || "No message"}
                   </p>
@@ -438,10 +388,10 @@ export default function MessagesPage() {
           className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4"
           onClick={closeModal}>
           <div
-            className="bg-white dark:bg-slate-800 rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto border border-slate-200 dark:border-slate-700"
+            className="bg-white dark:bg-slate-900 rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto border border-slate-200 dark:border-slate-800"
             onClick={(e) => e.stopPropagation()}>
             {/* Modal Header */}
-            <div className="sticky top-0 bg-gradient-to-r from-teal-50 to-cyan-50 dark:from-teal-900/20 dark:to-cyan-900/20 border-b border-slate-200 dark:border-slate-700 p-6">
+            <div className="sticky top-0 bg-gradient-to-r from-teal-50 to-cyan-50 dark:from-slate-900 dark:to-slate-900 border-b border-slate-200 dark:border-slate-800 p-6">
               <div className="flex items-start justify-between">
                 <div className="flex items-center gap-4">
                   <div className="p-3 bg-teal-100 dark:bg-teal-900/30 rounded-xl">

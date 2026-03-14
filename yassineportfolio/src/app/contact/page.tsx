@@ -100,7 +100,7 @@ export default function Contact() {
               </div>
 
               {/* Map */}
-              <div className="hidden lg:block rounded-2xl overflow-hidden shadow-xl h-48 md:h-64 border border-gray-200 dark:border-gray-700">
+              <div className="rounded-2xl overflow-hidden shadow-xl h-48 md:h-64 border border-gray-200 dark:border-gray-700">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d212670.97658544458!2d-7.789490550000001!3d33.5731104!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda7cd4778aa113b%3A0xb06c1d84f310fd3!2sCasablanca%2C%20Morocco!5e0!3m2!1sen!2sma!4v1709308900000!5m2!1sen!2sma"
                   className="w-full h-full border-0"

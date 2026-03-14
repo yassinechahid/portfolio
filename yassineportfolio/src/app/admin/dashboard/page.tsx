@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import {
   databases,
   QueryBuilder,
@@ -10,14 +11,13 @@ import {
 } from "@/lib/appwrite";
 
 import {
+  ArrowLeft,
+  ArrowUpRight,
   Users,
   Mail,
   MessageSquare,
-  TrendingUp,
   CheckCircle,
   Settings,
-  Globe,
-  Shield,
 } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 
@@ -36,6 +36,7 @@ export default function AdminDashboard() {
     activeUsers: 0,
   });
   const [loading, setLoading] = useState(true);
+  const [loadError, setLoadError] = useState<string | null>(null);
   const { user } = useAuth();
 
   useEffect(() => {
@@ -45,6 +46,7 @@ export default function AdminDashboard() {
   const fetchStats = async () => {
     try {
       setLoading(true);
+      setLoadError(null);
 
       // Get users count
       const users = await databases.listDocuments(
@@ -80,8 +82,8 @@ export default function AdminDashboard() {
         unreadMessages: unread.total,
         activeUsers: activeUsers.total,
       });
-    } catch (error) {
-      console.error("Error fetching stats:", error);
+    } catch {
+      setLoadError("Unable to load the latest dashboard metrics right now.");
     } finally {
       setLoading(false);
     }
@@ -92,56 +94,82 @@ export default function AdminDashboard() {
       title: "Total Users",
       value: stats.totalUsers,
       icon: Users,
-      color: "bg-blue-600",
       lightBg:
         "bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-900/40",
       textColor: "text-blue-700 dark:text-blue-300",
-      trend: "+12%",
+      note: "Registered accounts",
     },
     {
       title: "Active Users",
       value: stats.activeUsers,
       icon: CheckCircle,
-      color: "bg-cyan-600",
       lightBg:
         "bg-gradient-to-br from-cyan-50 to-cyan-100 dark:from-cyan-900/20 dark:to-cyan-900/40",
       textColor: "text-cyan-700 dark:text-cyan-300",
-      trend: "+8%",
+      note: "Healthy recurring activity",
     },
     {
       title: "Total Messages",
       value: stats.totalMessages,
       icon: MessageSquare,
-      color: "bg-teal-600",
       lightBg:
         "bg-gradient-to-br from-teal-50 to-teal-100 dark:from-teal-900/20 dark:to-teal-900/40",
       textColor: "text-teal-700 dark:text-teal-300",
-      trend: "+24%",
+      note: "Inbound contact volume",
     },
     {
       title: "Unread Messages",
       value: stats.unreadMessages,
       icon: Mail,
-      color: "bg-amber-600",
       lightBg:
         "bg-gradient-to-br from-amber-50 to-amber-100 dark:from-amber-900/20 dark:to-amber-900/40",
       textColor: "text-amber-700 dark:text-amber-300",
-      trend: "-5%",
+      note: "Needs attention",
     },
   ];
 
-  const currentTime = new Date().toLocaleDateString("en-US", {
-    weekday: "long",
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-    hour: "2-digit",
-    minute: "2-digit",
-  });
+  const quickActions = [
+    {
+      title: "Manage users",
+      description: "Review accounts and permissions.",
+      href: "/admin/users",
+      icon: Users,
+      accent: "text-blue-700 dark:text-blue-300",
+      surface:
+        "bg-blue-50 hover:bg-blue-100 dark:bg-blue-900/20 dark:hover:bg-blue-900/30",
+    },
+    {
+      title: "Open messages",
+      description: "Reply to new contact requests.",
+      href: "/admin/messages",
+      icon: Mail,
+      accent: "text-cyan-700 dark:text-cyan-300",
+      surface:
+        "bg-cyan-50 hover:bg-cyan-100 dark:bg-cyan-900/20 dark:hover:bg-cyan-900/30",
+    },
+    {
+      title: "Settings",
+      description: "Update admin preferences.",
+      href: "/admin/settings",
+      icon: Settings,
+      accent: "text-amber-700 dark:text-amber-300",
+      surface:
+        "bg-amber-50 hover:bg-amber-100 dark:bg-amber-900/20 dark:hover:bg-amber-900/30",
+    },
+  ];
+
+  const unreadRate =
+    stats.totalMessages > 0
+      ? Math.round((stats.unreadMessages / stats.totalMessages) * 100)
+      : 0;
+  const activeRate =
+    stats.totalUsers > 0
+      ? Math.round((stats.activeUsers / stats.totalUsers) * 100)
+      : 0;
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center h-full">
+      <div className="flex min-h-[60vh] items-center justify-center">
         <div className="text-center">
           <div className="inline-flex p-4 bg-blue-100 dark:bg-blue-900/30 rounded-full mb-4">
             <div className="w-6 h-6 border-2 border-blue-700 border-t-transparent rounded-full animate-spin" />
@@ -155,215 +183,180 @@ export default function AdminDashboard() {
   }
 
   return (
-    <div className="space-y-8">
-      {/* Welcome Section */}
-      <div className="bg-gradient-to-r from-blue-700 via-cyan-600 to-teal-600 rounded-2xl shadow-xl p-8 text-white border border-blue-400/20">
-        <div className="flex items-center justify-between">
-          <div>
-            <h1 className="text-4xl font-bold mb-3">
-              Welcome back, {user?.name || user?.email || "Admin"} 👋
-            </h1>
-            <p className="text-blue-100 text-lg font-medium">
-              Dashboard Overview & System Status
-            </p>
-          </div>
-          <div className="text-right">
-            <p className="text-blue-100 text-sm mb-2 font-medium">
-              🕐 {currentTime}
-            </p>
-            <div className="px-4 py-2 bg-white/20 backdrop-blur-sm rounded-xl border border-white/30 inline-block shadow-lg">
-              <p className="text-xs font-bold text-white">
-                🔧 Development Mode
+    <div className="space-y-6 sm:space-y-8">
+      {loadError && (
+        <div className="rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm font-medium text-amber-800 dark:border-amber-900/40 dark:bg-amber-900/20 dark:text-amber-200">
+          {loadError}
+        </div>
+      )}
+
+      <section className="relative overflow-hidden rounded-[28px] border border-slate-200 bg-gradient-to-br from-slate-950 via-blue-950 to-cyan-900 px-5 py-6 text-white shadow-2xl sm:px-8 sm:py-8 dark:border-slate-800 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(255,255,255,0.18),_transparent_32%),radial-gradient(circle_at_bottom_left,_rgba(103,232,249,0.2),_transparent_28%)]" />
+        <div className="relative flex flex-col gap-5">
+          <div className="max-w-3xl space-y-4">
+            <Link
+              href="/"
+              className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-medium text-white transition hover:bg-white/15">
+              <ArrowLeft className="h-4 w-4" />
+              Back to home page
+            </Link>
+            <div>
+              <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl xl:text-5xl">
+                Welcome back, {user?.name || user?.email || "Admin"}
+              </h1>
+              <p className="mt-3 max-w-2xl text-sm leading-6 text-slate-200 sm:text-base">
+                Essential overview of users and messages, with quick access to
+                the key admin pages.
               </p>
+            </div>
+            <div className="flex flex-wrap gap-3 text-sm text-slate-100">
+              <div className="rounded-full border border-white/15 bg-white/10 px-4 py-2">
+                {stats.unreadMessages > 0
+                  ? `${stats.unreadMessages} unread messages pending`
+                  : "Inbox fully reviewed"}
+              </div>
+              <div className="rounded-full border border-white/15 bg-white/10 px-4 py-2">
+                {activeRate}% active users
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* Session Info Cards */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-        <div className="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/30 dark:to-blue-900/50 border-2 border-blue-200 dark:border-blue-800 rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow">
-          <div className="flex items-center gap-2 mb-2">
-            <Shield className="w-5 h-5 text-blue-700 dark:text-blue-300" />
-            <p className="text-xs font-bold text-blue-700 dark:text-blue-300 uppercase tracking-wide">
-              Logged In As
-            </p>
-          </div>
-          <p className="text-sm font-mono font-semibold text-blue-900 dark:text-blue-100 break-all">
-            {user?.email}
-          </p>
-        </div>
-        <div className="bg-gradient-to-br from-cyan-50 to-cyan-100 dark:from-cyan-900/30 dark:to-cyan-900/50 border-2 border-cyan-200 dark:border-cyan-800 rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow">
-          <div className="flex items-center gap-2 mb-2">
-            <Globe className="w-5 h-5 text-cyan-700 dark:text-cyan-300" />
-            <p className="text-xs font-bold text-cyan-700 dark:text-cyan-300 uppercase tracking-wide">
-              Environment
-            </p>
-          </div>
-          <p className="text-sm font-mono font-semibold text-cyan-900 dark:text-cyan-100">
-            localhost:3000
-          </p>
-        </div>
-        <div className="bg-gradient-to-br from-teal-50 to-teal-100 dark:from-teal-900/30 dark:to-teal-900/50 border-2 border-teal-200 dark:border-teal-800 rounded-xl p-5 shadow-sm hover:shadow-md transition-shadow">
-          <div className="flex items-center gap-2 mb-2">
-            <CheckCircle className="w-5 h-5 text-teal-700 dark:text-teal-300" />
-            <p className="text-xs font-bold text-teal-700 dark:text-teal-300 uppercase tracking-wide">
-              Status
-            </p>
-          </div>
-          <p className="text-sm font-mono font-semibold text-teal-900 dark:text-teal-100">
-            Connected & Active
-          </p>
-        </div>
-      </div>
-
-      {/* Stats Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <section className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-4">
         {statCards.map((stat) => {
           const Icon = stat.icon;
           return (
             <div
               key={stat.title}
-              className="bg-white dark:bg-slate-800 rounded-xl shadow-md border-2 border-slate-200 dark:border-slate-700 p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-              <div className="flex items-center justify-between">
+              className="group rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl dark:border-slate-800 dark:bg-slate-900 sm:p-6">
+              <div className="flex items-start justify-between gap-4">
                 <div className="flex-1">
-                  <p className="text-sm font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wide">
+                  <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400">
                     {stat.title}
                   </p>
-                  <p className="text-4xl font-black text-slate-900 dark:text-white mt-3">
+                  <p className="mt-4 text-3xl font-semibold text-slate-900 dark:text-white sm:text-4xl">
                     {stat.value.toLocaleString()}
                   </p>
-                  <div className="flex items-center gap-1.5 mt-3">
-                    <TrendingUp className="w-4 h-4 text-green-600 dark:text-green-400" />
-                    <span className="text-sm font-bold text-green-600 dark:text-green-400">
-                      {stat.trend}
-                    </span>
-                    <span className="text-xs font-medium text-slate-500 dark:text-slate-400">
-                      vs last month
-                    </span>
-                  </div>
+                  <p className="mt-2 text-sm text-slate-500 dark:text-slate-400">
+                    {stat.note}
+                  </p>
                 </div>
-                <div className={`p-4 ${stat.lightBg} rounded-xl shadow-sm`}>
-                  <Icon className={`w-7 h-7 ${stat.textColor}`} />
+                <div
+                  className={`rounded-2xl p-4 shadow-sm transition-transform duration-300 group-hover:scale-105 ${stat.lightBg}`}>
+                  <Icon className={`h-7 w-7 ${stat.textColor}`} />
                 </div>
               </div>
             </div>
           );
         })}
-      </div>
+      </section>
 
-      {/* Recent Activity */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        {/* Recent Messages */}
-        <div className="bg-white dark:bg-slate-800 rounded-xl shadow-md border-2 border-slate-200 dark:border-slate-700 p-6 hover:shadow-lg transition-shadow">
-          <h2 className="text-lg font-bold text-slate-900 dark:text-white mb-5 flex items-center gap-2">
-            <div className="p-2 bg-gradient-to-br from-blue-600 to-cyan-600 rounded-lg">
-              <Mail className="w-5 h-5 text-white" />
+      <section className="grid grid-cols-1 gap-6 xl:grid-cols-[minmax(0,1fr)_minmax(300px,0.9fr)]">
+        <div className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900 sm:p-6">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+            <div>
+              <h2 className="text-xl font-semibold text-slate-900 dark:text-white">
+                Performance Summary
+              </h2>
+              <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
+                Focus on the two metrics that matter most right now.
+              </p>
             </div>
-            Recent Messages
-          </h2>
-          <div className="space-y-3">
-            <div className="flex items-center gap-3 p-4 bg-slate-50 dark:bg-slate-700/50 rounded-xl border border-slate-200 dark:border-slate-600 hover:shadow-sm transition-shadow">
-              <div className="p-2.5 bg-blue-100 dark:bg-blue-900/30 rounded-lg">
-                <Mail className="w-5 h-5 text-blue-700 dark:text-blue-300" />
+            <Link
+              href="/admin/messages"
+              className="inline-flex items-center gap-2 self-start rounded-full border border-slate-200 px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-blue-300 hover:text-blue-700 dark:border-slate-700 dark:text-slate-300 dark:hover:border-blue-700 dark:hover:text-blue-300">
+              Open inbox
+              <ArrowUpRight className="h-4 w-4" />
+            </Link>
+          </div>
+
+          <div className="mt-6 grid gap-4 sm:grid-cols-2">
+            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5 dark:border-slate-700 dark:bg-slate-800/70">
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400">
+                User engagement
+              </p>
+              <p className="mt-2 text-3xl font-semibold text-slate-900 dark:text-white">
+                {activeRate}%
+              </p>
+              <div className="mt-4 h-2 overflow-hidden rounded-full bg-slate-200 dark:bg-slate-700">
+                <div
+                  className="h-full rounded-full bg-gradient-to-r from-blue-600 to-cyan-500"
+                  style={{ width: `${activeRate}%` }}
+                />
               </div>
-              <div className="flex-1">
-                <p className="text-sm font-semibold text-slate-900 dark:text-white">
-                  New message notification
-                </p>
-                <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">
-                  2 minutes ago
-                </p>
-              </div>
-              <span className="px-3 py-1.5 text-xs bg-amber-100 text-amber-800 dark:bg-amber-900/30 dark:text-amber-300 rounded-full font-bold">
-                Unread
-              </span>
+              <p className="mt-3 text-sm text-slate-500 dark:text-slate-400">
+                {stats.activeUsers.toLocaleString()} active of{" "}
+                {stats.totalUsers.toLocaleString()} users.
+              </p>
             </div>
-            <div className="flex items-center gap-3 p-4 bg-slate-50 dark:bg-slate-700/50 rounded-xl border border-slate-200 dark:border-slate-600 hover:shadow-sm transition-shadow">
-              <div className="p-2.5 bg-cyan-100 dark:bg-cyan-900/30 rounded-lg">
-                <CheckCircle className="w-5 h-5 text-cyan-700 dark:text-cyan-300" />
+
+            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5 dark:border-slate-700 dark:bg-slate-800/70">
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400">
+                Unread queue
+              </p>
+              <p className="mt-2 text-3xl font-semibold text-slate-900 dark:text-white">
+                {unreadRate}%
+              </p>
+              <div className="mt-4 h-2 overflow-hidden rounded-full bg-slate-200 dark:bg-slate-700">
+                <div
+                  className="h-full rounded-full bg-gradient-to-r from-amber-500 to-orange-500"
+                  style={{ width: `${unreadRate}%` }}
+                />
               </div>
-              <div className="flex-1">
-                <p className="text-sm font-semibold text-slate-900 dark:text-white">
-                  System check passed
-                </p>
-                <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">
-                  1 hour ago
-                </p>
-              </div>
-              <span className="px-3 py-1.5 text-xs bg-cyan-100 text-cyan-800 dark:bg-cyan-900/30 dark:text-cyan-300 rounded-full font-bold">
-                Read
-              </span>
+              <p className="mt-3 text-sm text-slate-500 dark:text-slate-400">
+                {stats.unreadMessages.toLocaleString()} unread of{" "}
+                {stats.totalMessages.toLocaleString()} total messages.
+              </p>
             </div>
           </div>
-          <button className="w-full mt-5 text-sm text-blue-700 dark:text-blue-300 hover:text-blue-800 dark:hover:text-blue-200 font-bold transition py-2 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-lg">
-            View all messages →
-          </button>
         </div>
 
-        {/* Quick Actions */}
-        <div className="bg-white dark:bg-slate-800 rounded-xl shadow-md border-2 border-slate-200 dark:border-slate-700 p-6 hover:shadow-lg transition-shadow">
-          <h2 className="text-lg font-bold text-slate-900 dark:text-white mb-5 flex items-center gap-2">
-            <div className="p-2 bg-gradient-to-br from-teal-600 to-cyan-600 rounded-lg">
-              <Settings className="w-5 h-5 text-white" />
+        <div className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900 sm:p-6">
+          <div className="flex items-center gap-3">
+            <div className="rounded-2xl bg-gradient-to-br from-teal-600 to-cyan-600 p-3 text-white shadow-lg">
+              <Settings className="h-5 w-5" />
             </div>
-            Quick Actions
-          </h2>
-          <div className="grid grid-cols-2 gap-4">
-            <button className="p-5 border-2 border-slate-200 dark:border-slate-700 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-700 transition-all duration-200 text-left group hover:shadow-md hover:-translate-y-0.5">
-              <Users className="w-7 h-7 text-blue-700 dark:text-blue-300 mb-3 group-hover:scale-110 transition-transform" />
-              <p className="text-sm font-bold text-slate-900 dark:text-white">
-                Add New User
+            <div>
+              <h2 className="text-xl font-semibold text-slate-900 dark:text-white">
+                Quick Access
+              </h2>
+              <p className="text-sm text-slate-500 dark:text-slate-400">
+                Open the most used admin sections.
               </p>
-              <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">
-                Create account
-              </p>
-            </button>
-            <button className="p-5 border-2 border-slate-200 dark:border-slate-700 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-700 transition-all duration-200 text-left group hover:shadow-md hover:-translate-y-0.5">
-              <Mail className="w-7 h-7 text-cyan-700 dark:text-cyan-300 mb-3 group-hover:scale-110 transition-transform" />
-              <p className="text-sm font-bold text-slate-900 dark:text-white">
-                Newsletter
-              </p>
-              <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">
-                Email users
-              </p>
-            </button>
-            <button className="p-5 border-2 border-slate-200 dark:border-slate-700 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-700 transition-all duration-200 text-left group hover:shadow-md hover:-translate-y-0.5">
-              <MessageSquare className="w-7 h-7 text-teal-700 dark:text-teal-300 mb-3 group-hover:scale-110 transition-transform" />
-              <p className="text-sm font-bold text-slate-900 dark:text-white">
-                Messages
-              </p>
-              <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">
-                View unread
-              </p>
-            </button>
-            <button className="p-5 border-2 border-slate-200 dark:border-slate-700 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-700 transition-all duration-200 text-left group hover:shadow-md hover:-translate-y-0.5">
-              <Settings className="w-7 h-7 text-slate-700 dark:text-slate-300 mb-3 group-hover:scale-110 transition-transform" />
-              <p className="text-sm font-bold text-slate-900 dark:text-white">
-                Settings
-              </p>
-              <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">
-                Configure system
-              </p>
-            </button>
+            </div>
+          </div>
+
+          <div className="mt-6 grid gap-3">
+            {quickActions.map((action) => {
+              const Icon = action.icon;
+
+              return (
+                <Link
+                  key={action.title}
+                  href={action.href}
+                  className={`group rounded-2xl border border-slate-200 p-4 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md dark:border-slate-700 ${action.surface}`}>
+                  <div className="flex items-start justify-between gap-4">
+                    <div>
+                      <div
+                        className={`inline-flex rounded-xl bg-white/80 p-2.5 dark:bg-slate-950/20 ${action.accent}`}>
+                        <Icon className="h-5 w-5" />
+                      </div>
+                      <p className="mt-4 text-base font-semibold text-slate-900 dark:text-white">
+                        {action.title}
+                      </p>
+                      <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">
+                        {action.description}
+                      </p>
+                    </div>
+                    <ArrowUpRight className="h-4 w-4 text-slate-400 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  </div>
+                </Link>
+              );
+            })}
           </div>
         </div>
-      </div>
-
-      {/* Footer Info */}
-      <div className="bg-gradient-to-r from-slate-50 to-slate-100 dark:from-slate-800 dark:to-slate-700 border-2 border-slate-200 dark:border-slate-600 rounded-xl p-5 shadow-sm">
-        <p className="text-sm text-slate-600 dark:text-slate-400 text-center font-medium">
-          💾 Data is synced with{" "}
-          <span className="font-bold text-blue-700 dark:text-blue-300">
-            Appwrite
-          </span>{" "}
-          | Running on{" "}
-          <span className="font-bold text-cyan-700 dark:text-cyan-300">
-            localhost:3000
-          </span>{" "}
-          in development mode
-        </p>
-      </div>
+      </section>
     </div>
   );
 }
