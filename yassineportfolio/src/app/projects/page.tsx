@@ -8,21 +8,21 @@ export default function Projects() {
   const projectsData = [
     {
       tags: ["React", "Laravel", "Tailwind CSS"],
-      image: "/yassine/1.jpg",
-      liveUrl: "https://ecommerce-demo.com",
-      githubUrl: "https://github.com/yassine-chahid/ecommerce",
+      image: "/images/edubao.png",
+      liveUrl: "https://edubao.nextoctet.com/",
+      githubUrl: "https://github.com/yassinechahid",
     },
     {
       tags: ["React", "Node.js", "Appwrite", "TypeScript"],
       image: "/images/myPortfolio.png",
       liveUrl: "https://portfolio-chahid.vercel.app/",
-      githubUrl: "https://github.com/yassine-chahid/ai-content",
+      githubUrl: "https://github.com/yassinechahid",
     },
     {
       tags: ["Next.js", "React", "Node.js"],
       image: "/images/food.png",
       liveUrl: "https://food-dusky-six.vercel.app/",
-      githubUrl: "https://github.com/yassine-chahid/analytics",
+      githubUrl: "https://github.com/yassinechahid",
     },
     {
       tags: ["Next.js", "tailwind CSS", "TypeScript"],
@@ -38,9 +38,9 @@ export default function Projects() {
     },
     {
       tags: ["Next.js", "Node.js", "css", "TypeScript"],
-      image: "/yassine/6.jpg",
-      liveUrl: "https://social-dashboard.io",
-      githubUrl: "https://github.com/yassine-chahid/social-dash",
+      image: "/images/omni.png",
+      liveUrl: "https://omniskool.com/",
+      githubUrl: "this built for a company and the code is private",
     },
   ];
 
@@ -57,7 +57,7 @@ export default function Projects() {
   return (
     <main className="min-h-screen bg-light-background dark:bg-dark-background">
       {/* Header */}
-      <section className="pt-32 pb-20 px-4 sm:px-6 lg:px-8">
+      <section className="pt-32  px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto">
           <h1 className="text-display-large font-bold text-light-onBackground dark:text-dark-onBackground mb-6">
             {t("projects.title")}

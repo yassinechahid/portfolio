@@ -348,8 +348,8 @@
     "description": "Voici une sélection de projets sur lesquels j'ai travaillé. Chacun représente un défi unique et une opportunité de mettre en valeur mes compétences dans la création d'applications évolutives et conviviales.",
     "items": {
       "0": {
-        "title": "Site Web E-Commerce",
-        "description": "Développement frontend pour une plateforme e-commerce moderne. Création d'une interface responsive avec affichage de produits, panier d'achat et tableau de bord utilisateur avec React et Laravel."
+        "title": "EDUBAO AFRIQUE",
+        "description": "Développement du site EDUBAO AFRIQUE qui aide les étudiants à se préparer pour étudier en Allemagne grâce à des services numériques comme le compte bloqué, l’assurance et l’accompagnement personnalisé."
       },
       "1": {
         "title": "Site Portfolio Personnel",
@@ -368,8 +368,8 @@
         "description": "Développement du frontend pour le site Horizon Atlas Tours. Conception d'interfaces élégantes pour forfaits touristiques, formulaires de réservation et présentation de destinations avec design responsive."
       },
       "5": {
-        "title": "Tableau de Bord Réseaux Sociaux",
-        "description": "Développement du frontend pour une plateforme de gestion de réseaux sociaux avec graphiques interactifs, affichages analytiques et interfaces de planification utilisant des technologies web modernes."
+        "title": "Plateforme Éducative Intelligente",
+        "description": "Développement d’une plateforme scolaire intelligente conçue pour moderniser la gestion éducative. Le système connecte écoles, enseignants, parents et élèves dans un écosystème unique, améliorant la communication, la gestion des processus et le suivi des performances éducatives."
       }
     },
     "cta": {
