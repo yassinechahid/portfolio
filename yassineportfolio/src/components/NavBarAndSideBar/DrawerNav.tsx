@@ -8,6 +8,7 @@ import { useTranslation } from "react-i18next";
 import { Home, Briefcase, User, Zap, BookOpen, Mail } from "lucide-react";
 
 import menuClose from "@/public/assets/menuClose.svg";
+import logo from "@/public/assets/yassine.png";
 
 interface DrawerNavProps {
   open: boolean;
@@ -21,6 +22,12 @@ export const DrawerNav: React.FC<DrawerNavProps> = ({
   const pathname = usePathname();
   const { t, i18n } = useTranslation();
   const isRTL = i18n.language === "ar";
+  const drawerSideClass = isRTL ? "right-0 rounded-l-[12px]" : "left-0 rounded-r-[12px]";
+  const drawerTransform = open
+    ? "translateX(0)"
+    : isRTL
+      ? "translateX(100%)"
+      : "translateX(-100%)";
 
   // Prevent body scroll when drawer is open
   useEffect(() => {
@@ -96,14 +103,28 @@ export const DrawerNav: React.FC<DrawerNavProps> = ({
 
       {/* Drawer */}
       <div
-        className="fixed top-0 left-0 h-screen w-[290px] bg-light-surfaceContainerLow dark:bg-dark-surfaceContainerLow z-50 shadow-2xl overflow-hidden flex flex-col transition-transform duration-300 ease-out rounded-r-[12px]"
+        className={`fixed top-0 h-screen w-[290px] bg-light-surfaceContainerLow dark:bg-dark-surfaceContainerLow z-50 shadow-2xl overflow-hidden flex flex-col transition-transform duration-300 ease-out ${drawerSideClass}`}
         style={{
-          transform: open ? "translateX(0)" : "translateX(-100%)",
+          transform: drawerTransform,
         }}
         onClick={(e) => e.stopPropagation()}>
         {/* Header */}
         <div className="flex-shrink-0 p-4">
           <div className="flex items-center justify-between h-[40px]">
+            <Link
+              href="/"
+              className="flex items-center gap-3"
+              onClick={closeDrawerAction}
+              aria-label="Home">
+              <Image
+                src={logo}
+                alt="Yassine Chahid"
+                className="w-10 h-10 rounded-full"
+              />
+              <span className="text-sm font-semibold text-light-onSurface dark:text-dark-onSurface">
+                {t("nav.name")}
+              </span>
+            </Link>
             <button
               onClick={closeDrawerAction}
               className="flex items-center gap-3 p-2 rounded-md cursor-pointer hover:bg-light-secondaryContainer dark:hover:bg-dark-secondaryContainer transition duration-200"
@@ -145,7 +166,7 @@ export const DrawerNav: React.FC<DrawerNavProps> = ({
         </div>
 
         {/* Admin Button */}
-        <div className="flex-shrink-0 px-4 pb-6 mr-4">
+        <div className={`flex-shrink-0 px-4 pb-6 ${isRTL ? "ml-4" : "mr-4"}`}>
           <Link
             href="/admin/login"
             className="w-full h-10 flex items-center justify-center gap-2 rounded-full bg-light-surfaceContainer dark:bg-dark-surfaceContainer text-light-onSurface dark:text-dark-onSurface hover:bg-light-primaryContainer dark:hover:bg-dark-primaryContainer hover:text-light-primary dark:hover:text-dark-primary text-sm font-medium transition-all duration-200 shadow-sm"

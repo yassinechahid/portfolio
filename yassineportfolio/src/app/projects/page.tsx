@@ -10,7 +10,7 @@ export default function Projects() {
       tags: ["React", "Laravel", "Tailwind CSS"],
       image: "/images/edubao.png",
       liveUrl: "https://edubao.nextoctet.com/",
-      githubUrl: "https://github.com/yassinechahid",
+      githubUrl: "this built for a company and the code is private",
     },
     {
       tags: ["React", "Node.js", "Appwrite", "TypeScript"],
