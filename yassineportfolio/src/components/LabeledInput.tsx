@@ -4,7 +4,6 @@ import { LabeledInputProps } from "@/types/global";
 import React from "react";
 import { useTranslation } from "react-i18next";
 
-
 const LabeledInput: React.FC<LabeledInputProps> = ({
   label = "",
   name,
@@ -31,7 +30,7 @@ const LabeledInput: React.FC<LabeledInputProps> = ({
           name={name}
           value={value}
           onChange={onChange}
-          className={`peer bg-transparent text-light-on-surface text-body-large focus:outline-0 dark:text-dark-on-surface h-[56px] px-4 rounded w-full 
+          className={`peer bg-transparent text-slate-900 text-body-large focus:outline-0 dark:text-slate-100 h-[56px] px-4 rounded w-full 
   ${
     isDisabled
       ? "bg-gray-300 dark:bg-gray-600 cursor-not-allowed opacity-20"
@@ -57,13 +56,12 @@ const LabeledInput: React.FC<LabeledInputProps> = ({
                 ? "text-xs -top-2 px-1"
                 : "top-[16px] text-body-large peer-focus:text-xs peer-focus:-top-2 px-1"
             }
-            ${bgColor} pointer-events-none text-light-on-surface dark:text-dark-on-surface
+            ${bgColor} pointer-events-none text-slate-700 dark:text-slate-300
              ${
                isDisabled
                  ? "text-light-on-surface-variant/40 dark:bg-dark-on-surface-variant/40"
                  : ""
-             }`}
-        >
+             }`}>
           {t(label)}
         </label>
       </div>

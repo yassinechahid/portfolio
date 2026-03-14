@@ -84,8 +84,8 @@ export default function About() {
       </section>
 
       {/* Story Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-light-surfaceContainerLow dark:bg-dark-surfaceContainerLow">
-        <div className="max-w-5xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+      <section className="py-14 sm:py-20 px-4 sm:px-6 lg:px-8 bg-light-surfaceContainerLow dark:bg-dark-surfaceContainerLow">
+        <div className="max-w-5xl mx-auto grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
           <div>
             <h2 className="text-headline-large font-bold text-light-onBackground dark:text-dark-onBackground mb-6">
               {t("about.journey.heading")}
@@ -96,13 +96,13 @@ export default function About() {
               <p>{t("about.journey.paragraph3")}</p>
             </div>
           </div>
-          <div className="relative max-w-[400px] mx-auto lg:mx-0">
-            <div className="aspect-square rounded-3xl bg-gradient-to-br from-light-primaryContainer to-light-secondaryContainer dark:from-dark-primaryContainer dark:to-dark-secondaryContainer p-6 flex items-center justify-center shadow-lg">
+          <div className="relative mx-auto w-full max-w-[320px] sm:max-w-[360px] md:max-w-[400px]">
+            <div className="aspect-square rounded-2xl sm:rounded-3xl bg-gradient-to-br from-light-primaryContainer to-light-secondaryContainer dark:from-dark-primaryContainer dark:to-dark-secondaryContainer p-4 sm:p-6 flex items-center justify-center shadow-lg">
               <div className="text-center">
-                <div className="text-display-large font-bold text-light-primary dark:text-dark-primary mb-2">
+                <div className="text-5xl sm:text-6xl md:text-6xl font-bold text-light-primary dark:text-dark-primary mb-2">
                   {t("about.journey.experienceYears")}
                 </div>
-                <p className="text-body-medium text-light-onBackground dark:text-dark-onBackground">
+                <p className="text-base sm:text-lg text-light-onBackground dark:text-dark-onBackground">
                   {t("about.journey.experienceLabel")}
                 </p>
               </div>

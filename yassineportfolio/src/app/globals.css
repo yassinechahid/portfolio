@@ -178,3 +178,45 @@ body {
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
+
+/* Admin Dark Theme Harmonization */
+.dark .admin-theme {
+  color: #e2e8f0;
+}
+
+.dark .admin-theme input,
+.dark .admin-theme select,
+.dark .admin-theme textarea {
+  background-color: #0f172a !important;
+  border-color: #334155 !important;
+  color: #e2e8f0 !important;
+}
+
+.dark .admin-theme option {
+  background-color: #0f172a;
+  color: #e2e8f0;
+}
+
+.dark .admin-theme input:-webkit-autofill,
+.dark .admin-theme input:-webkit-autofill:hover,
+.dark .admin-theme input:-webkit-autofill:focus {
+  -webkit-text-fill-color: #e2e8f0;
+  -webkit-box-shadow: 0 0 0 1000px #0f172a inset;
+}
+
+.dark .admin-theme input::placeholder,
+.dark .admin-theme textarea::placeholder {
+  color: #94a3b8 !important;
+}
+
+.dark .admin-theme input:focus,
+.dark .admin-theme select:focus,
+.dark .admin-theme textarea:focus {
+  border-color: #22d3ee !important;
+  box-shadow: 0 0 0 2px rgba(34, 211, 238, 0.2) !important;
+}
+
+.dark .admin-theme .MuiPaper-root {
+  background-color: #0f172a;
+  border-color: #1e293b;
+}

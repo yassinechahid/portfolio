@@ -18,14 +18,13 @@ export default function PhoneNumberInputField({
   onChange,
   error,
 }: PhoneNumberInputFieldProps) {
-
   const allowed = defaultCountries.filter((c) => {
     const { iso2 } = parseCountry(c);
     return iso2 !== "il";
   });
 
   return (
-    <div className="flex flex-col gap-3 w-full">
+    <div className="flex flex-col gap-3 w-full text-slate-900 dark:text-slate-100">
       <div
         className={`flex h-14 rounded-xl bg-light-surface dark:bg-dark-surface border overflow-visible transition-all ${
           error

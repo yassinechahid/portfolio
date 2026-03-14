@@ -22,7 +22,9 @@ export const DrawerNav: React.FC<DrawerNavProps> = ({
   const pathname = usePathname();
   const { t, i18n } = useTranslation();
   const isRTL = i18n.language === "ar";
-  const drawerSideClass = isRTL ? "right-0 rounded-l-[12px]" : "left-0 rounded-r-[12px]";
+  const drawerSideClass = isRTL
+    ? "right-0 rounded-l-[12px]"
+    : "left-0 rounded-r-[12px]";
   const drawerTransform = open
     ? "translateX(0)"
     : isRTL
