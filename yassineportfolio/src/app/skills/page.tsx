@@ -128,7 +128,7 @@ export default function Skills() {
                 key={idx}
                 className="
                 group flex flex-col rounded-2xl overflow-hidden
-                shadow-sm
+                shadow-md
                 dark:shadow-[0_2px_6px_rgba(183,202,239,0.05)]
                 hover:shadow-md
                 dark:hover:shadow-[0_8px_24px_rgba(183,202,239,0.3)]

@@ -21,7 +21,7 @@ export default function AdminSettingsPage() {
 
   return (
     <div className="space-y-6 sm:space-y-8">
-      <section className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900 sm:p-6">
+      <section className="rounded-3xl border border-slate-200 bg-white p-5 shadow-md dark:border-slate-800 dark:bg-slate-900 sm:p-6">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <div className="inline-flex items-center gap-2 rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-slate-600 dark:bg-slate-800 dark:text-slate-300">
@@ -47,7 +47,7 @@ export default function AdminSettingsPage() {
 
       <section className="grid grid-cols-1 gap-6 xl:grid-cols-[minmax(0,1.2fr)_minmax(280px,0.8fr)]">
         <div className="space-y-6">
-          <div className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900 sm:p-6">
+          <div className="rounded-3xl border border-slate-200 bg-white p-5 shadow-md dark:border-slate-800 dark:bg-slate-900 sm:p-6">
             <div className="mb-4 flex items-center gap-2">
               <Shield className="h-5 w-5 text-light-primary dark:text-dark-primary" />
               <h2 className="text-lg font-semibold text-slate-900 dark:text-white">
@@ -76,7 +76,7 @@ export default function AdminSettingsPage() {
             </div>
           </div>
 
-          <div className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900 sm:p-6">
+          <div className="rounded-3xl border border-slate-200 bg-white p-5 shadow-md dark:border-slate-800 dark:bg-slate-900 sm:p-6">
             <div className="mb-4 flex items-center gap-2">
               <Palette className="h-5 w-5 text-light-tertiary dark:text-dark-tertiary" />
               <h2 className="text-lg font-semibold text-slate-900 dark:text-white">
@@ -99,7 +99,7 @@ export default function AdminSettingsPage() {
         </div>
 
         <div className="space-y-6">
-          <div className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900 sm:p-6">
+          <div className="rounded-3xl border border-slate-200 bg-white p-5 shadow-md dark:border-slate-800 dark:bg-slate-900 sm:p-6">
             <h2 className="text-lg font-semibold text-slate-900 dark:text-white">
               Preferences
             </h2>
@@ -130,7 +130,7 @@ export default function AdminSettingsPage() {
             </button>
           </div>
 
-          <div className="rounded-3xl border border-error-light-container bg-error-light-container p-5 shadow-sm dark:border-error-dark-container dark:bg-error-dark-container/20 sm:p-6">
+          <div className="rounded-3xl border border-error-light-container bg-error-light-container p-5 shadow-md dark:border-error-dark-container dark:bg-error-dark-container/20 sm:p-6">
             <h2 className="text-lg font-semibold text-error-light dark:text-error-dark">
               Session
             </h2>
