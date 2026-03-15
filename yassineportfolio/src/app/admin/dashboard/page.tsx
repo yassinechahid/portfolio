@@ -225,7 +225,7 @@ export default function AdminDashboard() {
           return (
             <div
               key={stat.title}
-              className="group rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl dark:border-slate-800 dark:bg-slate-900 sm:p-6">
+              className="group rounded-2xl border border-slate-200 bg-white p-5 shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl dark:border-slate-800 dark:bg-slate-900 sm:p-6">
               <div className="flex items-start justify-between gap-4">
                 <div className="flex-1">
                   <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400">
@@ -249,7 +249,7 @@ export default function AdminDashboard() {
       </section>
 
       <section className="grid grid-cols-1 gap-6 xl:grid-cols-[minmax(0,1fr)_minmax(300px,0.9fr)]">
-        <div className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900 sm:p-6">
+        <div className="rounded-3xl border border-slate-200 bg-white p-5 shadow-md dark:border-slate-800 dark:bg-slate-900 sm:p-6">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
             <div>
               <h2 className="text-xl font-semibold text-slate-900 dark:text-white">
@@ -308,7 +308,7 @@ export default function AdminDashboard() {
           </div>
         </div>
 
-        <div className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900 sm:p-6">
+        <div className="rounded-3xl border border-slate-200 bg-white p-5 shadow-md dark:border-slate-800 dark:bg-slate-900 sm:p-6">
           <div className="flex items-center gap-3">
             <div className="rounded-2xl bg-gradient-to-br from-light-primary to-light-tertiary p-3 text-white shadow-lg dark:from-dark-primary dark:to-dark-tertiary">
               <Settings className="h-5 w-5" />

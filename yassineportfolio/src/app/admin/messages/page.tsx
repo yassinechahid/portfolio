@@ -223,7 +223,7 @@ export default function MessagesPage() {
       </div>
 
       {/* Filters and Search */}
-      <div className="flex flex-col sm:flex-row gap-4 items-center bg-white dark:bg-slate-900 p-4 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800">
+      <div className="flex flex-col sm:flex-row gap-4 items-center bg-white dark:bg-slate-900 p-4 rounded-xl shadow-md border border-slate-200 dark:border-slate-800">
         <div className="flex-1 w-full">
           <LabeledInput
             label="Search messages"
@@ -266,7 +266,7 @@ export default function MessagesPage() {
       </div>
 
       {/* Messages List */}
-      <div className="bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 overflow-hidden">
+      <div className="bg-white dark:bg-slate-900 rounded-xl shadow-md border border-slate-200 dark:border-slate-800 overflow-hidden">
         {loading ? (
           <div className="flex items-center justify-center py-12">
             <div className="h-12 w-12 animate-spin rounded-full border-b-2 border-light-primary dark:border-dark-primary"></div>
