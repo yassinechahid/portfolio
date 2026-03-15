@@ -191,7 +191,7 @@ export default function MessagesPage() {
     return (
       <div className="flex items-center justify-center h-screen">
         <div className="text-center">
-          <AlertCircle className="w-16 h-16 text-red-500 mx-auto mb-4" />
+          <AlertCircle className="w-16 h-16 text-error-light dark:text-error-dark mx-auto mb-4" />
           <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">
             Access Denied
           </h2>
@@ -214,7 +214,7 @@ export default function MessagesPage() {
           <p className="text-slate-600 dark:text-slate-400">
             Manage contact form submissions
             {unreadCount > 0 && (
-              <span className="ml-2 px-2 py-1 bg-teal-100 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300 rounded-full text-sm font-medium">
+              <span className="ml-2 rounded-full bg-light-tertiaryContainer px-2 py-1 text-sm font-medium text-light-onTertiaryContainer dark:bg-dark-tertiaryContainer dark:text-dark-onTertiaryContainer">
                 {unreadCount} unread
               </span>
             )}
@@ -239,7 +239,7 @@ export default function MessagesPage() {
             onClick={() => setFilterStatus("all")}
             className={`px-4 py-2.5 rounded-lg font-medium transition-all ${
               filterStatus === "all"
-                ? "bg-teal-600 text-white shadow-md"
+                ? "bg-light-primary text-white shadow-md dark:bg-dark-primary dark:text-dark-onPrimary"
                 : "bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-600"
             }`}>
             All
@@ -248,7 +248,7 @@ export default function MessagesPage() {
             onClick={() => setFilterStatus("unread")}
             className={`px-4 py-2.5 rounded-lg font-medium transition-all ${
               filterStatus === "unread"
-                ? "bg-teal-600 text-white shadow-md"
+                ? "bg-light-primary text-white shadow-md dark:bg-dark-primary dark:text-dark-onPrimary"
                 : "bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-600"
             }`}>
             Unread
@@ -257,7 +257,7 @@ export default function MessagesPage() {
             onClick={() => setFilterStatus("read")}
             className={`px-4 py-2.5 rounded-lg font-medium transition-all ${
               filterStatus === "read"
-                ? "bg-teal-600 text-white shadow-md"
+                ? "bg-light-primary text-white shadow-md dark:bg-dark-primary dark:text-dark-onPrimary"
                 : "bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-600"
             }`}>
             Read
@@ -269,7 +269,7 @@ export default function MessagesPage() {
       <div className="bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 overflow-hidden">
         {loading ? (
           <div className="flex items-center justify-center py-12">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-teal-600"></div>
+            <div className="h-12 w-12 animate-spin rounded-full border-b-2 border-light-primary dark:border-dark-primary"></div>
           </div>
         ) : filteredMessages.length === 0 ? (
           <div className="text-center py-12">
@@ -285,7 +285,7 @@ export default function MessagesPage() {
                 key={message.$id}
                 className={`p-6 hover:bg-slate-50 dark:hover:bg-slate-800/90 transition-all ${
                   !message.isRead
-                    ? "bg-teal-50/50 dark:bg-teal-900/20 border-l-4 border-teal-500"
+                    ? "border-l-4 border-light-tertiary bg-light-tertiaryContainer/40 dark:border-dark-tertiary dark:bg-dark-tertiaryContainer/30"
                     : ""
                 }`}>
                 {/* Header Row */}
@@ -293,9 +293,9 @@ export default function MessagesPage() {
                   <div className="flex items-center gap-3">
                     <div className="flex-shrink-0">
                       {message.isRead ? (
-                        <CheckCircle className="w-6 h-6 text-green-500" />
+                        <CheckCircle className="w-6 h-6 text-success-light dark:text-success-dark" />
                       ) : (
-                        <Mail className="w-6 h-6 text-teal-600 dark:text-teal-400" />
+                        <Mail className="w-6 h-6 text-light-tertiary dark:text-dark-tertiary" />
                       )}
                     </div>
                     <div className="min-w-0">
@@ -323,7 +323,7 @@ export default function MessagesPage() {
                   <div className="flex items-center gap-2 flex-shrink-0">
                     <button
                       onClick={() => viewMessage(message)}
-                      className="p-2 hover:bg-teal-50 dark:hover:bg-teal-900/20 text-teal-600 dark:text-teal-400 rounded-lg transition-colors"
+                      className="rounded-lg p-2 text-light-primary transition-colors hover:bg-light-primaryContainer dark:text-dark-primary dark:hover:bg-dark-primaryContainer"
                       title="View message">
                       <Eye className="w-5 h-5" />
                     </button>
@@ -333,7 +333,7 @@ export default function MessagesPage() {
                           e.stopPropagation();
                           markAsRead(message.$id);
                         }}
-                        className="p-2 hover:bg-green-50 dark:hover:bg-green-900/20 text-green-600 dark:text-green-400 rounded-lg transition-colors"
+                        className="p-2 hover:bg-success-light-container dark:hover:bg-success-dark-container/30 text-success-light dark:text-success-dark rounded-lg transition-colors"
                         title="Mark as read">
                         <CheckCircle className="w-5 h-5" />
                       </button>
@@ -343,7 +343,7 @@ export default function MessagesPage() {
                         e.stopPropagation();
                         deleteMessage(message.$id);
                       }}
-                      className="p-2 hover:bg-red-50 dark:hover:bg-red-900/20 text-red-600 dark:text-red-400 rounded-lg transition-colors"
+                      className="p-2 hover:bg-error-light-container dark:hover:bg-error-dark-container/20 text-error-light dark:text-error-dark rounded-lg transition-colors"
                       title="Delete message">
                       <Trash2 className="w-5 h-5" />
                     </button>
@@ -356,7 +356,7 @@ export default function MessagesPage() {
                     <Mail className="w-4 h-4 flex-shrink-0" />
                     <a
                       href={`mailto:${message.email}`}
-                      className="text-sm hover:text-teal-600 dark:hover:text-teal-400 truncate">
+                      className="truncate text-sm hover:text-light-primary dark:hover:text-dark-primary">
                       {message.email}
                     </a>
                   </div>
@@ -364,7 +364,7 @@ export default function MessagesPage() {
                     <Phone className="w-4 h-4 flex-shrink-0" />
                     <a
                       href={`tel:${message.phone}`}
-                      className="text-sm hover:text-teal-600 dark:hover:text-teal-400">
+                      className="text-sm hover:text-light-primary dark:hover:text-dark-primary">
                       {message.phone}
                     </a>
                   </div>
@@ -391,11 +391,11 @@ export default function MessagesPage() {
             className="bg-white dark:bg-slate-900 rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto border border-slate-200 dark:border-slate-800"
             onClick={(e) => e.stopPropagation()}>
             {/* Modal Header */}
-            <div className="sticky top-0 bg-gradient-to-r from-teal-50 to-cyan-50 dark:from-slate-900 dark:to-slate-900 border-b border-slate-200 dark:border-slate-800 p-6">
+            <div className="sticky top-0 bg-gradient-to-r from-light-primaryContainer to-light-secondaryContainer border-b border-slate-200 p-6 dark:border-slate-800 dark:from-dark-primaryContainer dark:to-dark-secondaryContainer">
               <div className="flex items-start justify-between">
                 <div className="flex items-center gap-4">
-                  <div className="p-3 bg-teal-100 dark:bg-teal-900/30 rounded-xl">
-                    <Mail className="w-6 h-6 text-teal-600 dark:text-teal-400" />
+                  <div className="rounded-xl bg-light-primaryContainer p-3 dark:bg-dark-primaryContainer">
+                    <Mail className="w-6 h-6 text-light-primary dark:text-dark-primary" />
                   </div>
                   <div>
                     <h3 className="text-2xl font-bold text-slate-900 dark:text-white">
@@ -435,7 +435,7 @@ export default function MessagesPage() {
                   </div>
                   <a
                     href={`mailto:${selectedMessage.email}`}
-                    className="text-teal-600 dark:text-teal-400 hover:underline font-medium">
+                    className="font-medium text-light-primary hover:underline dark:text-dark-primary">
                     {selectedMessage.email}
                   </a>
                 </div>
@@ -447,7 +447,7 @@ export default function MessagesPage() {
                   </div>
                   <a
                     href={`tel:${selectedMessage.phone}`}
-                    className="text-teal-600 dark:text-teal-400 hover:underline font-medium">
+                    className="font-medium text-light-primary hover:underline dark:text-dark-primary">
                     {selectedMessage.phone}
                   </a>
                 </div>
@@ -479,15 +479,15 @@ export default function MessagesPage() {
                 <div className="flex items-center gap-2">
                   {selectedMessage.isRead ? (
                     <>
-                      <CheckCircle className="w-5 h-5 text-green-500" />
-                      <span className="text-green-600 dark:text-green-400 font-medium">
+                      <CheckCircle className="w-5 h-5 text-success-light dark:text-success-dark" />
+                      <span className="text-success-light dark:text-success-dark font-medium">
                         Read
                       </span>
                     </>
                   ) : (
                     <>
-                      <AlertCircle className="w-5 h-5 text-teal-600" />
-                      <span className="text-teal-600 dark:text-teal-400 font-medium">
+                      <AlertCircle className="w-5 h-5 text-light-tertiary dark:text-dark-tertiary" />
+                      <span className="font-medium text-light-tertiary dark:text-dark-tertiary">
                         Unread
                       </span>
                     </>
@@ -496,7 +496,7 @@ export default function MessagesPage() {
                 {!selectedMessage.isRead && (
                   <button
                     onClick={() => markAsRead(selectedMessage.$id)}
-                    className="px-4 py-2 bg-teal-600 hover:bg-teal-700 text-white rounded-lg transition-colors font-medium">
+                    className="rounded-lg bg-light-primary px-4 py-2 font-medium text-white transition-colors hover:opacity-90 dark:bg-dark-primary dark:text-dark-onPrimary">
                     Mark as Read
                   </button>
                 )}
@@ -510,7 +510,7 @@ export default function MessagesPage() {
                   deleteMessage(selectedMessage.$id);
                   closeModal();
                 }}
-                className="px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg transition-colors font-medium flex items-center gap-2">
+                className="px-4 py-2 rounded-lg border border-error-light bg-error-light text-error-light-on transition-colors hover:opacity-90 dark:border-error-dark-container dark:bg-error-dark-container dark:text-error-dark-on-container font-medium flex items-center gap-2">
                 <Trash2 className="w-4 h-4" />
                 Delete Message
               </button>

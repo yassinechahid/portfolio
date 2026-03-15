@@ -41,13 +41,13 @@ export default function AdminLogin() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-blue-50 to-cyan-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 p-4">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-light-primaryContainer to-light-secondaryContainer p-4 dark:from-slate-900 dark:via-dark-primaryContainer dark:to-dark-secondaryContainer">
       <div className="w-full max-w-md">
         {/* Main Login Card */}
         <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-2xl p-8 border-2 border-slate-200 dark:border-slate-700">
           {/* Logo and Title */}
           <div className="text-center mb-8">
-            <h1 className="text-4xl font-black bg-gradient-to-r from-blue-700 to-cyan-600 bg-clip-text text-transparent">
+            <h1 className="bg-gradient-to-r from-light-primary to-light-secondary bg-clip-text text-4xl font-black text-transparent dark:from-dark-primary dark:to-dark-secondary">
               Admin Panel
             </h1>
             <p className="text-sm text-slate-600 dark:text-slate-400 mt-2 font-medium">
@@ -70,7 +70,7 @@ export default function AdminLogin() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
-                  className="block w-full pl-11 pr-4 py-3.5 border-2 border-slate-300 dark:border-slate-600 rounded-xl bg-white dark:bg-slate-700 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition font-medium"
+                  className="block w-full rounded-xl border-2 border-slate-300 bg-white py-3.5 pl-11 pr-4 font-medium text-slate-900 transition placeholder-slate-400 focus:border-light-primary focus:outline-none focus:ring-2 focus:ring-light-primary/20 dark:border-slate-600 dark:bg-slate-700 dark:text-white dark:focus:border-dark-primary dark:focus:ring-dark-primary/20"
                   placeholder="Enter email"
                   disabled={isLoading}
                 />
@@ -90,7 +90,7 @@ export default function AdminLogin() {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required
-                  className="block w-full pl-11 pr-4 py-3.5 border-2 border-slate-300 dark:border-slate-600 rounded-xl bg-white dark:bg-slate-700 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition font-medium"
+                  className="block w-full rounded-xl border-2 border-slate-300 bg-white py-3.5 pl-11 pr-4 font-medium text-slate-900 transition placeholder-slate-400 focus:border-light-primary focus:outline-none focus:ring-2 focus:ring-light-primary/20 dark:border-slate-600 dark:bg-slate-700 dark:text-white dark:focus:border-dark-primary dark:focus:ring-dark-primary/20"
                   placeholder="Enter password"
                   disabled={isLoading}
                 />
@@ -100,7 +100,7 @@ export default function AdminLogin() {
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full flex items-center justify-center gap-2 px-4 py-4 bg-gradient-to-r from-blue-700 to-cyan-600 hover:from-blue-800 hover:to-cyan-700 text-white font-bold rounded-xl transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-[0.98]">
+              className="flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-light-primary to-light-secondary px-4 py-4 font-bold text-white transition-all duration-200 hover:scale-[1.02] hover:shadow-xl active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50 dark:from-dark-primary dark:to-dark-secondary dark:text-dark-onPrimary">
               {isLoading ? (
                 <>
                   <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
@@ -115,8 +115,8 @@ export default function AdminLogin() {
             </button>
           </form>
           {/* Security Notice */}
-          <div className="mt-4 p-4 bg-red-50 dark:bg-red-900/20 border-2 border-red-200 dark:border-red-900 rounded-xl shadow-sm">
-            <p className="text-xs text-red-700 dark:text-red-300 text-center font-bold">
+          <div className="mt-4 rounded-xl border-2 border-warning-light-container bg-warning-light-container p-4 shadow-sm dark:border-warning-dark-container dark:bg-warning-dark-container/30">
+            <p className="text-xs text-warning-light-on-container dark:text-warning-dark text-center font-bold">
               ⚠️ This area is restricted to authorized administrators only.
             </p>
           </div>
@@ -125,7 +125,7 @@ export default function AdminLogin() {
           <div className="mt-6 text-center">
             <Link
               href="/"
-              className="inline-flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors group">
+              className="group inline-flex items-center gap-2 text-sm text-slate-600 transition-colors hover:text-light-primary dark:text-slate-400 dark:hover:text-dark-primary">
               <Home className="w-4 h-4 group-hover:scale-110 transition-transform" />
               <span className="font-medium">Return to Homepage</span>
             </Link>

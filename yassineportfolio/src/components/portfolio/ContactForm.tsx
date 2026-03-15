@@ -306,7 +306,7 @@ export default function ContactForm() {
                   bgColor="bg-light-surfaceContainerHigh dark:bg-dark-surfaceContainerHigh"
                 />
                 {errors.name && (
-                  <p className="text-body-small text-red-500 mt-1.5">
+                  <p className="text-body-small text-error-light dark:text-error-dark mt-1.5">
                     {errors.name.message}
                   </p>
                 )}
@@ -324,7 +324,7 @@ export default function ContactForm() {
                   bgColor="bg-light-surfaceContainerHigh dark:bg-dark-surfaceContainerHigh"
                 />
                 {errors.email && (
-                  <p className="text-body-small text-red-500 mt-1.5">
+                  <p className="text-body-small text-error-light dark:text-error-dark mt-1.5">
                     {errors.email.message}
                   </p>
                 )}
@@ -354,7 +354,7 @@ export default function ContactForm() {
                   bgColor="bg-light-surfaceContainerHigh dark:bg-dark-surfaceContainerHigh"
                 />
                 {errors.subject && (
-                  <p className="text-body-small text-red-500 mt-1.5">
+                  <p className="text-body-small text-error-light dark:text-error-dark mt-1.5">
                     {errors.subject.message}
                   </p>
                 )}
@@ -373,7 +373,7 @@ export default function ContactForm() {
                 bgColor="bg-light-surfaceContainerHigh dark:bg-dark-surfaceContainerHigh"
               />
               {errors.message && (
-                <p className="text-body-small text-red-500 mt-1.5">
+                <p className="text-body-small text-error-light dark:text-error-dark mt-1.5">
                   {errors.message.message}
                 </p>
               )}

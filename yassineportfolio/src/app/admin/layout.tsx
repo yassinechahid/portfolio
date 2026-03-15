@@ -37,8 +37,8 @@ export default function AdminLayout({
     return (
       <div className="min-h-screen flex items-center justify-center bg-slate-50 dark:bg-slate-900">
         <div className="text-center">
-          <div className="inline-flex p-4 bg-blue-100 dark:bg-blue-900/30 rounded-full mb-4">
-            <div className="w-8 h-8 border-4 border-blue-700 border-t-transparent rounded-full animate-spin" />
+          <div className="mb-4 inline-flex rounded-full bg-light-primaryContainer p-4 dark:bg-dark-primaryContainer">
+            <div className="h-8 w-8 animate-spin rounded-full border-4 border-light-primary border-t-transparent dark:border-dark-primary" />
           </div>
           <p className="text-slate-600 dark:text-slate-400 font-medium">
             Loading dashboard...

@@ -3,11 +3,19 @@
 @tailwind utilities;
 
 :root {
-  --background: #f8fafc;
-  --foreground: #0f172a;
-  --primary: #1e40af;
-  --secondary: #0891b2;
-  --accent: #f59e0b;
+  --background: #e7ebf2;
+  --foreground: #191c22;
+  --primary: #2453a6;
+  --secondary: #4a607f;
+  --accent: #5c6f8e;
+  --surface-muted: #edf1f7;
+  --surface-strong: #d7dde8;
+  --scrollbar-track: #e1e6ef;
+  --scrollbar-thumb: #b5bfcc;
+  --scrollbar-thumb-hover: #7e8ba1;
+  --admin-input-bg-dark: #161a21;
+  --admin-input-border-dark: #404d60;
+  --admin-input-placeholder-dark: #8e9bae;
 }
 .dark .filter-white {
   filter: invert(1) sepia(1) saturate(0) hue-rotate(0deg) brightness(97%)
@@ -16,11 +24,19 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0f172a;
-    --foreground: #e2e8f0;
-    --primary: #93c5fd;
-    --secondary: #67e8f9;
-    --accent: #fcd34d;
+    --background: #15181f;
+    --foreground: #e4e6eb;
+    --primary: #b7caef;
+    --secondary: #bfcbdb;
+    --accent: #beccde;
+    --surface-muted: #1f242d;
+    --surface-strong: #353d4a;
+    --scrollbar-track: #1a1e26;
+    --scrollbar-thumb: #404a5a;
+    --scrollbar-thumb-hover: #6d7d94;
+    --admin-input-bg-dark: #1a1e26;
+    --admin-input-border-dark: #404a5a;
+    --admin-input-placeholder-dark: #8c98aa;
   }
 }
 
@@ -42,43 +58,43 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f5f9;
+  background: var(--scrollbar-track);
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
+  background: var(--scrollbar-thumb);
   border-radius: 10px;
-  border: 2px solid #f1f5f9;
+  border: 2px solid var(--scrollbar-track);
   transition: background 0.3s ease;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
+  background: var(--scrollbar-thumb-hover);
 }
 
 /* Custom Scrollbar - Dark Mode */
 .dark ::-webkit-scrollbar-track {
-  background: #1e293b;
+  background: var(--scrollbar-track);
 }
 
 .dark ::-webkit-scrollbar-thumb {
-  background: #475569;
-  border-color: #1e293b;
+  background: var(--scrollbar-thumb);
+  border-color: var(--scrollbar-track);
 }
 
 .dark ::-webkit-scrollbar-thumb:hover {
-  background: #64748b;
+  background: var(--scrollbar-thumb-hover);
 }
 
 /* Firefox Scrollbar */
 * {
   scrollbar-width: thin;
-  scrollbar-color: #cbd5e1 #f1f5f9;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
 }
 
 .dark * {
-  scrollbar-color: #475569 #1e293b;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
 }
 
 @media (min-width: 360px) {
@@ -181,42 +197,42 @@ body {
 
 /* Admin Dark Theme Harmonization */
 .dark .admin-theme {
-  color: #e2e8f0;
+  color: var(--foreground);
 }
 
 .dark .admin-theme input,
 .dark .admin-theme select,
 .dark .admin-theme textarea {
-  background-color: #0f172a !important;
-  border-color: #334155 !important;
-  color: #e2e8f0 !important;
+  background-color: var(--admin-input-bg-dark) !important;
+  border-color: var(--admin-input-border-dark) !important;
+  color: var(--foreground) !important;
 }
 
 .dark .admin-theme option {
-  background-color: #0f172a;
-  color: #e2e8f0;
+  background-color: var(--admin-input-bg-dark);
+  color: var(--foreground);
 }
 
 .dark .admin-theme input:-webkit-autofill,
 .dark .admin-theme input:-webkit-autofill:hover,
 .dark .admin-theme input:-webkit-autofill:focus {
-  -webkit-text-fill-color: #e2e8f0;
-  -webkit-box-shadow: 0 0 0 1000px #0f172a inset;
+  -webkit-text-fill-color: var(--foreground);
+  -webkit-box-shadow: 0 0 0 1000px var(--admin-input-bg-dark) inset;
 }
 
 .dark .admin-theme input::placeholder,
 .dark .admin-theme textarea::placeholder {
-  color: #94a3b8 !important;
+  color: var(--admin-input-placeholder-dark) !important;
 }
 
 .dark .admin-theme input:focus,
 .dark .admin-theme select:focus,
 .dark .admin-theme textarea:focus {
-  border-color: #22d3ee !important;
-  box-shadow: 0 0 0 2px rgba(34, 211, 238, 0.2) !important;
+  border-color: var(--primary) !important;
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--primary) 20%, transparent) !important;
 }
 
 .dark .admin-theme .MuiPaper-root {
-  background-color: #0f172a;
+  background-color: var(--admin-input-bg-dark);
   border-color: #1e293b;
 }

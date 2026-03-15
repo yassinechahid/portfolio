@@ -66,7 +66,7 @@ const Navbar = () => {
                 alt="Yassine Chahid"
                 className="w-12 h-12 rounded-full ring-2 ring-light-primary/20 dark:ring-dark-primary/20 group-hover:ring-light-primary/60 dark:group-hover:ring-dark-primary/60 transition-all duration-300"
               />
-              <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-light-surface dark:border-dark-surface" />
+              <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-success-light dark:bg-success-dark rounded-full border-2 border-light-surface dark:border-dark-surface" />
             </div>
             <div className="hidden sm:block">
               <div className="text-lg font-bold text-light-onSurface dark:text-dark-onSurface">
