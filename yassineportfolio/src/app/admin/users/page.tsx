@@ -287,8 +287,8 @@ export default function UsersPage() {
     return (
       <div className="flex items-center justify-center h-full">
         <div className="text-center">
-          <div className="inline-flex p-6 bg-gradient-to-br from-red-100 to-red-200 dark:from-red-900/20 dark:to-red-800/20 rounded-2xl mb-4 border-2 border-red-300 dark:border-red-800 shadow-lg">
-            <Shield className="w-16 h-16 text-red-600 dark:text-red-400" />
+          <div className="inline-flex p-6 bg-gradient-to-br from-error-light-container to-warning-light-container dark:from-error-dark-container/30 dark:to-warning-dark-container/30 rounded-2xl mb-4 border-2 border-error-light-container dark:border-error-dark-container shadow-lg">
+            <Shield className="w-16 h-16 text-error-light dark:text-error-dark" />
           </div>
           <h2 className="text-3xl font-black text-slate-900 dark:text-white mb-3">
             Access Denied
@@ -319,7 +319,7 @@ export default function UsersPage() {
               resetForm();
               setShowAddModal(true);
             }}
-            className="flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-blue-700 to-cyan-600 hover:from-blue-800 hover:to-cyan-700 text-white rounded-xl transition-all shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 font-bold">
+            className="flex items-center gap-2 rounded-xl bg-gradient-to-r from-light-primary to-light-secondary px-5 py-2.5 font-bold text-white transition-all shadow-lg hover:scale-105 hover:shadow-xl active:scale-95 dark:from-dark-primary dark:to-dark-secondary dark:text-dark-onPrimary">
             <Plus className="w-5 h-5" />
             Add New User
           </button>
@@ -342,8 +342,8 @@ export default function UsersPage() {
         {loading ? (
           <div className="flex items-center justify-center h-64">
             <div className="text-center">
-              <div className="inline-flex p-4 bg-blue-100 dark:bg-blue-900/30 rounded-full mb-4">
-                <div className="w-6 h-6 border-2 border-blue-700 border-t-transparent rounded-full animate-spin" />
+              <div className="mb-4 inline-flex rounded-full bg-light-primaryContainer p-4 dark:bg-dark-primaryContainer">
+                <div className="h-6 w-6 animate-spin rounded-full border-2 border-light-primary border-t-transparent dark:border-dark-primary" />
               </div>
               <p className="text-slate-600 dark:text-slate-400 font-medium">
                 Loading users...
@@ -402,8 +402,8 @@ export default function UsersPage() {
                       <td className="px-4 py-4">
                         <div className="flex items-center">
                           <div className="flex-shrink-0 h-10 w-10">
-                            <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-blue-100 to-cyan-100 dark:from-blue-900/30 dark:to-cyan-900/30 flex items-center justify-center border-2 border-blue-200 dark:border-blue-800 shadow-sm">
-                              <UserIcon className="h-5 w-5 text-blue-700 dark:text-blue-300" />
+                            <div className="flex h-10 w-10 items-center justify-center rounded-xl border-2 border-light-outlineVariant bg-gradient-to-br from-light-primaryContainer to-light-secondaryContainer shadow-sm dark:border-dark-outlineVariant dark:from-dark-primaryContainer dark:to-dark-secondaryContainer">
+                              <UserIcon className="h-5 w-5 text-light-primary dark:text-dark-primary" />
                             </div>
                           </div>
                           <div className="ml-3">
@@ -429,7 +429,7 @@ export default function UsersPage() {
                         <span
                           className={`inline-block px-2.5 py-1 text-xs font-bold rounded-full shadow-sm whitespace-nowrap ${
                             user.role === "admin"
-                              ? "bg-gradient-to-r from-blue-100 to-cyan-100 text-blue-800 dark:from-blue-900/30 dark:to-cyan-900/30 dark:text-blue-300 border border-blue-300 dark:border-blue-700"
+                              ? "border border-light-outlineVariant bg-light-primaryContainer text-light-onPrimaryContainer dark:border-dark-outlineVariant dark:bg-dark-primaryContainer dark:text-dark-onPrimaryContainer"
                               : "bg-gradient-to-r from-slate-100 to-slate-200 text-slate-800 dark:from-slate-700 dark:to-slate-600 dark:text-slate-200 border border-slate-300 dark:border-slate-600"
                           }`}>
                           {user.role === "admin" ? "Admin" : "User"}
@@ -439,8 +439,8 @@ export default function UsersPage() {
                         <span
                           className={`inline-block px-2.5 py-1 text-xs font-bold rounded-full shadow-sm whitespace-nowrap ${
                             user.status === "active"
-                              ? "bg-gradient-to-r from-teal-100 to-cyan-100 text-teal-800 dark:from-teal-900/30 dark:to-cyan-900/30 dark:text-teal-300 border border-teal-300 dark:border-teal-700"
-                              : "bg-gradient-to-r from-red-100 to-red-200 text-red-800 dark:from-red-900/30 dark:to-red-800/30 dark:text-red-300 border border-red-300 dark:border-red-700"
+                              ? "border border-light-secondaryContainer bg-light-secondaryContainer text-light-onSecondaryContainer dark:border-dark-secondaryContainer dark:bg-dark-secondaryContainer dark:text-dark-onSecondaryContainer"
+                              : "border border-error-light-container bg-error-light-container text-error-light-on-container dark:border-error-dark-container dark:bg-error-dark-container/30 dark:text-error-dark"
                           }`}>
                           {user.status === "active" ? "Active" : "Inactive"}
                         </span>
@@ -457,13 +457,13 @@ export default function UsersPage() {
                         <div className="flex items-center justify-center gap-2">
                           <button
                             onClick={() => handleEdit(user)}
-                            className="text-blue-700 hover:text-blue-900 dark:text-blue-400 dark:hover:text-blue-300 p-2 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-lg transition-all"
+                            className="rounded-lg p-2 text-light-primary transition-all hover:bg-light-primaryContainer hover:text-light-primary dark:text-dark-primary dark:hover:bg-dark-primaryContainer dark:hover:text-dark-primary"
                             title="Edit user">
                             <Edit className="w-4 h-4" />
                           </button>
                           <button
                             onClick={() => deleteUser(user.$id, user.email)}
-                            className="text-red-600 hover:text-red-900 dark:text-red-400 dark:hover:text-red-300 p-2 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg transition-all"
+                            className="text-error-light hover:text-error-light dark:text-error-dark dark:hover:text-error-dark p-2 hover:bg-error-light-container dark:hover:bg-error-dark-container/20 rounded-lg transition-all"
                             title="Delete user">
                             <Trash2 className="w-4 h-4" />
                           </button>
@@ -539,7 +539,7 @@ export default function UsersPage() {
                       role: value as "admin" | "user",
                     }));
                   }}
-                  className="w-full rounded-lg border-2 border-slate-300 bg-white px-3 py-2.5 text-sm font-semibold text-slate-900 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:border-slate-600 dark:bg-slate-700 dark:text-white cursor-pointer">
+                  className="w-full cursor-pointer rounded-lg border-2 border-slate-300 bg-white px-3 py-2.5 text-sm font-semibold text-slate-900 transition-all focus:border-light-primary focus:outline-none focus:ring-2 focus:ring-light-primary/20 dark:border-slate-600 dark:bg-slate-700 dark:text-white dark:focus:border-dark-primary dark:focus:ring-dark-primary/20">
                   <option value="user">User</option>
                   <option value="admin">Admin</option>
                 </select>
@@ -559,7 +559,7 @@ export default function UsersPage() {
                       status: value as "active" | "inactive",
                     }));
                   }}
-                  className="w-full rounded-lg border-2 border-slate-300 bg-white px-3 py-2.5 text-sm font-semibold text-slate-900 transition-all focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:border-slate-600 dark:bg-slate-700 dark:text-white cursor-pointer">
+                  className="w-full cursor-pointer rounded-lg border-2 border-slate-300 bg-white px-3 py-2.5 text-sm font-semibold text-slate-900 transition-all focus:border-light-primary focus:outline-none focus:ring-2 focus:ring-light-primary/20 dark:border-slate-600 dark:bg-slate-700 dark:text-white dark:focus:border-dark-primary dark:focus:ring-dark-primary/20">
                   <option value="active">Active</option>
                   <option value="inactive">Inactive</option>
                 </select>
@@ -576,7 +576,7 @@ export default function UsersPage() {
           </button>
           <button
             onClick={editingUser ? updateUser : createUser}
-            className="px-4 py-2 text-sm bg-gradient-to-r from-blue-700 to-cyan-600 hover:from-blue-800 hover:to-cyan-700 text-white rounded-lg transition-all shadow-lg hover:shadow-xl font-bold flex items-center gap-2">
+            className="flex items-center gap-2 rounded-lg bg-gradient-to-r from-light-primary to-light-secondary px-4 py-2 text-sm font-bold text-white transition-all shadow-lg hover:shadow-xl dark:from-dark-primary dark:to-dark-secondary dark:text-dark-onPrimary">
             {editingUser ? (
               <>
                 <Edit className="w-3.5 h-3.5" />

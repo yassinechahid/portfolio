@@ -18,22 +18,22 @@ const menuItems = [
     title: "Dashboard",
     icon: LayoutDashboard,
     href: "/admin/dashboard",
-    color: "text-blue-600 dark:text-blue-400",
-    bgColor: "bg-blue-50 dark:bg-blue-900/20",
+    color: "text-light-primary dark:text-dark-primary",
+    bgColor: "bg-light-primaryContainer dark:bg-dark-primaryContainer",
   },
   {
     title: "Users",
     icon: Users,
     href: "/admin/users",
-    color: "text-cyan-600 dark:text-cyan-400",
-    bgColor: "bg-cyan-50 dark:bg-cyan-900/20",
+    color: "text-light-secondary dark:text-dark-secondary",
+    bgColor: "bg-light-secondaryContainer dark:bg-dark-secondaryContainer",
   },
   {
     title: "Messages",
     icon: Mail,
     href: "/admin/messages",
-    color: "text-teal-600 dark:text-teal-400",
-    bgColor: "bg-teal-50 dark:bg-teal-900/20",
+    color: "text-light-tertiary dark:text-dark-tertiary",
+    bgColor: "bg-light-tertiaryContainer dark:bg-dark-tertiaryContainer",
   },
   {
     title: "Settings",
@@ -51,16 +51,18 @@ export default function AdminSidebar() {
   return (
     <aside className="w-full border-b border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900 lg:flex lg:min-h-screen lg:w-72 lg:flex-col lg:border-b-0 lg:border-r">
       {/* Logo */}
-      <div className="border-b border-slate-200 bg-gradient-to-r from-blue-50 to-cyan-50 p-4 dark:border-slate-800 dark:from-slate-900 dark:to-slate-900 sm:p-6">
+      <div className="border-b border-slate-200 bg-gradient-to-r from-light-primaryContainer to-light-secondaryContainer p-4 dark:border-slate-800 dark:from-dark-primaryContainer dark:to-dark-secondaryContainer sm:p-6">
         <div className="flex items-center justify-between gap-4 lg:justify-start">
           <div className="flex items-center gap-3">
-            <div className="p-2 bg-gradient-to-br from-blue-600 to-cyan-600 rounded-xl shadow-lg">
+            <div className="rounded-xl bg-gradient-to-br from-light-primary to-light-secondary p-2 shadow-lg dark:from-dark-primary dark:to-dark-secondary">
               <Shield className="w-6 h-6 text-white" />
             </div>
             <div>
               <span className="text-xl font-bold text-slate-900 dark:text-white block">
                 Admin
-                <span className="text-blue-600 dark:text-blue-400">Panel</span>
+                <span className="text-light-primary dark:text-dark-primary">
+                  Panel
+                </span>
               </span>
               <span className="text-xs text-slate-500 dark:text-slate-400 font-medium">
                 Dashboard Control
@@ -78,7 +80,7 @@ export default function AdminSidebar() {
           </Link>
           <button
             onClick={logout}
-            className="flex items-center justify-center gap-2 rounded-xl border border-red-200 px-3 py-2 text-sm font-medium text-red-600 transition hover:bg-red-50 dark:border-red-900/50 dark:bg-slate-800 dark:text-red-300 dark:hover:bg-red-900/20">
+            className="flex items-center justify-center gap-2 rounded-xl border border-error-light-container px-3 py-2 text-sm font-medium text-error-light transition hover:bg-error-light-container dark:border-error-dark-container dark:bg-slate-800 dark:text-error-dark dark:hover:bg-error-dark-container/20">
             <LogOut className="w-4 h-4" />
             Logout
           </button>
@@ -107,7 +109,7 @@ export default function AdminSidebar() {
                 <span>{item.title}</span>
                 {isActive && (
                   <div className="ml-auto">
-                    <div className="w-2 h-2 rounded-full bg-gradient-to-r from-blue-600 to-cyan-600 shadow-sm" />
+                    <div className="w-2 h-2 rounded-full bg-gradient-to-r from-light-primary to-light-secondary shadow-sm dark:from-dark-primary dark:to-dark-secondary" />
                   </div>
                 )}
               </Link>
@@ -127,7 +129,7 @@ export default function AdminSidebar() {
           </Link>
           <button
             onClick={logout}
-            className="flex items-center gap-3 px-4 py-3.5 w-full rounded-xl text-red-600 dark:text-red-300 hover:bg-red-50 dark:hover:bg-red-900/20 transition-all duration-200 font-medium group">
+            className="flex items-center gap-3 px-4 py-3.5 w-full rounded-xl text-error-light dark:text-error-dark hover:bg-error-light-container dark:hover:bg-error-dark-container/20 transition-all duration-200 font-medium group">
             <LogOut className="w-5 h-5 group-hover:scale-110 transition-transform" />
             <span>Logout</span>
           </button>

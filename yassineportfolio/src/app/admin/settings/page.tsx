@@ -49,7 +49,7 @@ export default function AdminSettingsPage() {
         <div className="space-y-6">
           <div className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900 sm:p-6">
             <div className="mb-4 flex items-center gap-2">
-              <Shield className="h-5 w-5 text-blue-600 dark:text-cyan-300" />
+              <Shield className="h-5 w-5 text-light-primary dark:text-dark-primary" />
               <h2 className="text-lg font-semibold text-slate-900 dark:text-white">
                 Account Information
               </h2>
@@ -78,7 +78,7 @@ export default function AdminSettingsPage() {
 
           <div className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900 sm:p-6">
             <div className="mb-4 flex items-center gap-2">
-              <Palette className="h-5 w-5 text-purple-600 dark:text-cyan-300" />
+              <Palette className="h-5 w-5 text-light-tertiary dark:text-dark-tertiary" />
               <h2 className="text-lg font-semibold text-slate-900 dark:text-white">
                 Appearance
               </h2>
@@ -114,7 +114,7 @@ export default function AdminSettingsPage() {
               <select
                 value={defaultAdminPage}
                 onChange={(e) => setDefaultAdminPage(e.target.value)}
-                className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-900 outline-none transition focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100">
+                className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-900 outline-none transition focus:border-light-primary focus:ring-2 focus:ring-light-primary/20 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100 dark:focus:border-dark-primary dark:focus:ring-dark-primary/20">
                 <option value="/admin/dashboard">Dashboard</option>
                 <option value="/admin/users">Users</option>
                 <option value="/admin/messages">Messages</option>
@@ -124,22 +124,22 @@ export default function AdminSettingsPage() {
 
             <button
               type="button"
-              className="mt-4 inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-blue-700 to-cyan-600 px-4 py-2.5 text-sm font-semibold text-white transition hover:from-blue-800 hover:to-cyan-700">
+              className="mt-4 inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-light-primary to-light-secondary px-4 py-2.5 text-sm font-semibold text-white transition hover:opacity-90 dark:from-dark-primary dark:to-dark-secondary dark:text-dark-onPrimary">
               <Save className="h-4 w-4" />
               Save preferences
             </button>
           </div>
 
-          <div className="rounded-3xl border border-red-200 bg-red-50 p-5 shadow-sm dark:border-red-900/40 dark:bg-red-900/20 sm:p-6">
-            <h2 className="text-lg font-semibold text-red-700 dark:text-red-300">
+          <div className="rounded-3xl border border-error-light-container bg-error-light-container p-5 shadow-sm dark:border-error-dark-container dark:bg-error-dark-container/20 sm:p-6">
+            <h2 className="text-lg font-semibold text-error-light dark:text-error-dark">
               Session
             </h2>
-            <p className="mt-1 text-sm text-red-700/80 dark:text-red-300/90">
+            <p className="mt-1 text-sm text-error-light/80 dark:text-error-dark/90">
               End your admin session securely when you are done.
             </p>
             <button
               onClick={handleLogout}
-              className="mt-4 inline-flex items-center gap-2 rounded-xl border border-red-300 bg-white px-4 py-2.5 text-sm font-semibold text-red-700 transition hover:bg-red-100 dark:border-red-900/40 dark:bg-slate-800 dark:text-red-300 dark:hover:bg-red-900/30">
+              className="mt-4 inline-flex items-center gap-2 rounded-xl border border-error-light bg-white px-4 py-2.5 text-sm font-semibold text-error-light transition hover:bg-error-light-container dark:border-error-dark-container dark:bg-slate-800 dark:text-error-dark dark:hover:bg-error-dark-container/30">
               <LogOut className="h-4 w-4" />
               Logout
             </button>

@@ -141,9 +141,9 @@ export default function Footer() {
               </div>
 
               <div className="pt-2">
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-500/10 border border-green-500/20">
-                  <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                  <span className="text-sm font-medium text-green-600 dark:text-green-400">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-success-light-container/70 border border-success-light/20 dark:bg-success-dark-container/40 dark:border-success-dark/25">
+                  <span className="w-2 h-2 rounded-full bg-success-light dark:bg-success-dark animate-pulse" />
+                  <span className="text-sm font-medium text-success-light dark:text-success-dark">
                     {t("footer.available")}
                   </span>
                 </div>
@@ -168,7 +168,7 @@ export default function Footer() {
             </p>
             <p className="text-sm text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant inline-flex items-center gap-1.5">
               {t("footer.madeWith")}{" "}
-              <Heart className="w-4 h-4 text-red-500 fill-red-500 animate-pulse" />{" "}
+              <Heart className="w-4 h-4 text-error-light fill-error-light dark:text-error-dark dark:fill-error-dark animate-pulse" />{" "}
               {t("footer.usingTech")}
             </p>
           </div>

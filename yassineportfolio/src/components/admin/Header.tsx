@@ -28,11 +28,11 @@ export default function AdminHeader() {
     <header className="border-b border-slate-200 bg-white px-4 py-4 shadow-sm backdrop-blur-sm dark:border-slate-800 dark:bg-slate-900 sm:px-6 xl:px-8">
       <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
         <div>
-          <h1 className="bg-gradient-to-r from-blue-700 to-cyan-600 bg-clip-text text-xl font-bold text-transparent sm:text-2xl">
+          <h1 className="bg-gradient-to-r from-light-primary to-light-secondary bg-clip-text text-xl font-bold text-transparent dark:from-dark-primary dark:to-dark-secondary sm:text-2xl">
             Admin Dashboard
           </h1>
           <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 font-medium flex items-center gap-1.5">
-            <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
+            <span className="w-1.5 h-1.5 rounded-full bg-success-light dark:bg-success-dark animate-pulse" />
             Secure Administrative Panel
           </p>
         </div>
@@ -52,15 +52,15 @@ export default function AdminHeader() {
           </div>
 
           {/* User Info */}
-          <div className="flex min-w-0 items-center gap-3 rounded-xl border border-blue-200 bg-gradient-to-r from-blue-50 to-cyan-50 px-4 py-2.5 shadow-sm dark:border-cyan-900/40 dark:from-slate-800 dark:to-slate-800">
-            <div className="p-2 bg-gradient-to-br from-blue-600 to-cyan-600 rounded-lg shadow dark:from-cyan-600 dark:to-blue-700">
+          <div className="flex min-w-0 items-center gap-3 rounded-xl border border-light-outlineVariant bg-gradient-to-r from-light-primaryContainer to-light-secondaryContainer px-4 py-2.5 shadow-sm dark:border-dark-outlineVariant dark:from-dark-primaryContainer dark:to-dark-secondaryContainer">
+            <div className="rounded-lg bg-gradient-to-br from-light-primary to-light-secondary p-2 shadow dark:from-dark-primary dark:to-dark-secondary">
               <User className="w-4 h-4 text-white" />
             </div>
             <div className="flex min-w-0 flex-col">
               <span className="text-xs font-semibold text-slate-500 dark:text-slate-400">
                 Active Session
               </span>
-              <span className="max-w-[220px] truncate text-sm font-bold text-blue-700 dark:text-cyan-300 sm:max-w-xs">
+              <span className="max-w-[220px] truncate text-sm font-bold text-light-primary dark:text-dark-primary sm:max-w-xs">
                 {user?.email}
               </span>
             </div>
@@ -69,7 +69,7 @@ export default function AdminHeader() {
           {/* Logout Button */}
           <button
             onClick={handleLogout}
-            className="flex items-center justify-center gap-2 rounded-xl border-2 border-red-200 px-5 py-2.5 text-sm font-semibold text-red-600 transition-all duration-200 hover:scale-105 hover:bg-red-50 hover:shadow-md active:scale-95 dark:border-red-900/50 dark:bg-slate-800 dark:text-red-300 dark:hover:bg-red-900/20"
+            className="flex items-center justify-center gap-2 rounded-xl border-2 border-error-light-container px-5 py-2.5 text-sm font-semibold text-error-light transition-all duration-200 hover:scale-105 hover:bg-error-light-container hover:shadow-md active:scale-95 dark:border-error-dark-container dark:bg-slate-800 dark:text-error-dark dark:hover:bg-error-dark-container/20"
             title="Logout">
             <LogOut className="w-4 h-4" />
             <span className="hidden sm:inline">Logout</span>

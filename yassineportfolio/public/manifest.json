@@ -4,8 +4,8 @@
   "description": "Full-Stack Developer specializing in React, Next.js, Laravel, and modern web technologies",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#667eea",
+  "background_color": "#E7EBF2",
+  "theme_color": "#2453a6",
   "orientation": "portrait-primary",
   "icons": [
     {

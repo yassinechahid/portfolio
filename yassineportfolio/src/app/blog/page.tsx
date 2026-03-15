@@ -87,7 +87,15 @@ export default function Blog() {
                 <Link
                   key={post.id}
                   href={`/blog/${post.id}`}
-                  className="group flex flex-col rounded-2xl border border-light-outline dark:border-dark-outline overflow-hidden hover:border-light-primary dark:hover:border-dark-primary transition-all h-full">
+                  className="
+                  group flex flex-col rounded-2xl overflow-hidden
+                  shadow-sm
+                  dark:shadow-[0_2px_6px_rgba(183,202,239,0.05)]
+                  hover:shadow-md
+                  dark:hover:shadow-[0_8px_24px_rgba(183,202,239,0.3)]
+                  transition-shadow duration-300
+                  h-full
+                  ">
                   {/* Image */}
                   <div className="relative w-full h-48 overflow-hidden bg-light-surfaceContainerLow dark:bg-dark-surfaceContainerLow">
                     <Image

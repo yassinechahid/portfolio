@@ -94,36 +94,32 @@ export default function AdminDashboard() {
       title: "Total Users",
       value: stats.totalUsers,
       icon: Users,
-      lightBg:
-        "bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-900/40",
-      textColor: "text-blue-700 dark:text-blue-300",
+      lightBg: "bg-light-primaryContainer dark:bg-dark-primaryContainer",
+      textColor: "text-light-primary dark:text-dark-primary",
       note: "Registered accounts",
     },
     {
       title: "Active Users",
       value: stats.activeUsers,
       icon: CheckCircle,
-      lightBg:
-        "bg-gradient-to-br from-cyan-50 to-cyan-100 dark:from-cyan-900/20 dark:to-cyan-900/40",
-      textColor: "text-cyan-700 dark:text-cyan-300",
+      lightBg: "bg-light-secondaryContainer dark:bg-dark-secondaryContainer",
+      textColor: "text-light-secondary dark:text-dark-secondary",
       note: "Healthy recurring activity",
     },
     {
       title: "Total Messages",
       value: stats.totalMessages,
       icon: MessageSquare,
-      lightBg:
-        "bg-gradient-to-br from-teal-50 to-teal-100 dark:from-teal-900/20 dark:to-teal-900/40",
-      textColor: "text-teal-700 dark:text-teal-300",
+      lightBg: "bg-light-tertiaryContainer dark:bg-dark-tertiaryContainer",
+      textColor: "text-light-tertiary dark:text-dark-tertiary",
       note: "Inbound contact volume",
     },
     {
       title: "Unread Messages",
       value: stats.unreadMessages,
       icon: Mail,
-      lightBg:
-        "bg-gradient-to-br from-amber-50 to-amber-100 dark:from-amber-900/20 dark:to-amber-900/40",
-      textColor: "text-amber-700 dark:text-amber-300",
+      lightBg: "bg-light-secondaryContainer dark:bg-dark-secondaryContainer",
+      textColor: "text-light-secondary dark:text-dark-secondary",
       note: "Needs attention",
     },
   ];
@@ -134,27 +130,27 @@ export default function AdminDashboard() {
       description: "Review accounts and permissions.",
       href: "/admin/users",
       icon: Users,
-      accent: "text-blue-700 dark:text-blue-300",
+      accent: "text-light-primary dark:text-dark-primary",
       surface:
-        "bg-blue-50 hover:bg-blue-100 dark:bg-blue-900/20 dark:hover:bg-blue-900/30",
+        "bg-light-primaryContainer hover:opacity-90 dark:bg-dark-primaryContainer dark:hover:opacity-90",
     },
     {
       title: "Open messages",
       description: "Reply to new contact requests.",
       href: "/admin/messages",
       icon: Mail,
-      accent: "text-cyan-700 dark:text-cyan-300",
+      accent: "text-light-secondary dark:text-dark-secondary",
       surface:
-        "bg-cyan-50 hover:bg-cyan-100 dark:bg-cyan-900/20 dark:hover:bg-cyan-900/30",
+        "bg-light-secondaryContainer hover:opacity-90 dark:bg-dark-secondaryContainer dark:hover:opacity-90",
     },
     {
       title: "Settings",
       description: "Update admin preferences.",
       href: "/admin/settings",
       icon: Settings,
-      accent: "text-amber-700 dark:text-amber-300",
+      accent: "text-light-tertiary dark:text-dark-tertiary",
       surface:
-        "bg-amber-50 hover:bg-amber-100 dark:bg-amber-900/20 dark:hover:bg-amber-900/30",
+        "bg-light-tertiaryContainer hover:opacity-90 dark:bg-dark-tertiaryContainer dark:hover:opacity-90",
     },
   ];
 
@@ -171,8 +167,8 @@ export default function AdminDashboard() {
     return (
       <div className="flex min-h-[60vh] items-center justify-center">
         <div className="text-center">
-          <div className="inline-flex p-4 bg-blue-100 dark:bg-blue-900/30 rounded-full mb-4">
-            <div className="w-6 h-6 border-2 border-blue-700 border-t-transparent rounded-full animate-spin" />
+          <div className="inline-flex rounded-full bg-light-primaryContainer p-4 dark:bg-dark-primaryContainer mb-4">
+            <div className="h-6 w-6 animate-spin rounded-full border-2 border-light-primary border-t-transparent dark:border-dark-primary" />
           </div>
           <p className="text-slate-600 dark:text-slate-400 font-medium">
             Loading dashboard...
@@ -185,13 +181,13 @@ export default function AdminDashboard() {
   return (
     <div className="space-y-6 sm:space-y-8">
       {loadError && (
-        <div className="rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm font-medium text-amber-800 dark:border-amber-900/40 dark:bg-amber-900/20 dark:text-amber-200">
+        <div className="rounded-2xl border border-light-tertiaryContainer bg-light-tertiaryContainer px-4 py-3 text-sm font-medium text-light-onTertiaryContainer dark:border-dark-tertiaryContainer dark:bg-dark-tertiaryContainer dark:text-dark-onTertiaryContainer">
           {loadError}
         </div>
       )}
 
-      <section className="relative overflow-hidden rounded-[28px] border border-slate-200 bg-gradient-to-br from-slate-950 via-blue-950 to-cyan-900 px-5 py-6 text-white shadow-2xl sm:px-8 sm:py-8 dark:border-slate-800 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(255,255,255,0.18),_transparent_32%),radial-gradient(circle_at_bottom_left,_rgba(103,232,249,0.2),_transparent_28%)]" />
+      <section className="relative overflow-hidden rounded-[28px] border border-light-outlineVariant bg-gradient-to-br from-light-primary via-light-secondary to-light-tertiary px-5 py-6 text-white shadow-2xl sm:px-8 sm:py-8 dark:border-dark-outlineVariant dark:from-dark-primaryContainer dark:via-dark-secondaryContainer dark:to-dark-tertiaryContainer">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(255,255,255,0.18),_transparent_32%),radial-gradient(circle_at_bottom_left,_rgba(255,255,255,0.12),_transparent_28%)]" />
         <div className="relative flex flex-col gap-5">
           <div className="max-w-3xl space-y-4">
             <Link
@@ -265,7 +261,7 @@ export default function AdminDashboard() {
             </div>
             <Link
               href="/admin/messages"
-              className="inline-flex items-center gap-2 self-start rounded-full border border-slate-200 px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-blue-300 hover:text-blue-700 dark:border-slate-700 dark:text-slate-300 dark:hover:border-blue-700 dark:hover:text-blue-300">
+              className="inline-flex items-center gap-2 self-start rounded-full border border-slate-200 px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-light-primary hover:text-light-primary dark:border-slate-700 dark:text-slate-300 dark:hover:border-dark-primary dark:hover:text-dark-primary">
               Open inbox
               <ArrowUpRight className="h-4 w-4" />
             </Link>
@@ -281,7 +277,7 @@ export default function AdminDashboard() {
               </p>
               <div className="mt-4 h-2 overflow-hidden rounded-full bg-slate-200 dark:bg-slate-700">
                 <div
-                  className="h-full rounded-full bg-gradient-to-r from-blue-600 to-cyan-500"
+                  className="h-full rounded-full bg-gradient-to-r from-light-primary to-light-secondary dark:from-dark-primary dark:to-dark-secondary"
                   style={{ width: `${activeRate}%` }}
                 />
               </div>
@@ -300,7 +296,7 @@ export default function AdminDashboard() {
               </p>
               <div className="mt-4 h-2 overflow-hidden rounded-full bg-slate-200 dark:bg-slate-700">
                 <div
-                  className="h-full rounded-full bg-gradient-to-r from-amber-500 to-orange-500"
+                  className="h-full rounded-full bg-gradient-to-r from-light-tertiary to-light-secondary dark:from-dark-tertiary dark:to-dark-secondary"
                   style={{ width: `${unreadRate}%` }}
                 />
               </div>
@@ -314,7 +310,7 @@ export default function AdminDashboard() {
 
         <div className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900 sm:p-6">
           <div className="flex items-center gap-3">
-            <div className="rounded-2xl bg-gradient-to-br from-teal-600 to-cyan-600 p-3 text-white shadow-lg">
+            <div className="rounded-2xl bg-gradient-to-br from-light-primary to-light-tertiary p-3 text-white shadow-lg dark:from-dark-primary dark:to-dark-tertiary">
               <Settings className="h-5 w-5" />
             </div>
             <div>

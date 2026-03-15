@@ -126,16 +126,26 @@ export default function Skills() {
             ).map((cert, idx) => (
               <div
                 key={idx}
-                className="p-6 rounded-2xl border border-light-outline dark:border-dark-outline bg-light-background dark:bg-dark-background hover:border-light-primary dark:hover:border-dark-primary transition-colors">
-                <h3 className="text-headline-small font-bold text-light-onBackground dark:text-dark-onBackground mb-2">
-                  {cert.title}
-                </h3>
-                <p className="text-body-medium text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant mb-3">
-                  {cert.issuer}
-                </p>
-                <p className="text-label-medium text-light-primary dark:text-dark-primary">
-                  {cert.year}
-                </p>
+                className="
+                group flex flex-col rounded-2xl overflow-hidden
+                shadow-sm
+                dark:shadow-[0_2px_6px_rgba(183,202,239,0.05)]
+                hover:shadow-md
+                dark:hover:shadow-[0_8px_24px_rgba(183,202,239,0.3)]
+                transition-shadow duration-300
+                h-full
+                ">
+                <div className="p-6 bg-light-background dark:bg-dark-background h-full">
+                  <h3 className="text-headline-small font-bold text-light-onBackground dark:text-dark-onBackground mb-2">
+                    {cert.title}
+                  </h3>
+                  <p className="text-body-medium text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant mb-3">
+                    {cert.issuer}
+                  </p>
+                  <p className="text-label-medium text-light-primary dark:text-dark-primary">
+                    {cert.year}
+                  </p>
+                </div>
               </div>
             ))}
           </div>

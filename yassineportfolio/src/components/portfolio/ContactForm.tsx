@@ -279,8 +279,17 @@ export default function ContactForm() {
 
   return (
     <div className="w-full max-w-2xl mx-auto">
-      <div className="rounded-2xl bg-light-surfaceContainerHigh dark:bg-dark-surfaceContainerHigh border border-light-outlineVariant dark:border-dark-outlineVariant">
-        <div className="p-3 ">
+      <div
+        className="
+      group flex flex-col rounded-2xl overflow-hidden
+      shadow-sm
+      dark:shadow-[0_2px_6px_rgba(183,202,239,0.05)]
+      hover:shadow-md
+      dark:hover:shadow-[0_8px_24px_rgba(183,202,239,0.3)]
+      transition-shadow duration-300
+      h-full
+      ">
+        <div className="p-3 bg-light-surfaceContainerHigh dark:bg-dark-surfaceContainerHigh h-full">
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
             {/* Header */}
             <div className="space-y-2 mb-8">
@@ -306,7 +315,7 @@ export default function ContactForm() {
                   bgColor="bg-light-surfaceContainerHigh dark:bg-dark-surfaceContainerHigh"
                 />
                 {errors.name && (
-                  <p className="text-body-small text-red-500 mt-1.5">
+                  <p className="text-body-small text-error-light dark:text-error-dark mt-1.5">
                     {errors.name.message}
                   </p>
                 )}
@@ -324,7 +333,7 @@ export default function ContactForm() {
                   bgColor="bg-light-surfaceContainerHigh dark:bg-dark-surfaceContainerHigh"
                 />
                 {errors.email && (
-                  <p className="text-body-small text-red-500 mt-1.5">
+                  <p className="text-body-small text-error-light dark:text-error-dark mt-1.5">
                     {errors.email.message}
                   </p>
                 )}
@@ -354,7 +363,7 @@ export default function ContactForm() {
                   bgColor="bg-light-surfaceContainerHigh dark:bg-dark-surfaceContainerHigh"
                 />
                 {errors.subject && (
-                  <p className="text-body-small text-red-500 mt-1.5">
+                  <p className="text-body-small text-error-light dark:text-error-dark mt-1.5">
                     {errors.subject.message}
                   </p>
                 )}
@@ -373,7 +382,7 @@ export default function ContactForm() {
                 bgColor="bg-light-surfaceContainerHigh dark:bg-dark-surfaceContainerHigh"
               />
               {errors.message && (
-                <p className="text-body-small text-red-500 mt-1.5">
+                <p className="text-body-small text-error-light dark:text-error-dark mt-1.5">
                   {errors.message.message}
                 </p>
               )}
