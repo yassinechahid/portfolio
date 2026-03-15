@@ -310,34 +310,45 @@ export default function BlogPost() {
                     key={relatedPost.id}
                     href={`/blog/${relatedPost.id}`}
                     className="group block h-full">
-                    <div className="rounded-xl border-2 border-light-outlineVariant dark:border-dark-outlineVariant overflow-hidden hover:border-light-primary dark:hover:border-dark-primary hover:shadow-xl transition-all duration-300 h-full flex flex-col bg-light-background dark:bg-dark-background">
-                      {/* Image */}
-                      <div className="relative w-full h-44 overflow-hidden">
-                        <Image
-                          src={relatedPost.image}
-                          alt={relatedPost.title}
-                          fill
-                          className="object-cover group-hover:scale-110 transition-transform duration-700"
-                        />
-                      </div>
+                    <div
+                      className="
+                    group flex flex-col rounded-2xl overflow-hidden
+                    shadow-sm
+                    dark:shadow-[0_2px_6px_rgba(183,202,239,0.05)]
+                    hover:shadow-md
+                    dark:hover:shadow-[0_8px_24px_rgba(183,202,239,0.3)]
+                    transition-shadow duration-300
+                    h-full
+                    ">
+                      <div className="bg-light-background dark:bg-dark-background h-full flex flex-col">
+                        {/* Image */}
+                        <div className="relative w-full h-44 overflow-hidden">
+                          <Image
+                            src={relatedPost.image}
+                            alt={relatedPost.title}
+                            fill
+                            className="object-cover group-hover:scale-110 transition-transform duration-700"
+                          />
+                        </div>
 
-                      {/* Content */}
-                      <div className="p-5 flex-1 flex flex-col">
-                        {/* Category Badge */}
-                        <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-light-primaryContainer dark:bg-dark-primaryContainer text-light-onPrimaryContainer dark:text-dark-onPrimaryContainer text-label-small font-semibold mb-3 self-start">
-                          <Tag className="w-3 h-3" />
-                          {t(relatedPost.category)}
-                        </span>
+                        {/* Content */}
+                        <div className="p-5 flex-1 flex flex-col">
+                          {/* Category Badge */}
+                          <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-light-primaryContainer dark:bg-dark-primaryContainer text-light-onPrimaryContainer dark:text-dark-onPrimaryContainer text-label-small font-semibold mb-3 self-start">
+                            <Tag className="w-3 h-3" />
+                            {t(relatedPost.category)}
+                          </span>
 
-                        {/* Title */}
-                        <h3 className="text-title-large font-bold text-light-onBackground dark:text-dark-onBackground mb-2 line-clamp-2 group-hover:text-light-primary dark:group-hover:text-dark-primary transition-colors">
-                          {t(relatedPost.title)}
-                        </h3>
+                          {/* Title */}
+                          <h3 className="text-title-large font-bold text-light-onBackground dark:text-dark-onBackground mb-2 line-clamp-2 group-hover:text-light-primary dark:group-hover:text-dark-primary transition-colors">
+                            {t(relatedPost.title)}
+                          </h3>
 
-                        {/* Excerpt */}
-                        <p className="text-body-medium text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant line-clamp-3 flex-1">
-                          {t(relatedPost.excerpt)}
-                        </p>
+                          {/* Excerpt */}
+                          <p className="text-body-medium text-light-onSurfaceVariant dark:text-dark-onSurfaceVariant line-clamp-3 flex-1">
+                            {t(relatedPost.excerpt)}
+                          </p>
+                        </div>
                       </div>
                     </div>
                   </Link>
